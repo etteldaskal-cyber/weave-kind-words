@@ -12,7 +12,7 @@ function isPdf(url: string) {
   return /\.pdf(\?|$)/i.test(url);
 }
 
-export const Route = createFileRoute("/work/$slug")({
+export const Route = createFileRoute("/case-study/$slug")({
   loader: ({ params }) => {
     const cs = getCaseStudy(params.slug);
     if (!cs) throw notFound();
@@ -29,9 +29,9 @@ export const Route = createFileRoute("/work/$slug")({
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:type", content: "article" },
-        { property: "og:url", content: cs ? `/work/${cs.slug}` : "/work" },
+        { property: "og:url", content: cs ? `/case-study/${cs.slug}` : "/work" },
       ],
-      links: cs ? [{ rel: "canonical", href: `/work/${cs.slug}` }] : [],
+      links: cs ? [{ rel: "canonical", href: `/case-study/${cs.slug}` }] : [],
     };
   },
   component: CaseStudyPage,

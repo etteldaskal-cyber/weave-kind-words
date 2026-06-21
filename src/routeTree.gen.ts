@@ -10,17 +10,12 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as WorkSlugRouteImport } from './routes/work.$slug'
 import { Route as WorkCategoryRouteImport } from './routes/work.$category'
+import { Route as CaseStudySlugRouteImport } from './routes/case-study.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WorkSlugRoute = WorkSlugRouteImport.update({
-  id: '/work/$slug',
-  path: '/work/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WorkCategoryRoute = WorkCategoryRouteImport.update({
@@ -28,35 +23,40 @@ const WorkCategoryRoute = WorkCategoryRouteImport.update({
   path: '/work/$category',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CaseStudySlugRoute = CaseStudySlugRouteImport.update({
+  id: '/case-study/$slug',
+  path: '/case-study/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/case-study/$slug': typeof CaseStudySlugRoute
   '/work/$category': typeof WorkCategoryRoute
-  '/work/$slug': typeof WorkSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/case-study/$slug': typeof CaseStudySlugRoute
   '/work/$category': typeof WorkCategoryRoute
-  '/work/$slug': typeof WorkSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/case-study/$slug': typeof CaseStudySlugRoute
   '/work/$category': typeof WorkCategoryRoute
-  '/work/$slug': typeof WorkSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/work/$category' | '/work/$slug'
+  fullPaths: '/' | '/case-study/$slug' | '/work/$category'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/work/$category' | '/work/$slug'
-  id: '__root__' | '/' | '/work/$category' | '/work/$slug'
+  to: '/' | '/case-study/$slug' | '/work/$category'
+  id: '__root__' | '/' | '/case-study/$slug' | '/work/$category'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CaseStudySlugRoute: typeof CaseStudySlugRoute
   WorkCategoryRoute: typeof WorkCategoryRoute
-  WorkSlugRoute: typeof WorkSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -68,13 +68,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/work/$slug': {
-      id: '/work/$slug'
-      path: '/work/$slug'
-      fullPath: '/work/$slug'
-      preLoaderRoute: typeof WorkSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/work/$category': {
       id: '/work/$category'
       path: '/work/$category'
@@ -82,13 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorkCategoryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/case-study/$slug': {
+      id: '/case-study/$slug'
+      path: '/case-study/$slug'
+      fullPath: '/case-study/$slug'
+      preLoaderRoute: typeof CaseStudySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CaseStudySlugRoute: CaseStudySlugRoute,
   WorkCategoryRoute: WorkCategoryRoute,
-  WorkSlugRoute: WorkSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
