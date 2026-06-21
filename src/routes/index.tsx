@@ -531,16 +531,8 @@ function Values() {
 
 /* ---------------- SECTION 10 — TESTIMONIALS (second, placeholder) ---------------- */
 function TestimonialsTwo() {
-  return (
-    <section className="border-b border-border">
-      <div className="mx-auto max-w-4xl px-6 py-20 text-center">
-        <p className="eyebrow">More kind words</p>
-        <p className="mt-6 font-serif text-xl italic text-muted-foreground">
-          More testimonials coming soon.
-        </p>
-      </div>
-    </section>
-  );
+  // Spec: "[Leave blank — add when available]" — render nothing until testimonials provided.
+  return null;
 }
 
 /* ---------------- SECTION 11 — GENTLE NUDGE ---------------- */
