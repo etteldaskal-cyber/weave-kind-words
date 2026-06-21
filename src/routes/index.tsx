@@ -70,7 +70,11 @@ function Hero() {
             Through emotive storytelling and data-based strategy, I'll move your audience to act&nbsp;&nbsp;—&nbsp;so you can focus on changing the world (and still have time for a coffee break.)&nbsp;
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-3">
-            <Link to="/work" className="btn-gold">
+            <Link
+              to="/work/$category"
+              params={{ category: "copywriting" }}
+              className="btn-gold"
+            >
               See My Work
             </Link>
             <a href="#contact" className="btn-teal-outline">
@@ -327,18 +331,21 @@ const SERVICES = [
     title: "Copywriting",
     body: "Websites, emails, newsletters, donor appeals, campaigns, social content — and whatever else your mission needs.",
     aka: "a.k.a. words that connect, persuade, and inspire action.",
+    category: "copywriting" as const,
   },
   {
     icon: Sparkles,
     title: "Organizational Storytelling",
     body: "Donor impact books, event songs, scripts, campaign content, impact reports.",
     aka: "a.k.a. finding the human story inside your data and making people feel it.",
+    category: "organizational-storytelling" as const,
   },
   {
     icon: GraduationCap,
     title: "Educational Content",
     body: "Curriculum, lesson plans, educational series, children's content.",
     aka: "a.k.a. bringing ideas to life with writing that's clear, deep, and genuinely engaging.",
+    category: "educational-content" as const,
   },
 ];
 
@@ -353,7 +360,7 @@ function Services() {
         </div>
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {SERVICES.map(({ icon: Icon, title, body, aka }) => (
+          {SERVICES.map(({ icon: Icon, title, body, aka, category }) => (
             <article
               key={title}
               className="hover-lift flex flex-col rounded-2xl border border-border bg-background p-8 md:p-10"
@@ -368,7 +375,8 @@ function Services() {
               <p className="mt-3 text-base leading-relaxed text-foreground/80">{body}</p>
               <p className="mt-4 font-serif text-base italic text-muted-foreground">{aka}</p>
               <Link
-                to="/work"
+                to="/work/$category"
+                params={{ category }}
                 className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-[color:var(--teal)] hover:underline"
               >
                 See More →

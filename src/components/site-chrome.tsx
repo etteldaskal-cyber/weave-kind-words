@@ -62,7 +62,7 @@ export function SiteFooter() {
           <ul className="space-y-2">
             <li><a href="/#about" className="text-background/85 hover:text-background">About</a></li>
             <li><a href="/#services" className="text-background/85 hover:text-background">Services</a></li>
-            <li><Link to="/work" className="text-background/85 hover:text-background">Work</Link></li>
+            <li><Link to="/work/$category" params={{ category: "copywriting" }} className="text-background/85 hover:text-background">Work</Link></li>
             <li><a href="/#contact" className="text-background/85 hover:text-background">Contact</a></li>
           </ul>
         </div>

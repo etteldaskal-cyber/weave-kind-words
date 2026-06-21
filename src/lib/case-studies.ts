@@ -3,10 +3,17 @@ import eretzYisrael from "@/assets/eretz-yisrael.pdf.asset.json";
 import scharVOnesh from "@/assets/schar-v-onesh.pdf.asset.json";
 import newsletterIssue from "@/assets/yyh-newsletter-issue-2.pdf.asset.json";
 
+export type CategorySlug =
+  | "copywriting"
+  | "organizational-storytelling"
+  | "educational-content";
+
 export type CaseStudy = {
   slug: string;
   title: string;
   category: string;
+  categorySlug: CategorySlug;
+  hasCaseStudy: boolean;
   summary: string;
   overview: string;
   objective: string;
@@ -18,11 +25,38 @@ export type CaseStudy = {
   layout?: "default" | "book";
 };
 
+export const CATEGORIES: {
+  slug: CategorySlug;
+  title: string;
+  intro: string;
+}[] = [
+  {
+    slug: "copywriting",
+    title: "Copywriting",
+    intro:
+      "Websites, emails, newsletters, donor appeals, campaigns, and social content — words that connect, persuade, and inspire action.",
+  },
+  {
+    slug: "organizational-storytelling",
+    title: "Organizational Storytelling",
+    intro:
+      "Donor impact books, event songs, scripts, and campaign content — the human story inside the data, made to be felt.",
+  },
+  {
+    slug: "educational-content",
+    title: "Educational Content",
+    intro:
+      "Curriculum, lesson plans, educational series, and children's content — ideas brought to life with writing that's clear, deep, and genuinely engaging.",
+  },
+];
+
 export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: "torah-nugget",
     title: "Torah Nugget",
-    category: "Educational Publishing",
+    category: "Educational Content",
+    categorySlug: "educational-content",
+    hasCaseStudy: true,
     summary:
       "A curriculum for Oorah's Torah Mate program presenting the basics of Judaism for readers ages 8 to 80.",
     overview:
@@ -46,7 +80,9 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: "school-newsletter",
     title: "School Community Newsletter",
-    category: "Donor & Organizational Storytelling",
+    category: "Copywriting",
+    categorySlug: "copywriting",
+    hasCaseStudy: false,
     summary:
       "A storytelling-driven newsletter that strengthened parent connection and communicated the emotional impact of school programming.",
     overview:
@@ -67,7 +103,9 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: "donor-gift-book",
     title: "Donor Gift Book",
-    category: "Donor & Organizational Storytelling",
+    category: "Organizational Storytelling",
+    categorySlug: "organizational-storytelling",
+    hasCaseStudy: true,
     summary:
       "A keepsake book made to show donors the real, human impact of their support.",
     overview:
@@ -89,7 +127,9 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: "event-songs",
     title: "Event Songs & Creative Campaigns",
-    category: "Creative Campaigns & Event Content",
+    category: "Organizational Storytelling",
+    categorySlug: "organizational-storytelling",
+    hasCaseStudy: false,
     summary:
       "Original songs, scripts, and campaign themes written for productions, dinners, and conventions.",
     overview:
@@ -110,4 +150,12 @@ export const CASE_STUDIES: CaseStudy[] = [
 
 export function getCaseStudy(slug: string) {
   return CASE_STUDIES.find((c) => c.slug === slug);
+}
+
+export function getCategory(slug: string) {
+  return CATEGORIES.find((c) => c.slug === slug);
+}
+
+export function getCaseStudiesByCategory(slug: CategorySlug) {
+  return CASE_STUDIES.filter((c) => c.categorySlug === slug);
 }
