@@ -508,11 +508,8 @@ function Values() {
     <section className="border-b border-border bg-foreground text-background">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-[color:var(--amber)]">
-            Why Work With Me
-          </p>
-          <h2 className="mt-4 font-serif text-4xl leading-tight md:text-5xl">
-            Get your <span className="italic text-[color:var(--amber)]">happily-ever-after</span>.
+          <h2 className="font-serif text-4xl leading-tight md:text-5xl">
+            Get your happily-ever-after.
           </h2>
           <p className="mt-8 font-serif text-2xl italic leading-snug text-[color:var(--amber)]">
             Don't come across like a sleazy car salesman when you're a changemaker.
