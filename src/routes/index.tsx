@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
-import { z } from "zod";
-import { ArrowUpRight, PenLine, Sparkles, GraduationCap, Heart, BookOpen, Globe2, Building2, Coffee, Search, FileText } from "lucide-react";
+import { PenLine, Sparkles, GraduationCap, Heart, BookOpen, Globe2, Building2, Coffee, Search, FileText } from "lucide-react";
+
 
 import { SiteNav, SiteFooter } from "@/components/site-chrome";
 import wingedGlobe from "@/assets/winged-globe.png.asset.json";
@@ -136,11 +135,11 @@ function Dream() {
         </h2>
         <div className="mt-10 space-y-6 text-lg leading-relaxed text-foreground/85">
           <p>
-            What if your ideal audience found you on their own? What if your donors came to you
-            for the opportunity to have a part in the beautiful world you are building? What if
-            your website did the talking — so that when people reached out, they were already sold
-            on what you offer the world? What if you never had to feel like a desperate car
-            salesman instead of the changemaker that you are?
+            What if your ideal audience found you on their own? What if the people you most want
+            to reach came to you for the opportunity to have a part in the beautiful world you are
+            building? What if your website did the talking — so that when people reached out, they
+            were already sold on what you offer the world? What if you never had to feel like a
+            desperate car salesman instead of the changemaker that you are?
           </p>
           <p>
             You need a hard-working partner. Someone to uncover the magic that is already there
@@ -231,7 +230,7 @@ function About() {
 
         {/* Photo placeholder */}
         <div className="mt-16 flex justify-center">
-          <div className="flex h-72 w-full max-w-md items-center justify-center rounded-3xl border border-dashed border-[var(--sand)] bg-[var(--cream)] text-center text-sm italic text-muted-foreground">
+          <div className="flex h-72 w-full max-w-md items-center justify-center rounded-3xl bg-[var(--cream)] text-center text-sm italic text-muted-foreground">
             Photo of Ettel goes here
           </div>
         </div>
@@ -303,7 +302,7 @@ function WhoIWorkWith() {
 
           <div className="md:pt-4">
             <div className="rounded-2xl border border-border bg-[var(--cream)] p-8 md:sticky md:top-28 md:p-10">
-              <p className="eyebrow text-[color:var(--gold)]">Let's…</p>
+              <p className="font-serif text-2xl text-foreground">Let's:</p>
               <ul className="mt-6 space-y-4">
                 {DELIVERABLES.map((d) => (
                   <li key={d} className="flex gap-3 text-base leading-relaxed text-foreground/85">
@@ -312,9 +311,6 @@ function WhoIWorkWith() {
                   </li>
                 ))}
               </ul>
-              <a href="#contact" className="btn-gold mt-8">
-                Get In Touch <ArrowUpRight className="h-4 w-4" />
-              </a>
             </div>
           </div>
         </div>
@@ -350,8 +346,7 @@ function Services() {
     <section id="services" className="border-b border-border bg-[var(--cream)]">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow">Services</p>
-          <h2 className="mt-4 font-serif text-4xl leading-tight text-foreground md:text-5xl">
+          <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
             Let me help you help them.
           </h2>
         </div>
@@ -375,7 +370,7 @@ function Services() {
                 to="/work"
                 className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-[color:var(--teal)] hover:underline"
               >
-                See More <ArrowUpRight className="h-3.5 w-3.5" />
+                See More →
               </Link>
             </article>
           ))}
@@ -394,14 +389,14 @@ const TESTIMONIALS_ONE = [
   },
   {
     quote: "An unbelievably gorgeous and moving piece.",
-    name: "",
-    title: "Client testimonial",
+    name: "Project Manager",
+    title: "Oorah (Jewish Outreach Organization)",
   },
   {
     quote:
       "Thank you so much for writing this beautiful song. It expressed everything that I envisioned and, it seems, did the job it was intended to do. So many compliments were said about the words and about the chosen track!",
     name: "Convention organizer",
-    title: "Representing 65+ schools",
+    title: "representing 65+ schools",
   },
 ];
 
@@ -409,8 +404,7 @@ function TestimonialsOne() {
   return (
     <section className="border-b border-border bg-[var(--cream)]">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
-        <p className="eyebrow text-center">Kind Words</p>
-        <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+        <div className="mt-2 grid gap-10 md:grid-cols-3 md:gap-8">
           {TESTIMONIALS_ONE.map((t, i) => (
             <figure key={i} className="relative rounded-2xl border border-border bg-background p-8 md:p-10">
               <span
@@ -467,9 +461,8 @@ function Process() {
     <section id="process" className="border-b border-border">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow">The Process</p>
-          <h2 className="mt-4 font-serif text-4xl leading-tight text-foreground md:text-5xl">
-            How it <span className="italic text-[color:var(--gold)]">works</span>.
+          <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
+            How it works.
           </h2>
         </div>
 
@@ -514,11 +507,8 @@ function Values() {
     <section className="border-b border-border bg-foreground text-background">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-[color:var(--amber)]">
-            Why Work With Me
-          </p>
-          <h2 className="mt-4 font-serif text-4xl leading-tight md:text-5xl">
-            Get your <span className="italic text-[color:var(--amber)]">happily-ever-after</span>.
+          <h2 className="font-serif text-4xl leading-tight md:text-5xl">
+            Get your happily-ever-after.
           </h2>
           <p className="mt-8 font-serif text-2xl italic leading-snug text-[color:var(--amber)]">
             Don't come across like a sleazy car salesman when you're a changemaker.
@@ -540,16 +530,8 @@ function Values() {
 
 /* ---------------- SECTION 10 — TESTIMONIALS (second, placeholder) ---------------- */
 function TestimonialsTwo() {
-  return (
-    <section className="border-b border-border">
-      <div className="mx-auto max-w-4xl px-6 py-20 text-center">
-        <p className="eyebrow">More kind words</p>
-        <p className="mt-6 font-serif text-xl italic text-muted-foreground">
-          More testimonials coming soon.
-        </p>
-      </div>
-    </section>
-  );
+  // Spec: "[Leave blank — add when available]" — render nothing until testimonials provided.
+  return null;
 }
 
 /* ---------------- SECTION 11 — GENTLE NUDGE ---------------- */
@@ -562,7 +544,7 @@ function GentleNudge() {
           to find you.
         </p>
         <div className="mt-10">
-          <a href="#contact" className="btn-gold">Get In Touch <ArrowUpRight className="h-4 w-4" /></a>
+          <a href="#contact" className="btn-gold">Get In Touch</a>
         </div>
       </div>
     </section>
@@ -570,113 +552,29 @@ function GentleNudge() {
 }
 
 /* ---------------- SECTION 12 — CONTACT ---------------- */
-const contactSchema = z.object({
-  name: z.string().trim().min(1, "Please share your name.").max(100),
-  email: z.string().trim().email("That doesn't look like a valid email.").max(255),
-  message: z.string().trim().min(1, "Tell me a little about your project.").max(2000),
-});
-
 function Contact() {
-  const [errors, setErrors] = useState<Record<string, string>>({});
-
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const data = {
-      name: String(form.get("name") ?? ""),
-      email: String(form.get("email") ?? ""),
-      message: String(form.get("message") ?? ""),
-    };
-    const parsed = contactSchema.safeParse(data);
-    if (!parsed.success) {
-      const next: Record<string, string> = {};
-      for (const issue of parsed.error.issues) next[String(issue.path[0])] = issue.message;
-      setErrors(next);
-      return;
-    }
-    setErrors({});
-    const subject = `New website inquiry from ${parsed.data.name}`;
-    const body = [
-      `Name: ${parsed.data.name}`,
-      `Email: ${parsed.data.email}`,
-      "",
-      "Message:",
-      parsed.data.message,
-    ].join("\n");
-    window.location.href = `mailto:etteldaskal@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  }
-
   return (
     <section id="contact" className="bg-background">
-      <div className="mx-auto max-w-3xl px-6 py-24 text-center md:py-32">
-        <p className="eyebrow text-[color:var(--gold)]">Get in touch</p>
-        <h2 className="mt-4 font-serif text-5xl leading-tight text-foreground md:text-6xl">
-          Let's <span className="italic text-[color:var(--gold)]">talk</span>.
+      <div className="mx-auto max-w-xl px-6 py-24 text-center md:py-32">
+        <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
+          Let's talk.
         </h2>
-        <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-foreground/85">
+        <p className="mx-auto mt-6 text-lg leading-relaxed text-foreground/85">
           If you're working on something meaningful and need help finding the words for it — I'd
           love to hear about it.
         </p>
-        <p className="mt-4">
+        <p className="mt-6">
           <a href="mailto:etteldaskal@gmail.com" className="text-[color:var(--teal)] hover:underline">
             etteldaskal@gmail.com
           </a>
         </p>
-
-        <form
-          onSubmit={onSubmit}
-          noValidate
-          className="mx-auto mt-12 grid gap-5 rounded-2xl border border-border bg-[var(--cream)] p-8 text-left md:p-10"
-        >
-          <Field label="Your name" name="name" error={errors.name} />
-          <Field label="Email" name="email" type="email" error={errors.email} />
-          <div>
-            <label htmlFor="message" className="eyebrow mb-2 block">
-              Tell me about your project
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={5}
-              className="w-full rounded-md border border-border bg-background px-4 py-3 text-base outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              placeholder="The audience you're trying to reach, the piece on your desk, what success looks like…"
-            />
-            {errors.message && <p className="mt-2 text-sm text-destructive">{errors.message}</p>}
-          </div>
-          <div className="flex justify-center">
-            <button type="submit" className="btn-gold">
-              Book a Free Call <ArrowUpRight className="h-4 w-4" />
-            </button>
-          </div>
-        </form>
+        <div className="mt-8 flex justify-center">
+          <a href="mailto:etteldaskal@gmail.com" className="btn-gold">
+            Book a Free Call
+          </a>
+        </div>
       </div>
     </section>
   );
 }
 
-function Field({
-  label,
-  name,
-  type = "text",
-  error,
-}: {
-  label: string;
-  name: string;
-  type?: string;
-  error?: string;
-}) {
-  return (
-    <div>
-      <label htmlFor={name} className="eyebrow mb-2 block">
-        {label}
-      </label>
-      <input
-        id={name}
-        name={name}
-        type={type}
-        className="w-full rounded-md border border-border bg-background px-4 py-3 text-base outline-none focus-visible:ring-2 focus-visible:ring-ring"
-      />
-      {error && <p className="mt-2 text-sm text-destructive">{error}</p>}
-    </div>
-  );
-}
