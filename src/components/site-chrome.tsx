@@ -18,7 +18,7 @@ export function SiteNav() {
         >
           <span className="font-serif text-2xl tracking-tight text-foreground">Ettel Daskal</span>
           <span className="hidden text-[0.65rem] uppercase tracking-[0.22em] text-muted-foreground md:inline">
-            Writer · Storyteller
+            {"\n"}
           </span>
         </Link>
         <nav className="hidden items-center gap-7 text-sm md:flex" aria-label="Primary">
