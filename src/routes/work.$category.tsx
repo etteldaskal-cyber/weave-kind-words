@@ -125,7 +125,7 @@ function CaseStudyCard({ cs }: { cs: CaseStudy }) {
     <section className="border-b border-border">
       <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
         <Link
-          to="/work/$slug"
+          to="/case-study/$slug"
           params={{ slug: cs.slug }}
           className="group block rounded-2xl border border-border bg-background p-8 transition-colors hover:bg-secondary md:p-12"
         >
