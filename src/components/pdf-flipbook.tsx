@@ -180,7 +180,13 @@ export function PdfFlipbook({ url, title }: Props) {
             ) : null}
           </div>
         </Document>
+        ) : (
+          <div className="flex h-[520px] items-center justify-center text-sm text-muted-foreground">
+            Loading book…
+          </div>
+        )}
       </div>
+
 
       {/* Controls */}
       <div className="mt-6 flex items-center gap-4 text-xs uppercase tracking-[0.18em] text-muted-foreground">
