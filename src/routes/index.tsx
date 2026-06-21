@@ -136,11 +136,11 @@ function Dream() {
         </h2>
         <div className="mt-10 space-y-6 text-lg leading-relaxed text-foreground/85">
           <p>
-            What if your ideal audience found you on their own? What if your donors came to you
-            for the opportunity to have a part in the beautiful world you are building? What if
-            your website did the talking — so that when people reached out, they were already sold
-            on what you offer the world? What if you never had to feel like a desperate car
-            salesman instead of the changemaker that you are?
+            What if your ideal audience found you on their own? What if the people you most want
+            to reach came to you for the opportunity to have a part in the beautiful world you are
+            building? What if your website did the talking — so that when people reached out, they
+            were already sold on what you offer the world? What if you never had to feel like a
+            desperate car salesman instead of the changemaker that you are?
           </p>
           <p>
             You need a hard-working partner. Someone to uncover the magic that is already there
