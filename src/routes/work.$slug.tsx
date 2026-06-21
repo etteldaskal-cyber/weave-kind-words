@@ -110,6 +110,10 @@ function Section({ label, body, emphasis }: { label: string; body: string; empha
 }
 
 function Samples({ cs }: { cs: CaseStudy }) {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   if (cs.samples.length === 0) {
     return (
       <section className="border-b border-border bg-secondary">
@@ -131,98 +135,87 @@ function Samples({ cs }: { cs: CaseStudy }) {
     );
   }
 
-  if (cs.layout === "book") {
-    return (
-      <section className="border-b border-border bg-secondary">
-        <div className="mx-auto max-w-4xl px-6 py-16 md:py-24">
-          <p className="eyebrow">Selected samples</p>
-          <h2 className="mt-4 font-serif text-3xl text-foreground md:text-4xl">
-            Open the book.
-          </h2>
-          <BookSpread cs={cs} />
-          {cs.samples.map((s) => (
-            <a
-              key={s.url}
-              href={s.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary"
-            >
-              {s.label} <ExternalLink className="h-4 w-4" />
-            </a>
-          ))}
-        </div>
-      </section>
-    );
-  }
+  const pdfSamples = cs.samples.filter((s) => isPdf(s.url));
+  const otherSamples = cs.samples.filter((s) => !isPdf(s.url));
+  const active = pdfSamples[activeIdx];
 
   return (
     <section className="border-b border-border bg-secondary">
-      <div className="mx-auto max-w-4xl px-6 py-12 md:py-16">
+      <div className="mx-auto max-w-5xl px-6 py-12 md:py-16">
         <p className="eyebrow">Selected samples</p>
-        <ul className="mt-6 grid gap-px overflow-hidden border border-border bg-border md:grid-cols-2">
-          {cs.samples.map((s, i) => (
-            <li key={s.url}>
-              <a
-                href={s.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover-lift flex h-full flex-col justify-between gap-8 bg-background p-8"
+        <h2 className="mt-4 font-serif text-3xl text-foreground md:text-4xl">
+          Read the book.
+        </h2>
+        <p className="mt-3 max-w-xl text-sm text-foreground/70">
+          Click the right page to turn forward, the left page to go back.
+        </p>
+
+        {pdfSamples.length > 1 && (
+          <div className="mt-8 flex flex-wrap gap-2">
+            {pdfSamples.map((s, i) => (
+              <button
+                key={s.url}
+                type="button"
+                onClick={() => setActiveIdx(i)}
+                className={
+                  "rounded-sm border px-4 py-2 text-xs font-medium uppercase tracking-[0.18em] transition " +
+                  (i === activeIdx
+                    ? "border-foreground bg-foreground text-background"
+                    : "border-border bg-background text-foreground/70 hover:text-foreground")
+                }
               >
-                <span className="font-serif text-sm italic text-muted-foreground">
-                  Sample {String(i + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <p className="font-serif text-2xl text-foreground">{s.label}</p>
-                  <span className="mt-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-primary">
-                    View original <ExternalLink className="h-3.5 w-3.5" />
+                {s.label.replace(/\s*\(PDF\)\s*$/i, "")}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {active && (
+          <div className="mt-8">
+            {mounted ? (
+              <Suspense
+                fallback={
+                  <div className="flex h-[520px] items-center justify-center text-sm text-muted-foreground">
+                    Loading book…
+                  </div>
+                }
+              >
+                <PdfFlipbook key={active.url} url={active.url} title={active.label} />
+              </Suspense>
+            ) : (
+              <div className="flex h-[520px] items-center justify-center text-sm text-muted-foreground">
+                Loading book…
+              </div>
+            )}
+          </div>
+        )}
+
+        {otherSamples.length > 0 && (
+          <ul className="mt-10 grid gap-px overflow-hidden border border-border bg-border md:grid-cols-2">
+            {otherSamples.map((s, i) => (
+              <li key={s.url}>
+                <a
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover-lift flex h-full flex-col justify-between gap-8 bg-background p-8"
+                >
+                  <span className="font-serif text-sm italic text-muted-foreground">
+                    Sample {String(i + 1).padStart(2, "0")}
                   </span>
-                </div>
-              </a>
-            </li>
-          ))}
-        </ul>
+                  <div>
+                    <p className="font-serif text-2xl text-foreground">{s.label}</p>
+                    <span className="mt-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-primary">
+                      Open <ExternalLink className="h-3.5 w-3.5" />
+                    </span>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </section>
-  );
-}
-
-function BookSpread({ cs }: { cs: CaseStudy }) {
-  return (
-    <div className="mt-10 perspective-[1800px]">
-      <div className="group relative mx-auto grid max-w-3xl grid-cols-2 border border-ink/40 bg-[oklch(0.97_0.01_75)] shadow-[inset_0_0_60px_oklch(0.85_0.02_70)] transition-transform duration-500 hover:-rotate-x-1">
-        {/* Spine */}
-        <div aria-hidden className="pointer-events-none absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-ink/20" />
-        <div aria-hidden className="pointer-events-none absolute inset-y-6 left-1/2 w-6 -translate-x-1/2 bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
-
-        {/* Left page */}
-        <div className="flex flex-col gap-6 p-10 md:p-14">
-          <p className="eyebrow">{cs.category}</p>
-          <h3 className="font-serif text-3xl leading-tight text-foreground">{cs.title}</h3>
-          <p className="text-sm leading-relaxed text-foreground/80">{cs.overview}</p>
-          <p className="mt-auto text-[0.65rem] uppercase tracking-[0.22em] text-muted-foreground">— i —</p>
-        </div>
-
-        {/* Right page */}
-        <div className="flex flex-col gap-6 border-l border-ink/10 p-10 md:p-14">
-          <p className="font-serif text-2xl italic leading-snug text-foreground/90">
-            "Your support became this."
-          </p>
-          <p className="text-sm leading-relaxed text-foreground/80">{cs.outcome}</p>
-          <a
-            href={cs.samples[0]?.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-auto inline-flex items-center gap-2 self-start text-xs font-medium uppercase tracking-[0.18em] text-primary"
-          >
-            Turn the page <ArrowUpRight className="h-3.5 w-3.5" />
-          </a>
-        </div>
-      </div>
-      <p className="mt-3 text-center text-xs uppercase tracking-[0.18em] text-muted-foreground">
-        Mockup spread · click through for the full publication
-      </p>
-    </div>
   );
 }
 
