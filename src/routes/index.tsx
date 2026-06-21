@@ -390,8 +390,8 @@ const TESTIMONIALS_ONE = [
   },
   {
     quote: "An unbelievably gorgeous and moving piece.",
-    name: "",
-    title: "Client testimonial",
+    name: "Project Manager",
+    title: "Oorah (Jewish Outreach Organization)",
   },
   {
     quote:
