@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { SiteNav, SiteFooter } from "@/components/site-chrome";
 import { CASE_STUDIES } from "@/lib/case-studies";
 
-export const Route = createFileRoute("/work")({
+export const Route = createFileRoute("/work/")({
   head: () => ({
     meta: [
       { title: "Selected Work — Ettel Daskal" },
