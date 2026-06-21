@@ -60,6 +60,24 @@ export function PdfFlipbook({ url, title }: Props) {
   const goNext = () => setSpread((s) => Math.min(s + 1, totalSpreads - 1));
   const goPrev = () => setSpread((s) => Math.max(s - 1, 0));
 
+  // Touch swipe support
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const onTouchStart = (e: React.TouchEvent) => {
+    const t = e.touches[0];
+    touchStart.current = { x: t.clientX, y: t.clientY };
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const start = touchStart.current;
+    touchStart.current = null;
+    if (!start) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - start.x;
+    const dy = t.clientY - start.y;
+    if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+    if (dx < 0) goNext();
+    else goPrev();
+  };
+
   // Compute which pages to show for current spread.
   const { leftPage, rightPage } = useMemo(() => {
     if (spread === 0) return { leftPage: null, rightPage: 1 };
