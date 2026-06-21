@@ -89,7 +89,7 @@ function Hero() {
           <img
             src={wingedGlobe.url}
             alt="A watercolour illustration of a child being lifted into the air by a golden winged globe."
-            className="relative w-full select-none"
+            className="relative w-full select-none md:scale-110"
             loading="eager"
             decoding="async"
           />
