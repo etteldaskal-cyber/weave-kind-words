@@ -126,7 +126,15 @@ function Pain() {
             it's costing you time, money, and energy.
           </p>
         </div>
-        <p className="mt-12 text-center font-serif text-3xl italic leading-snug text-[color:var(--rose)] md:text-4xl">
+        <img
+          src={clippedWings.url}
+          alt=""
+          aria-hidden
+          className="mx-auto mt-16 h-28 w-auto select-none opacity-90"
+          loading="lazy"
+          decoding="async"
+        />
+        <p className="mt-6 text-center font-serif text-3xl italic leading-snug text-[color:var(--rose)] md:text-4xl">
           Your wings are clipped.
         </p>
       </div>
