@@ -2,6 +2,7 @@ import matanTorah from "@/assets/matan-torah.pdf.asset.json";
 import eretzYisrael from "@/assets/eretz-yisrael.pdf.asset.json";
 import scharVOnesh from "@/assets/schar-v-onesh.pdf.asset.json";
 import newsletterIssue from "@/assets/yyh-newsletter-issue-2.pdf.asset.json";
+import foundingTheFuture from "@/assets/founding-the-future.pdf.asset.json";
 
 export type CategorySlug =
   | "copywriting"
