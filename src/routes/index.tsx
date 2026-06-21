@@ -370,7 +370,7 @@ function Services() {
                 to="/work"
                 className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-[color:var(--teal)] hover:underline"
               >
-                See More <ArrowUpRight className="h-3.5 w-3.5" />
+                See More →
               </Link>
             </article>
           ))}
