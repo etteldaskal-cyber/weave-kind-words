@@ -41,8 +41,8 @@ export const Route = createFileRoute("/work/$slug")({
       <div className="mx-auto max-w-3xl px-6 py-32 text-center">
         <p className="eyebrow">Not found</p>
         <h1 className="mt-4 font-serif text-5xl text-foreground">That case study isn't here.</h1>
-        <Link to="/work" className="mt-8 inline-flex items-center gap-2 text-primary">
-          <ArrowLeft className="h-4 w-4" /> Back to all work
+        <Link to="/" className="mt-8 inline-flex items-center gap-2 text-primary">
+          <ArrowLeft className="h-4 w-4" /> Back to home
         </Link>
       </div>
       <SiteFooter />
@@ -60,10 +60,11 @@ function CaseStudyPage() {
           <header className="rule-top border-b border-border">
             <div className="mx-auto max-w-4xl px-6 py-16 md:py-24">
               <Link
-                to="/work"
+                to="/work/$category"
+                params={{ category: cs.categorySlug }}
                 className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground hover:text-foreground"
               >
-                <ArrowLeft className="h-3.5 w-3.5" /> All work
+                <ArrowLeft className="h-3.5 w-3.5" /> Back to {cs.category}
               </Link>
               <p className="eyebrow mt-8">{cs.category}</p>
               <h1 className="mt-4 font-serif text-5xl leading-[1.05] text-foreground md:text-7xl">
@@ -220,19 +221,18 @@ function Samples({ cs }: { cs: CaseStudy }) {
 }
 
 function NextUp({ current }: { current: string }) {
-  const idx = CASE_STUDIES.findIndex((c) => c.slug === current);
-  const next = CASE_STUDIES[(idx + 1) % CASE_STUDIES.length];
+  const cur = CASE_STUDIES.find((c) => c.slug === current);
   return (
     <section>
       <div className="mx-auto flex max-w-4xl flex-col gap-6 px-6 py-16 md:flex-row md:items-end md:justify-between md:py-20">
         <div>
-          <p className="eyebrow">Next case study</p>
+          <p className="eyebrow">More {cur?.category}</p>
           <Link
-            to="/work/$slug"
-            params={{ slug: next.slug }}
+            to="/work/$category"
+            params={{ category: cur?.categorySlug ?? "copywriting" }}
             className="mt-3 inline-flex items-baseline gap-3 font-serif text-3xl text-foreground hover:text-primary md:text-4xl"
           >
-            {next.title} <ArrowUpRight className="h-5 w-5" />
+            See the full portfolio <ArrowUpRight className="h-5 w-5" />
           </Link>
         </div>
         <Link
