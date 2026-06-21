@@ -1,7 +1,16 @@
+import { lazy, Suspense, useEffect, useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
 import { SiteNav, SiteFooter } from "@/components/site-chrome";
 import { CASE_STUDIES, getCaseStudy, type CaseStudy } from "@/lib/case-studies";
+
+const PdfFlipbook = lazy(() =>
+  import("@/components/pdf-flipbook").then((m) => ({ default: m.PdfFlipbook })),
+);
+
+function isPdf(url: string) {
+  return /\.pdf(\?|$)/i.test(url);
+}
 
 export const Route = createFileRoute("/work/$slug")({
   loader: ({ params }) => {
