@@ -231,7 +231,7 @@ function About() {
 
         {/* Photo placeholder */}
         <div className="mt-16 flex justify-center">
-          <div className="flex h-72 w-full max-w-md items-center justify-center rounded-3xl border border-dashed border-[var(--sand)] bg-[var(--cream)] text-center text-sm italic text-muted-foreground">
+          <div className="flex h-72 w-full max-w-md items-center justify-center rounded-3xl bg-[var(--cream)] text-center text-sm italic text-muted-foreground">
             Photo of Ettel goes here
           </div>
         </div>
