@@ -219,8 +219,7 @@ function About() {
           <p>
             I do a lot of things: I write strategic copy for meaningful nonprofits and
             mission-driven brands, help founders find their unique voice, create content for
-            educators who have something valuable to spread, and write can't-put-down thriller
-            novels curriculums for schools and organizations. I've got many hats, but one umbrella —
+            educators who have something valuable to spread, and write can't-put-down <span className="line-through">thriller novels</span> curriculums for schools and organizations. I've got many hats, but one umbrella —
           </p>
         </div>
 
@@ -236,11 +235,6 @@ function About() {
           </p>
         </div>
 
-        <div className="mt-16 flex justify-center">
-          <div className="flex h-72 w-full max-w-md items-center justify-center rounded-3xl bg-[var(--cream)] text-center text-sm italic text-muted-foreground">
-            {"\n"}
-          </div>
-        </div>
       </div>
     </section>
   );
