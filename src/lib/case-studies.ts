@@ -107,7 +107,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     categorySlug: "organizational-storytelling",
     hasCaseStudy: true,
     summary:
-      "A keepsake book made to show donors the real, human impact of their support.",
+      "A keepsake book made to show donors the personal impact of their support.",
     overview:
       "A book-length donor appreciation project that gathered stories, voices, and outcomes into a single keepsake — a thank-you that read like a piece of literature, not a report.",
     objective:
