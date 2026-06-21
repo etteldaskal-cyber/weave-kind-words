@@ -173,7 +173,15 @@ function About() {
       <div className="mx-auto max-w-3xl px-6 py-24 md:py-32">
         <p className="eyebrow text-center">EVERY GOOD STORY HAS A HERO. AND EVERY GOOD HERO HAS A GUIDE.</p>
 
-        <div className="mt-6 flex items-start justify-center gap-4">
+        <div className="mt-10 flex justify-center">
+          <img
+            src={ettelBio.url}
+            alt="Ettel Daskal"
+            className="h-40 w-40 rounded-full object-cover shadow-[0_8px_30px_rgba(200,147,58,0.18)] ring-4 ring-[color:var(--gold)]/30 md:h-48 md:w-48"
+          />
+        </div>
+
+        <div className="mt-8 flex items-start justify-center gap-4">
           <h2 className="font-serif text-4xl leading-tight text-foreground">
             Hi, I'm Ettel.
           </h2>
@@ -187,6 +195,7 @@ function About() {
         <p className="mt-3 text-center font-serif text-base italic text-[color:var(--gold)] md:hidden">
           a.k.a. your guide
         </p>
+
 
         <div className="mt-12 space-y-6 text-lg leading-relaxed text-foreground/85">
           <p>
