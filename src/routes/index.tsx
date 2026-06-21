@@ -405,8 +405,7 @@ function TestimonialsOne() {
   return (
     <section className="border-b border-border bg-[var(--cream)]">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
-        <p className="eyebrow text-center">Kind Words</p>
-        <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+        <div className="mt-2 grid gap-10 md:grid-cols-3 md:gap-8">
           {TESTIMONIALS_ONE.map((t, i) => (
             <figure key={i} className="relative rounded-2xl border border-border bg-background p-8 md:p-10">
               <span
