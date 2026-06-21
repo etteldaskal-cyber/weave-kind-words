@@ -1,91 +1,69 @@
-## Ettel Daskal — Portfolio Site
+## Goal
 
-A hybrid site: a single-page landing for first-time visitors, plus dedicated case-study routes for anchor projects so you can show depth, not just links.
+Remove the generic "Case studies" landing page. Each "See More" on the *Let me help you help them* section jumps directly into the portfolio for that service category. Only Torah Nugget and the Donor Gift Book keep full case-study pages — everything else shows its samples inline on the category page.
 
-### Identity (blended)
+## Information architecture
 
-- **Headline positioning:** "Educational storyteller and creative content developer for mission-driven organizations."
-- **Tagline:** "Copy with heart."
-- **Voice:** warm, first-person, articulate. Magazine/editorial — not corporate, not freelancery.
-- **Primary CTA everywhere:** "Book a Free Call".
+Three category routes, one per service card:
 
-### Visual System
-
-- **Palette (HSL shadcn tokens in `src/styles.css`):** primary `#1A3CC8`, secondary `#EFEAE4` (warm cream as page background), accent `#E8A53A`, deep ink foreground.
-- **Type:** The Seasons (display headings, generous tracking) + Inter (body). Installed via `@fontsource`.
-- **Style:** editorial magazine — wide margins, generous whitespace, 1px hairline borders (no drop shadows), soft 6–10px corners, balanced density, small-caps eyebrows, drop-cap intro on About.
-- **Motion:** subtle hover lift on cards, hero typewriter on headline, respect `prefers-reduced-motion`.
-- **No photos.** Lucide icons + CSS/SVG geometric shapes only, per brief.
-
-### Sitemap
-
-```text
-/                          Landing (all sections, hash anchors)
-/work                       All Work index (categorized grid)
-/work/torah-nugget         Case study
-/work/school-newsletter    Case study
-/work/donor-gift-book      Case study (book-style layout)
-/work/event-songs          Case study
+```
+/work/copywriting                  → Copywriting portfolio
+/work/organizational-storytelling  → Organizational Storytelling portfolio
+/work/educational-content          → Educational Content portfolio
 ```
 
-### Landing page sections (`src/routes/index.tsx`)
+Service card → destination:
 
-1. **Sticky nav** — wordmark "Ettel Daskal" left; About / Work / Services / Contact right; accent "Book a Free Call".
-2. **Hero** — split layout. Left: eyebrow ("Copy with heart"), large serif headline with typewriter effect cycling phrases ("Values-based." "Compassionate." "Mission-driven."), supporting line, primary CTA + secondary "See the work". Right: abstract editorial panel (cream + cobalt geometric SVG composition, no images).
-3. **About** — first-person bio (2–3 paragraphs from your About intro, condensed). Three stat callouts verbatim: 12,500+ copies printed · $10,000 generated from one newsletter · 5 years teaching · BA in psychology (4 stats in a row, hairline-divided).
-4. **What I do (Services)** — 4-card editorial grid blending brief services with your portfolio categories:
-   - Educational Publishing & Curriculum
-   - Donor & Organizational Storytelling
-   - Website & Mission Copy
-   - Creative Campaigns & Event Content
-5. **Selected Work** — 4 anchor projects as magazine-style tiles (number + category eyebrow + title + one-line summary). Each tile links to its case study route. Tiles for items with Drive links also expose "View original ↗" opening in a new tab.
-6. **Approach / Philosophy** — short editorial section pulling from your "core themes" (emotionally intelligent storytelling, audience sensitivity, research + accessibility).
-7. **Testimonials** — full-bleed `bg-primary` section, large serif pull-quote treatment. **Will use your real quotes verbatim once you paste them**; until then placeholder cards with `// TODO`.
-8. **Contact** — Name / Email / Service (dropdown) / Message. zod validation; on submit builds `mailto:etteldaskal@gmail.com` with subject "New website inquiry from {name}" and URL-encoded body. CTA: "Book a Free Call".
-9. **Footer** — wordmark, email, simple nav.
+- Copywriting → `/work/copywriting`
+- Organizational Storytelling → `/work/organizational-storytelling`
+- Educational Content → `/work/educational-content`
 
-### Case study template (per project route)
+## Data changes (`src/lib/case-studies.ts`)
 
-Each follows your structure exactly:
+Rename categories to match service titles exactly and add a `categorySlug` + a `hasCaseStudy` flag:
 
-```text
-eyebrow category · large serif title
-Overview (1–2 sentences)
-Objective
-Audience
-My Role
-Approach
-Outcome
-Selected Samples — link cards opening Drive in new tab
-← Back to all work | Book a Free Call
-```
+- Torah Nugget → category `Educational Content`, `hasCaseStudy: true`
+- Donor Gift Book → category `Organizational Storytelling`, `hasCaseStudy: true`
+- School Community Newsletter → category `Copywriting`, `hasCaseStudy: false` (samples shown inline)
+- Event Songs & Creative Campaigns → category `Organizational Storytelling`, `hasCaseStudy: false`
 
-Four anchor case studies (drafted by me from your brief, then you edit):
+(Confirm with user if newsletter belongs under Copywriting vs Organizational Storytelling — current best guess based on "newsletter / donor appeals" wording in the Copywriting service card.)
 
-- **Torah Nugget** (Educational Publishing) — 3 Drive sample links
-- **School Community Newsletter** (Donor Storytelling) — 2 Drive samples; lead with the $10K organic-donations outcome
-- **Donor Gift Book** (Donor Storytelling) — Drive folder; **book-style layout**: two-page spread mockup using CSS (centered spine, page-turn affordance on hover), large pull quotes
-- **Event Songs / Creative Campaigns** — placeholder until you provide samples
+## Route changes
 
-### `/work` page
+1. **Delete** `src/routes/work.index.tsx` (the generic "Case studies in writing that has to mean something" page).
+2. **Create** `src/routes/work.$category.tsx` — a category portfolio page that:
+   - Looks up all case studies for that category slug; 404 if unknown.
+   - Shows a header with the category name + short intro.
+   - For each item with `hasCaseStudy: true`: renders a card that links to `/work/$slug` (existing detailed page).
+   - For each item with `hasCaseStudy: false`: renders the samples inline (PDF flipbook for PDFs, link cards for external URLs) directly on this page — no intermediate page.
+   - Per-category `head()` metadata (title, description, og tags).
+3. **Keep** `src/routes/work.$slug.tsx` as-is, but:
+   - Update its "All work" back link and `NextUp` to point to the item's category page (`/work/$category`) instead of `/work`.
+   - Loader still 404s for unknown slugs.
 
-Three category bands (Educational Publishing · Donor & Organizational · Creative Campaigns & Event · Education & Curriculum) with case-study cards under each.
+## Service section update (`src/routes/index.tsx`)
 
-### Waiting on you before I build
+In the `SERVICES` array, add a `href` for each card (`/work/copywriting`, etc.) and change the See More `<Link to="/work">` to `<Link to="/work/$category" params={{ category: href }}>`.
 
-1. **Reference design image** ("image of boy") — to derive layout rhythm.
-2. **Logo / wordmark** (if you have one; otherwise I'll set type-only).
-3. **Real testimonials** — quote, name, title/org.
-4. **Any sample images/spreads** for the case studies (otherwise case studies render with type-only layouts + Drive links).
-5. **Event Songs samples** (the brief left this empty).
+## Site nav (`src/components/site-chrome.tsx`)
 
-### Technical notes
+If the top nav currently links to `/work`, change it to the most representative category (likely `/work/copywriting`) or remove the link — confirm preference. Default: change "Work" nav item into a dropdown / inline links to the three category pages. Will read the file before editing and pick the lightest-touch option.
 
-- TanStack Start v1, file-based routing under `src/routes/`. Landing on `index.tsx`; case studies under `src/routes/work.*.tsx`.
-- Tailwind v4: tokens in `src/styles.css` under `@theme inline`. Fonts via `@fontsource/the-seasons` (or closest available; fall back to `@fontsource/cormorant-garamond` if The Seasons isn't on @fontsource — I'll confirm at install time) and `@fontsource-variable/inter`.
-- One `head()` on the index route + per-route `head()` on each case study (unique title/description/og).
-- Semantic HTML, single H1 per route, AA contrast, visible focus rings, alt text on every SVG.
-- No backend; contact form is mailto-only.
-- Drive links open in new tab with `rel="noopener noreferrer"`.
+## Hero CTA (`src/routes/index.tsx`)
 
-Reply with your uploads (or "skip") and your testimonials, and I'll build.
+The hero "See My Work" button currently goes to `/work`. Repoint it to `/work/copywriting` (the most general category) since `/work` no longer exists.
+
+## Out of scope
+
+- No visual redesign of the case study or sample layouts.
+- No changes to PDF flipbook component.
+- No changes to assets.
+
+## Verification
+
+- Build succeeds (route tree regenerates cleanly).
+- `/work` returns 404 (or we add a redirect — will ask if desired).
+- Each See More lands on the right category page with the right items.
+- Torah Nugget and Donor Gift Book cards still open their full case-study pages with flipbook intact.
+- Newsletter and Event Songs render inline samples on their category page.
