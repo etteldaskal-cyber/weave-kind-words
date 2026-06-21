@@ -207,7 +207,7 @@ function About() {
           </p>
           <p>
             I was the kid whose third-grade spelling sentences appalled my teacher and thrilled my
-            class. Instead of the typical <em>Sara ate a crunchy apple</em>, I strung them together
+            class. Instead of the typical <em>Sarah ate a crunchy apple</em>, I strung them together
             into a spine-tingling horror story about what happened to children who didn't do their
             homework. I just couldn't stick with the mundane when there was a world of stories to
             be told — and I still haven't outgrown that.
