@@ -553,113 +553,29 @@ function GentleNudge() {
 }
 
 /* ---------------- SECTION 12 — CONTACT ---------------- */
-const contactSchema = z.object({
-  name: z.string().trim().min(1, "Please share your name.").max(100),
-  email: z.string().trim().email("That doesn't look like a valid email.").max(255),
-  message: z.string().trim().min(1, "Tell me a little about your project.").max(2000),
-});
-
 function Contact() {
-  const [errors, setErrors] = useState<Record<string, string>>({});
-
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const data = {
-      name: String(form.get("name") ?? ""),
-      email: String(form.get("email") ?? ""),
-      message: String(form.get("message") ?? ""),
-    };
-    const parsed = contactSchema.safeParse(data);
-    if (!parsed.success) {
-      const next: Record<string, string> = {};
-      for (const issue of parsed.error.issues) next[String(issue.path[0])] = issue.message;
-      setErrors(next);
-      return;
-    }
-    setErrors({});
-    const subject = `New website inquiry from ${parsed.data.name}`;
-    const body = [
-      `Name: ${parsed.data.name}`,
-      `Email: ${parsed.data.email}`,
-      "",
-      "Message:",
-      parsed.data.message,
-    ].join("\n");
-    window.location.href = `mailto:etteldaskal@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  }
-
   return (
     <section id="contact" className="bg-background">
-      <div className="mx-auto max-w-3xl px-6 py-24 text-center md:py-32">
-        <p className="eyebrow text-[color:var(--gold)]">Get in touch</p>
-        <h2 className="mt-4 font-serif text-5xl leading-tight text-foreground md:text-6xl">
-          Let's <span className="italic text-[color:var(--gold)]">talk</span>.
+      <div className="mx-auto max-w-xl px-6 py-24 text-center md:py-32">
+        <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
+          Let's talk.
         </h2>
-        <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-foreground/85">
+        <p className="mx-auto mt-6 text-lg leading-relaxed text-foreground/85">
           If you're working on something meaningful and need help finding the words for it — I'd
           love to hear about it.
         </p>
-        <p className="mt-4">
+        <p className="mt-6">
           <a href="mailto:etteldaskal@gmail.com" className="text-[color:var(--teal)] hover:underline">
             etteldaskal@gmail.com
           </a>
         </p>
-
-        <form
-          onSubmit={onSubmit}
-          noValidate
-          className="mx-auto mt-12 grid gap-5 rounded-2xl border border-border bg-[var(--cream)] p-8 text-left md:p-10"
-        >
-          <Field label="Your name" name="name" error={errors.name} />
-          <Field label="Email" name="email" type="email" error={errors.email} />
-          <div>
-            <label htmlFor="message" className="eyebrow mb-2 block">
-              Tell me about your project
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={5}
-              className="w-full rounded-md border border-border bg-background px-4 py-3 text-base outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              placeholder="The audience you're trying to reach, the piece on your desk, what success looks like…"
-            />
-            {errors.message && <p className="mt-2 text-sm text-destructive">{errors.message}</p>}
-          </div>
-          <div className="flex justify-center">
-            <button type="submit" className="btn-gold">
-              Book a Free Call <ArrowUpRight className="h-4 w-4" />
-            </button>
-          </div>
-        </form>
+        <div className="mt-8 flex justify-center">
+          <a href="mailto:etteldaskal@gmail.com" className="btn-gold">
+            Book a Free Call
+          </a>
+        </div>
       </div>
     </section>
   );
 }
 
-function Field({
-  label,
-  name,
-  type = "text",
-  error,
-}: {
-  label: string;
-  name: string;
-  type?: string;
-  error?: string;
-}) {
-  return (
-    <div>
-      <label htmlFor={name} className="eyebrow mb-2 block">
-        {label}
-      </label>
-      <input
-        id={name}
-        name={name}
-        type={type}
-        className="w-full rounded-md border border-border bg-background px-4 py-3 text-base outline-none focus-visible:ring-2 focus-visible:ring-ring"
-      />
-      {error && <p className="mt-2 text-sm text-destructive">{error}</p>}
-    </div>
-  );
-}
