@@ -397,7 +397,7 @@ const TESTIMONIALS_ONE = [
     quote:
       "Thank you so much for writing this beautiful song. It expressed everything that I envisioned and, it seems, did the job it was intended to do. So many compliments were said about the words and about the chosen track!",
     name: "Convention organizer",
-    title: "Representing 65+ schools",
+    title: "representing 65+ schools",
   },
 ];
 
