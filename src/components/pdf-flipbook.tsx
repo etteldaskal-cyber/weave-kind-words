@@ -93,8 +93,10 @@ export function PdfFlipbook({ url, title }: Props) {
     <div className="flex flex-col items-center">
       <div
         ref={containerRef}
-        className="relative w-full select-none"
+        className="relative w-full select-none touch-pan-y"
         aria-label={title ? `${title} flipbook` : "PDF flipbook"}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
       >
         <Document
           file={url}
