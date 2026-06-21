@@ -106,13 +106,9 @@ function CategoryPage() {
             </div>
           </section>
         ) : (
-          items.map((cs: CaseStudy) =>
-            cs.hasCaseStudy ? (
-              <CaseStudyCard key={cs.slug} cs={cs} />
-            ) : (
-              <InlineSamples key={cs.slug} cs={cs} />
-            ),
-          )
+          items.map((cs: CaseStudy) => (
+            <InlineSamples key={cs.slug} cs={cs} />
+          ))
         )}
       </main>
       <SiteFooter />
@@ -120,30 +116,7 @@ function CategoryPage() {
   );
 }
 
-function CaseStudyCard({ cs }: { cs: CaseStudy }) {
-  return (
-    <section className="border-b border-border">
-      <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
-        <Link
-          to="/case-study/$slug"
-          params={{ slug: cs.slug }}
-          className="group block rounded-2xl border border-border bg-background p-8 transition-colors hover:bg-secondary md:p-12"
-        >
-          <p className="eyebrow">Case study</p>
-          <h2 className="mt-3 font-serif text-3xl text-foreground md:text-4xl">
-            {cs.title}
-          </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground/80">
-            {cs.summary}
-          </p>
-          <span className="mt-6 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-primary">
-            Read case study <ArrowUpRight className="h-3.5 w-3.5" />
-          </span>
-        </Link>
-      </div>
-    </section>
-  );
-}
+
 
 function InlineSamples({ cs }: { cs: CaseStudy }) {
   const [mounted, setMounted] = useState(false);

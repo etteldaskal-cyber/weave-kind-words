@@ -1,11 +1,16 @@
-## Plan
+## Goal
 
-The portfolio pages are colliding because both category pages and case-study pages currently use the same URL shape: `/work/<something>`. That means a case-study link like `/work/donor-gift-book` can be interpreted as a category, which triggers “That portfolio isn't here.”
+No individual case-study pages. Portfolio category pages still show all items with their samples/PDFs inline.
 
-I’ll fix this by:
+## Changes
 
-1. Keep category portfolio pages at `/work/<category>`.
-2. Move individual case studies to a distinct path like `/case-study/<slug>` or `/work/case-study/<slug>`.
-3. Update all case-study links and canonical metadata to use the new path.
-4. Leave the existing donor book / Torah Nugget book display unchanged.
-5. Flush the preview so the updated routes are active.
+1. **Delete** `src/routes/case-study.$slug.tsx`.
+2. **Edit `src/routes/work.$category.tsx`**:
+   - Remove the `CaseStudyCard` component and the `hasCaseStudy ? CaseStudyCard : InlineSamples` branch.
+   - Render every item via `InlineSamples` (works for items with or without PDFs — when `samples` is empty the section just shows the title + summary).
+   - Remove unused imports (`ArrowUpRight` if no longer needed, `Link` to `/case-study/$slug`).
+3. **Edit `src/lib/case-studies.ts`**: drop the now-unused `hasCaseStudy` field from the type and from each entry (optional cleanup, keeps types tidy).
+4. **Regenerate** `src/routeTree.gen.ts` automatically after the route file is removed.
+5. **Search** for any remaining `/case-study/` links and remove them.
+
+No content or copy changes. The donor gift book and Torah Nugget samples remain visible on their portfolio pages.
