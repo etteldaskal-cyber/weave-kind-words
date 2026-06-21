@@ -65,6 +65,24 @@ export function PdfFlipbook({ url, title }: Props) {
   const goNext = () => setSpread((s) => Math.min(s + 1, totalSpreads - 1));
   const goPrev = () => setSpread((s) => Math.max(s - 1, 0));
 
+  // Keyboard navigation: arrow keys / PageUp / PageDown / Space.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const t = e.target as HTMLElement | null;
+      if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+      if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " ") {
+        e.preventDefault();
+        goNext();
+      } else if (e.key === "ArrowLeft" || e.key === "PageUp") {
+        e.preventDefault();
+        goPrev();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [totalSpreads]);
+
+
   // Touch swipe support
   const touchStart = useRef<{ x: number; y: number } | null>(null);
   const onTouchStart = (e: React.TouchEvent) => {
