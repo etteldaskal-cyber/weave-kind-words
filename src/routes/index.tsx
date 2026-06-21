@@ -58,21 +58,21 @@ function Landing() {
 function Hero() {
   return (
     <section className="paper-grain border-b border-border">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-[1fr_1.5fr] md:gap-16 md:py-24">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:gap-16 md:py-24">
         <div className="relative z-10">
           <p className="eyebrow flex items-center gap-3">
-            <span className="h-px w-10 bg-[var(--gold)]" /> Copywriting for mission-driven organizations & purpose-led brands
+            <span className="h-px w-10 bg-[var(--gold)]" /> COPYWRITING FOR MISSION-DRIVEN ORGANIZATIONS AND PURPOSE-LED BRANDS
           </p>
-          <h1 className="mt-6 font-serif text-[2.6rem] leading-[1.05] tracking-tight text-foreground md:text-[4.2rem]">
-            The Writer Your <span className="italic text-[color:var(--gold)]">Story</span> Needs
+          <h1 className="mt-6 font-serif text-4xl leading-[1.05] tracking-tight text-foreground md:text-5xl">
+            The Writer Your Story Needs
           </h1>
           <p className="mt-7 max-w-xl text-lg leading-relaxed text-foreground/85">
             Through emotive storytelling and data-based strategy, I'll help you reach the people who need you most —
-            and amplify the impact you were always meant to make. <span className="italic text-foreground/70">(And still have time for a coffee break.)</span>
+            and amplify the impact you were always meant to make. (And still have time for a coffee break.)
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <Link to="/work" className="btn-gold">
-              See My Work <ArrowUpRight className="h-4 w-4" />
+              See My Work
             </Link>
             <a href="#contact" className="btn-teal-outline">
               Get In Touch
@@ -89,7 +89,7 @@ function Hero() {
           <img
             src={wingedGlobe.url}
             alt="A watercolour illustration of a child being lifted into the air by a golden winged globe."
-            className="relative w-full select-none md:scale-110"
+            className="relative w-full select-none md:scale-125"
             loading="eager"
             decoding="async"
           />
