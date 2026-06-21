@@ -17,11 +17,6 @@ function isPdf(url: string) {
   return /\.pdf(\?|$)/i.test(url);
 }
 
-
-function isPdf(url: string) {
-  return /\.pdf(\?|$)/i.test(url);
-}
-
 export const Route = createFileRoute("/work/$category")({
   loader: ({ params }) => {
     const category = getCategory(params.category);
