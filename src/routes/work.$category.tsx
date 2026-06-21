@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
 import { SiteNav, SiteFooter } from "@/components/site-chrome";
@@ -8,10 +8,6 @@ import {
   type CategorySlug,
   type CaseStudy,
 } from "@/lib/case-studies";
-
-const PdfFlipbook = lazy(() =>
-  import("@/components/pdf-flipbook").then((m) => ({ default: m.PdfFlipbook })),
-);
 
 function isPdf(url: string) {
   return /\.pdf(\?|$)/i.test(url);
@@ -119,9 +115,6 @@ function CategoryPage() {
 
 
 function InlineSamples({ cs }: { cs: CaseStudy }) {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
   const pdfSamples = cs.samples.filter((s) => isPdf(s.url));
   const otherSamples = cs.samples.filter((s) => !isPdf(s.url));
   const [activeIdx, setActiveIdx] = useState(0);
@@ -160,24 +153,22 @@ function InlineSamples({ cs }: { cs: CaseStudy }) {
 
         {active && (
           <div className="mt-8">
-            {mounted ? (
-              <Suspense
-                fallback={
-                  <div className="flex h-[520px] items-center justify-center text-sm text-muted-foreground">
-                    Loading book…
-                  </div>
-                }
-              >
-                <PdfFlipbook key={active.url} url={active.url} title={active.label} />
-              </Suspense>
-            ) : (
-              <div className="flex h-[520px] items-center justify-center text-sm text-muted-foreground">
-                Loading book…
-              </div>
-            )}
-            <p className="mt-3 text-sm text-foreground/70">
-              Click the right page to turn forward, the left page to go back.
-            </p>
+            <div className="overflow-hidden border border-border bg-background shadow-sm">
+              <iframe
+                key={active.url}
+                src={`${active.url}#view=FitH`}
+                title={active.label}
+                className="h-[72vh] min-h-[560px] w-full bg-background"
+              />
+            </div>
+            <a
+              href={active.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-primary"
+            >
+              Open PDF <ExternalLink className="h-3.5 w-3.5" />
+            </a>
           </div>
         )}
 
