@@ -40,8 +40,7 @@ export const CATEGORIES: {
   {
     slug: "organizational-storytelling",
     title: "Organizational Storytelling",
-    intro:
-      "Donor impact books, event songs, scripts, and campaign content — the human story inside the data, made to be felt.",
+    intro: "Donor impact books, event songs, scripts, and campaign content.",
   },
   {
     slug: "educational-content",
