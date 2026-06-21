@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
-import { z } from "zod";
-import { ArrowUpRight, PenLine, Sparkles, GraduationCap, Heart, BookOpen, Globe2, Building2, Coffee, Search, FileText } from "lucide-react";
+import { PenLine, Sparkles, GraduationCap, Heart, BookOpen, Globe2, Building2, Coffee, Search, FileText } from "lucide-react";
+
 
 import { SiteNav, SiteFooter } from "@/components/site-chrome";
 import wingedGlobe from "@/assets/winged-globe.png.asset.json";
