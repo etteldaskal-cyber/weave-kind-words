@@ -67,8 +67,7 @@ function Hero() {
             The Writer Your Story Needs
           </h1>
           <p className="mt-7 max-w-xl text-lg leading-relaxed text-foreground/85">
-            Through emotive storytelling and data-based strategy, I'll help you reach the people who need you most —
-            and amplify the impact you were always meant to make. (And still have time for a coffee break.)
+            Through emotive storytelling and data-based strategy, I'll move your audience to act&nbsp;&nbsp;—&nbsp;so you can focus on changing the world (and still have time for a coffee break.)&nbsp;
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <Link to="/work" className="btn-gold">
@@ -110,12 +109,11 @@ function Pain() {
         <div className="mt-10 space-y-6 text-lg leading-relaxed text-foreground/85">
           <p>
             You know you have valuable things to share. You know you can impact lives and make a
-            difference. Your mission is brilliant. But your messaging is beige and run-of-the-mill.
-            You can't seem to get across the magic you know you can offer the world. When it comes
-            to finding the right words to explain what you do and attract your audience — you find
-            a headache you don't have time for. And that means you're not accomplishing what you
-            could be. You're not reaching the people you should — and it's costing you time, money,
-            and energy.
+            difference. But you can't seem to get across the magic you know you can offer the world. 
+            When it comes to finding the right words to explain what you do and attract your 
+            audience — you find a headache you don't have time for. And that means you're not 
+            accomplishing what you could be. You're not reaching the people you should — and 
+            it's costing you time, money, and energy.
           </p>
         </div>
         <p className="mt-12 text-center font-serif text-3xl italic leading-snug text-[color:var(--rose)] md:text-4xl">
@@ -200,8 +198,8 @@ function About() {
         <div className="mt-12 space-y-6 text-lg leading-relaxed text-foreground/85">
           <p>
             I'm a wife and a mother and a teacher and a friend. I'm an actress, an artist, and an
-            almost-psychologist — I dropped out mid-Master's and chose to brighten the world with
-            storytelling instead.
+            almost-psychologist (I dropped out mid-Master's and chose to brighten the world with 
+            storytelling instead.)
           </p>
           <p>
             I was the kid whose third-grade spelling sentences appalled my teacher and thrilled my
@@ -211,18 +209,18 @@ function About() {
             be told — and I still haven't outgrown that.
           </p>
           <p>
-            There's nothing I love more than stories — except maybe people. (And pretty coffee mugs and new leather notebooks.)
+            There's nothing I love more than stories — except maybe people. (And pretty coffee mugs. And new leather notebooks.)
           </p>
           <p>
             I believe that every person has a story and every story has a little bit of magic
-            inside it. I'm here to help you uncover it. Because people rarely connect to
+            inside of it. I'm here to help you uncover it. Because people rarely connect to
             information — they connect to stories.
           </p>
           <p>
             I do a lot of things: I write strategic copy for meaningful nonprofits and
             mission-driven brands, help founders find their unique voice, create content for
             educators who have something valuable to spread, and write can't-put-down thriller
-            novel curriculums for schools and organizations. I've got many hats, but one umbrella —
+            novels curriculums for schools and organizations. I've got many hats, but one umbrella —
           </p>
         </div>
 
@@ -234,14 +232,13 @@ function About() {
           <p>
             My people-connecting skills, background in psychology, and love of words combine to
             help you reach your audience with empathy, warmth, and wit — so that you can focus on
-            the bigger things. (Or take a nap. I firmly believe in siestas.)
+            the bigger things.
           </p>
         </div>
 
-        {/* Photo placeholder */}
         <div className="mt-16 flex justify-center">
           <div className="flex h-72 w-full max-w-md items-center justify-center rounded-3xl bg-[var(--cream)] text-center text-sm italic text-muted-foreground">
-            Photo of Ettel goes here
+            {"\n"}
           </div>
         </div>
       </div>
