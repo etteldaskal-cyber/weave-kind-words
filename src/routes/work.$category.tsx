@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
 import { SiteNav, SiteFooter } from "@/components/site-chrome";
+import { PdfFlipbook } from "@/components/pdf-flipbook";
 import {
   getCategory,
   getCaseStudiesByCategory,
@@ -12,6 +13,7 @@ import {
 function isPdf(url: string) {
   return /\.pdf(\?|$)/i.test(url);
 }
+
 
 export const Route = createFileRoute("/work/$category")({
   loader: ({ params }) => {
