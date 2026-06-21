@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
 import { SiteNav, SiteFooter } from "@/components/site-chrome";
+import { PdfFlipbook } from "@/components/pdf-flipbook";
 import {
   getCategory,
   getCaseStudiesByCategory,
@@ -12,6 +13,7 @@ import {
 function isPdf(url: string) {
   return /\.pdf(\?|$)/i.test(url);
 }
+
 
 export const Route = createFileRoute("/work/$category")({
   loader: ({ params }) => {
@@ -153,14 +155,7 @@ function InlineSamples({ cs }: { cs: CaseStudy }) {
 
         {active && (
           <div className="mt-8">
-            <div className="overflow-hidden border border-border bg-background shadow-sm">
-              <iframe
-                key={active.url}
-                src={`${active.url}#view=FitH`}
-                title={active.label}
-                className="h-[72vh] min-h-[560px] w-full bg-background"
-              />
-            </div>
+            <PdfFlipbook url={active.url} title={active.label} />
             <a
               href={active.url}
               target="_blank"
@@ -169,8 +164,12 @@ function InlineSamples({ cs }: { cs: CaseStudy }) {
             >
               Open PDF <ExternalLink className="h-3.5 w-3.5" />
             </a>
+            <p className="mt-3 text-xs text-muted-foreground">
+              Click a page to turn it, or use ← → arrow keys.
+            </p>
           </div>
         )}
+
 
         {otherSamples.length > 0 && (
           <ul className="mt-10 grid gap-px overflow-hidden border border-border bg-border md:grid-cols-2">

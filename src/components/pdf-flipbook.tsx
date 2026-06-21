@@ -29,11 +29,16 @@ export function PdfFlipbook({ url, title }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [pageWidth, setPageWidth] = useState(420);
 
+  // Client-only mount gate (react-pdf can't render during SSR).
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   // Reset on URL change.
   useEffect(() => {
     setSpread(0);
     setNumPages(0);
   }, [url]);
+
 
   // Responsive width: each page is ~half the container (minus gap), with a max.
   useEffect(() => {
@@ -59,6 +64,24 @@ export function PdfFlipbook({ url, title }: Props) {
 
   const goNext = () => setSpread((s) => Math.min(s + 1, totalSpreads - 1));
   const goPrev = () => setSpread((s) => Math.max(s - 1, 0));
+
+  // Keyboard navigation: arrow keys / PageUp / PageDown / Space.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const t = e.target as HTMLElement | null;
+      if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+      if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " ") {
+        e.preventDefault();
+        goNext();
+      } else if (e.key === "ArrowLeft" || e.key === "PageUp") {
+        e.preventDefault();
+        goPrev();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [totalSpreads]);
+
 
   // Touch swipe support
   const touchStart = useRef<{ x: number; y: number } | null>(null);
@@ -98,6 +121,7 @@ export function PdfFlipbook({ url, title }: Props) {
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
+        {mounted ? (
         <Document
           file={url}
           onLoadSuccess={({ numPages }) => setNumPages(numPages)}
@@ -112,6 +136,7 @@ export function PdfFlipbook({ url, title }: Props) {
             </div>
           }
         >
+
           <div
             className={
               "mx-auto flex items-stretch justify-center gap-1 " +
@@ -155,7 +180,13 @@ export function PdfFlipbook({ url, title }: Props) {
             ) : null}
           </div>
         </Document>
+        ) : (
+          <div className="flex h-[520px] items-center justify-center text-sm text-muted-foreground">
+            Loading book…
+          </div>
+        )}
       </div>
+
 
       {/* Controls */}
       <div className="mt-6 flex items-center gap-4 text-xs uppercase tracking-[0.18em] text-muted-foreground">
