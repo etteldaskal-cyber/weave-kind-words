@@ -38,9 +38,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     outcome:
       "Over 12,500 copies of the Torah Nugget educational resource printed and distributed, with the series continuing as a flagship Torah Mate publication.",
     samples: [
-      { label: "Matan Torah — full issue (PDF)", url: matanTorah.url },
-      { label: "Torah Nugget — Sample 1 (PDF)", url: torahSample1.url },
-      { label: "Torah Nugget — Sample 2 (PDF)", url: torahSample2.url },
+      { label: "Matan Torah (PDF)", url: matanTorah.url },
+      { label: "Eretz Yisrael (PDF)", url: eretzYisrael.url },
+      { label: "Schar V'Onesh (PDF)", url: scharVOnesh.url },
     ],
   },
   {
