@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { z } from "zod";
-import { ArrowUpRight, PenLine, Sparkles, GraduationCap } from "lucide-react";
+import { ArrowUpRight, PenLine, Sparkles, GraduationCap, Heart, BookOpen, Globe2, Building2, Coffee, Search, FileText } from "lucide-react";
 
 import { SiteNav, SiteFooter } from "@/components/site-chrome";
 import wingedGlobe from "@/assets/winged-globe.jpg.asset.json";
@@ -13,13 +13,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "The writer your story needs. Emotive copywriting and storytelling for nonprofits, schools, and purpose-led brands. Connect to your audience. Move people to act.",
+          "The writer your story needs. Emotive copywriting and storytelling for nonprofits, schools, wellness practices, and purpose-led brands.",
       },
       { property: "og:title", content: "Ettel Daskal — The Writer Your Story Needs" },
       {
         property: "og:description",
         content:
-          "Copywriting and storytelling for mission-driven organizations and purpose-led brands. Connect to your audience. Move your people to act. Amplify your impact.",
+          "Copywriting and storytelling for mission-driven organizations and purpose-led brands. Reach the people who need you most.",
       },
       { property: "og:type", content: "website" },
       { property: "og:image", content: wingedGlobe.url },
@@ -45,7 +45,8 @@ function Landing() {
         <TestimonialsOne />
         <Process />
         <Values />
-        <CostOfNotActing />
+        <TestimonialsTwo />
+        <GentleNudge />
         <Contact />
       </main>
       <SiteFooter />
@@ -60,19 +61,14 @@ function Hero() {
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-[1.05fr_0.95fr] md:gap-16 md:py-24">
         <div className="relative z-10">
           <p className="eyebrow flex items-center gap-3">
-            <span className="h-px w-10 bg-[var(--gold)]" /> The Writer Your Story Needs
+            <span className="h-px w-10 bg-[var(--gold)]" /> Copywriting for mission-driven organizations & purpose-led brands
           </p>
           <h1 className="mt-6 font-serif text-[2.6rem] leading-[1.05] tracking-tight text-foreground md:text-[4.2rem]">
-            Copywriting for{" "}
-            <span className="italic text-[color:var(--gold)]">mission-driven</span> organizations
-            and <span className="italic">purpose-led</span> brands.
+            The Writer Your <span className="italic text-[color:var(--gold)]">Story</span> Needs
           </h1>
-          <p className="mt-7 font-serif text-2xl italic leading-snug text-foreground/85 md:text-3xl">
-            Connect to your audience. Move your people to act. Amplify your impact.
-          </p>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-foreground/80">
-            Through emotive storytelling married to hard data, I'll move your audience to act —
-            so you can focus on changing the world. (And still have time for a coffee break.)
+          <p className="mt-7 max-w-xl text-lg leading-relaxed text-foreground/85">
+            Through emotive storytelling and data-based strategy, I'll help you reach the people who need you most —
+            and amplify the impact you were always meant to make. <span className="italic text-foreground/70">(And still have time for a coffee break.)</span>
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <Link to="/work" className="btn-gold">
@@ -92,7 +88,7 @@ function Hero() {
           />
           <img
             src={wingedGlobe.url}
-            alt="A pencil-sketch child lifted into the air by a golden, winged sphere — the spark of a story taking flight."
+            alt="A watercolour illustration of a child being lifted into the air by a golden winged globe."
             className="relative w-full select-none"
             loading="eager"
             decoding="async"
@@ -107,24 +103,24 @@ function Hero() {
 function Pain() {
   return (
     <section className="border-b border-border">
-      <div className="mx-auto max-w-3xl px-6 py-24 text-center md:py-32">
-        <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
-          You don't have time to chase your audience.
+      <div className="mx-auto max-w-2xl px-6 py-24 md:py-32">
+        <h2 className="font-serif text-[2rem] leading-tight text-foreground md:text-4xl text-center">
+          You don't have time to chase after your audience.
         </h2>
-        <div className="mt-10 space-y-6 text-left text-lg leading-relaxed text-foreground/85">
+        <div className="mt-10 space-y-6 text-lg leading-relaxed text-foreground/85">
           <p>
             You know you have valuable things to share. You know you can impact lives and make a
-            difference. But when it comes to finding the words to explain what you do and
-            attracting your audience — you find a headache you don't have time for.
-          </p>
-          <p>
-            Your mission is brilliant. But your messaging is beige. It's run-of-the-mill when you
-            need one-of-a-kind. Your wings are clipped. You can't seem to get across the magic
-            you've been able to offer the world. And so you're not accomplishing what you could
-            be. You're not reaching the people you should — and it's costing you time, money,
-            energy, momentum.
+            difference. Your mission is brilliant. But your messaging is beige and run-of-the-mill.
+            You can't seem to get across the magic you know you can offer the world. When it comes
+            to finding the right words to explain what you do and attract your audience — you find
+            a headache you don't have time for. And that means you're not accomplishing what you
+            could be. You're not reaching the people you should — and it's costing you time, money,
+            and energy.
           </p>
         </div>
+        <p className="mt-12 text-center font-serif text-3xl italic leading-snug text-[color:var(--rose)] md:text-4xl">
+          Your wings are clipped.
+        </p>
       </div>
     </section>
   );
@@ -133,26 +129,26 @@ function Pain() {
 /* ---------------- SECTION 3 — DREAM ---------------- */
 function Dream() {
   return (
-    <section className="border-b border-border bg-[var(--cream)]">
-      <div className="mx-auto max-w-3xl px-6 py-24 text-center md:py-32">
-        <p className="eyebrow text-[color:var(--gold)]">The Flip</p>
-        <h2 className="mt-4 font-serif text-4xl italic leading-tight text-foreground md:text-5xl">
-          Let them come after you.
+    <section className="paper-grain border-b border-border bg-[var(--cream)]">
+      <div className="mx-auto max-w-2xl px-6 py-24 md:py-32">
+        <h2 className="font-serif text-[2rem] italic leading-tight text-foreground md:text-4xl text-center">
+          What if they came after you?
         </h2>
-        <div className="mt-10 space-y-6 text-left text-lg leading-relaxed text-foreground/85">
+        <div className="mt-10 space-y-6 text-lg leading-relaxed text-foreground/85">
           <p>
             What if your ideal audience found you on their own? What if your donors came to you
             for the opportunity to have a part in the beautiful world you are building? What if
-            your website did the talking — so that when people reached out, you already knew they
-            were a good fit? No turning people away. No feeling like a car salesman selling
-            something you believe in too much to sell badly.
+            your website did the talking — so that when people reached out, they were already sold
+            on what you offer the world? What if you never had to feel like a desperate car
+            salesman instead of the changemaker that you are?
           </p>
           <p>
             You need a hard-working partner. Someone to uncover the magic that is already there
-            and write your story so that your audience gets it.
+            and write your story so that your audience gets it. Let the words do the hard work —
+            you go move mountains. <span className="italic">(Or take a nap. I firmly believe in siestas.)</span>
           </p>
         </div>
-        <div className="mt-10">
+        <div className="mt-12 text-center">
           <a href="#contact" className="btn-gold">Get In Touch <ArrowUpRight className="h-4 w-4" /></a>
         </div>
       </div>
@@ -160,126 +156,113 @@ function Dream() {
   );
 }
 
+/* ---------------- CURLY ARROW ---------------- */
+function CurlyArrow({ className = "", flip = false }: { className?: string; flip?: boolean }) {
+  return (
+    <svg viewBox="0 0 120 60" className={className} style={{ transform: flip ? "scaleX(-1)" : undefined }} aria-hidden>
+      <path d="M5 50 C 25 50, 30 10, 55 20 S 95 45, 110 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M110 18 L 102 20 M110 18 L 107 26" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 /* ---------------- SECTION 4 — ABOUT ---------------- */
 function About() {
   return (
     <section id="about" className="border-b border-border">
-      <div className="mx-auto max-w-4xl px-6 py-24 md:py-32">
-        <p className="eyebrow">Every story has a hero. And every hero has a guide.</p>
-        <h2 className="mt-5 font-serif text-5xl leading-tight text-foreground md:text-6xl">
-          Hi, I'm <span className="italic text-[color:var(--gold)]">Ettel</span>.
-        </h2>
+      <div className="mx-auto max-w-3xl px-6 py-24 md:py-32">
+        <p className="eyebrow text-center">Every good story has a hero. And every good hero has a guide.</p>
 
-        <div className="mt-10 space-y-6 text-lg leading-relaxed text-foreground/85">
-          <p className="drop-cap">
+        <div className="mt-6 flex items-start justify-center gap-4">
+          <h2 className="font-serif text-5xl leading-tight text-foreground md:text-6xl">
+            Hi, I'm <span className="italic text-[color:var(--gold)]">Ettel</span>.
+          </h2>
+          <div className="relative hidden pt-2 md:block">
+            <CurlyArrow className="h-10 w-20 text-[color:var(--gold)]" />
+            <span className="absolute -right-4 top-12 whitespace-nowrap font-serif text-base italic text-[color:var(--gold)]">
+              a.k.a. your guide
+            </span>
+          </div>
+        </div>
+        <p className="mt-3 text-center font-serif text-base italic text-[color:var(--gold)] md:hidden">
+          a.k.a. your guide
+        </p>
+
+        <div className="mt-12 space-y-6 text-lg leading-relaxed text-foreground/85">
+          <p>
             I'm a wife and a mother and a teacher and a friend. I'm an actress, an artist, and an
-            almost-psychologist — I dropped out mid-Master's and chose sunlight and storytelling
-            instead. There's nothing I love more than stories. Except people.
+            almost-psychologist — I dropped out mid-Master's and chose to brighten the world with
+            storytelling instead.
           </p>
           <p>
-            I was the kid whose mother got a call from the teacher in third grade — just to check
-            if everything was okay at home. Why? Because my spelling sentences were not of the{" "}
-            <em>Sarah ate a big red apple</em> variety. They were strung together into a
-            spine-tingling horror story about what happened to children who didn't do their
-            homework.
+            I was the kid whose third-grade spelling sentences appalled my teacher and thrilled my
+            class. Instead of the typical <em>Sara ate a crunchy apple</em>, I strung them together
+            into a spine-tingling horror story about what happened to children who didn't do their
+            homework. I just couldn't stick with the mundane when there was a world of stories to
+            be told — and I still haven't outgrown that.
           </p>
           <p>
-            I just couldn't stick with the mundane when there was a world of stories to be told.
-            I haven't outgrown that.
-          </p>
-          <p className="font-serif text-2xl italic leading-snug text-[color:var(--ink)]">
-            Every story has a little bit of magic inside it. I help you uncover it. Because
-            people rarely connect to information — they connect to stories.
+            There's nothing I love more than stories — except maybe people.{" "}
+            <span className="italic text-foreground/70">(And pretty coffee mugs and new leather notebooks.)</span>
           </p>
           <p>
-            I write website copy for meaningful nonprofits, help mission-driven brand founders
-            find the magic in their stories, create content for educators who have something
-            valuable to share, and write can't-put-down thriller novel curriculums for schools
-            and organizations. I've got many hats, but one umbrella — I'm here to help you help
-            them.
+            I believe that every person has a story and every story has a little bit of magic
+            inside it. I'm here to help you uncover it. Because people rarely connect to
+            information — they connect to stories.
           </p>
           <p>
-            My goal is to help the people who help the world. My people-connecting skills,
-            background in psychology, and love of words combine to help you reach your audience
-            with empathy, warmth, and wit. Let my words do the hard work for you. You were made
-            for bigger things.
+            I do a lot of things: I write strategic copy for meaningful nonprofits and
+            mission-driven brands, help founders find their unique voice, create content for
+            educators who have something valuable to spread, and write can't-put-down thriller
+            novel curriculums for schools and organizations. I've got many hats, but one umbrella —
           </p>
         </div>
 
-        <FunFacts />
+        <p className="mt-10 text-center font-serif text-3xl italic leading-snug text-[color:var(--gold)] md:text-4xl">
+          I'm here to help you help them.
+        </p>
+
+        <div className="mt-10 space-y-6 text-lg leading-relaxed text-foreground/85">
+          <p>
+            My people-connecting skills, background in psychology, and love of words combine to
+            help you reach your audience with empathy, warmth, and wit — so that you can focus on
+            the bigger things. <span className="italic text-foreground/70">(Or take a nap. I firmly believe in siestas.)</span>
+          </p>
+        </div>
+
+        {/* Photo placeholder */}
+        <div className="mt-16 flex justify-center">
+          <div className="flex h-72 w-full max-w-md items-center justify-center rounded-3xl border border-dashed border-[var(--sand)] bg-[var(--cream)] text-center text-sm italic text-muted-foreground">
+            Photo of Ettel goes here
+          </div>
+        </div>
       </div>
     </section>
   );
 }
 
-/* ---------------- FUN FACTS (with curly arrows) ---------------- */
-const FACTS = [
-  "My favourite hour of the day: the golden hour before sunset — when the whole world is painted gold.",
-  "And before dawn, when the world is still quiet and the words come tumbling out.",
-  "The things I can't get enough of: planners, coffee mugs, and pretty notebooks.",
-  "I interview strangers on the bus. They always have the best stories.",
-];
-
-function CurlyArrow({ className = "", flip = false }: { className?: string; flip?: boolean }) {
-  return (
-    <svg
-      viewBox="0 0 120 60"
-      className={className}
-      style={{ transform: flip ? "scaleX(-1)" : undefined }}
-      aria-hidden
-    >
-      <path
-        d="M5 50 C 25 50, 30 10, 55 20 S 95 45, 110 18"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeDasharray="0"
-      />
-      <path
-        d="M110 18 L 102 20 M110 18 L 107 26"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function FunFacts() {
-  return (
-    <div className="mt-20 rounded-2xl border border-border bg-[var(--cream)] p-8 md:p-14">
-      <p className="eyebrow">A few small things</p>
-      <h3 className="mt-3 font-serif text-3xl italic leading-tight md:text-4xl">
-        Notes from the margins.
-      </h3>
-      <div className="mt-10 grid gap-8 md:grid-cols-2">
-        {FACTS.map((fact, i) => (
-          <div
-            key={i}
-            className="relative flex items-start gap-4 rounded-xl border border-[var(--sand)] bg-background/60 p-5"
-          >
-            <CurlyArrow
-              className="mt-1 h-8 w-14 shrink-0 text-[color:var(--gold)]"
-              flip={i % 2 === 1}
-            />
-            <p className="font-serif text-lg italic leading-snug text-foreground/90">{fact}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 /* ---------------- SECTION 5 — WHO I WORK WITH ---------------- */
 const CLIENT_TYPES = [
-  { label: "Nonprofit or charity", body: "Ready to turn your mission into words that move people to give?" },
-  { label: "School or educational organization", body: "With powerful content that needs to come alive on the page?" },
-  { label: "Wellness or therapy practice", body: "Who wants to reach the people who need you — without feeling salesy?" },
-  { label: "Jewish outreach or educational org", body: "Looking for a writer with a passion for teaching and a background in Jewish studies?" },
-  { label: "Mission-driven business", body: "Doing work that genuinely helps people and needs copy that reflects that?" },
-  { label: "Community program or initiative", body: "With a story worth telling and an audience waiting to hear it?" },
+  {
+    icon: Globe2,
+    label: "Nonprofit or charity",
+    body: "Ready to turn your mission into words that move people to open their hearts — and their wallets?",
+  },
+  {
+    icon: BookOpen,
+    label: "School or educational organization",
+    body: "With powerful content that needs to spark wonder and a love of learning?",
+  },
+  {
+    icon: Heart,
+    label: "Wellness or therapy practice",
+    body: "Who wants to connect with, support, and encourage the people who need you — without feeling salesy?",
+  },
+  {
+    icon: Building2,
+    label: "Mission-driven business",
+    body: "Doing work that genuinely betters people's lives and needs copy that reflects that?",
+  },
 ];
 
 const DELIVERABLES = [
@@ -287,43 +270,53 @@ const DELIVERABLES = [
   "Bring personality and life to your messaging",
   "Give strategic structure to your copy so the pretty words actually work",
   "Adapt your tone to suit your audience and platforms",
-  "Use clear, confident language that rallies — not lectures",
   "Communicate with warmth and clarity to the people you serve",
 ];
 
 function WhoIWorkWith() {
   return (
     <section id="who" className="border-b border-border">
-      <div className="mx-auto grid max-w-6xl gap-14 px-6 py-24 md:grid-cols-2 md:py-32">
-        <div>
-          <p className="eyebrow">Who I Work With</p>
-          <h2 className="mt-4 font-serif text-4xl leading-tight text-foreground md:text-5xl">
-            Are you a<span className="italic text-[color:var(--gold)]">…</span>
-          </h2>
-          <ul className="mt-10 space-y-7">
-            {CLIENT_TYPES.map((c) => (
-              <li key={c.label}>
-                <p className="text-base font-semibold text-foreground">{c.label}</p>
-                <p className="mt-1 text-base leading-relaxed text-foreground/75">{c.body}</p>
+      <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
+        <p className="text-center font-serif text-xl italic text-muted-foreground">
+          Ok. Enough about me. Tell me about yourself.
+        </p>
+        <h2 className="mt-6 text-center font-serif text-4xl leading-tight text-foreground md:text-5xl">
+          Are you a<span className="italic text-[color:var(--gold)]">…</span>
+        </h2>
+
+        <div className="mt-14 grid gap-14 md:grid-cols-2">
+          <ul className="space-y-8">
+            {CLIENT_TYPES.map(({ icon: Icon, label, body }) => (
+              <li key={label} className="flex gap-4">
+                <span
+                  className="mt-1 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full"
+                  style={{ background: "color-mix(in oklab, var(--gold) 18%, transparent)" }}
+                >
+                  <Icon className="h-5 w-5 text-[color:var(--gold)]" aria-hidden />
+                </span>
+                <div>
+                  <p className="font-serif text-xl text-foreground">{label}</p>
+                  <p className="mt-1 text-base leading-relaxed text-foreground/75">{body}</p>
+                </div>
               </li>
             ))}
           </ul>
-        </div>
 
-        <div className="md:pt-20">
-          <div className="rounded-2xl border border-border bg-[var(--cream)] p-8 md:sticky md:top-28 md:p-10">
-            <p className="eyebrow text-[color:var(--gold)]">Then let's…</p>
-            <ul className="mt-6 space-y-4">
-              {DELIVERABLES.map((d) => (
-                <li key={d} className="flex gap-3 text-base leading-relaxed text-foreground/85">
-                  <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]" />
-                  {d}
-                </li>
-              ))}
-            </ul>
-            <a href="#contact" className="btn-gold mt-8">
-              Get In Touch <ArrowUpRight className="h-4 w-4" />
-            </a>
+          <div className="md:pt-4">
+            <div className="rounded-2xl border border-border bg-[var(--cream)] p-8 md:sticky md:top-28 md:p-10">
+              <p className="eyebrow text-[color:var(--gold)]">Let's…</p>
+              <ul className="mt-6 space-y-4">
+                {DELIVERABLES.map((d) => (
+                  <li key={d} className="flex gap-3 text-base leading-relaxed text-foreground/85">
+                    <span aria-hidden className="mt-3 h-px w-4 shrink-0 bg-[var(--gold)]" />
+                    {d}
+                  </li>
+                ))}
+              </ul>
+              <a href="#contact" className="btn-gold mt-8">
+                Get In Touch <ArrowUpRight className="h-4 w-4" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -336,20 +329,20 @@ const SERVICES = [
   {
     icon: PenLine,
     title: "Copywriting",
-    body: "Websites, emails, donor appeals, campaigns.",
-    aka: "a.k.a. words that move people to act.",
+    body: "Websites, emails, newsletters, donor appeals, campaigns, social content — and whatever else your mission needs.",
+    aka: "a.k.a. words that connect, persuade, and inspire action.",
   },
   {
     icon: Sparkles,
     title: "Organizational Storytelling",
-    body: "Donor impact books, newsletters, event songs, scripts.",
-    aka: "a.k.a. finding the story inside the data and making people feel it.",
+    body: "Donor impact books, event songs, scripts, campaign content, impact reports.",
+    aka: "a.k.a. finding the human story inside your data and making people feel it.",
   },
   {
     icon: GraduationCap,
     title: "Educational Content",
-    body: "Curriculum, lesson plans, educational series.",
-    aka: "a.k.a. bringing ideas to life with clear and engaging writing.",
+    body: "Curriculum, lesson plans, educational series, children's content.",
+    aka: "a.k.a. bringing ideas to life with writing that's clear, deep, and genuinely engaging.",
   },
 ];
 
@@ -357,7 +350,7 @@ function Services() {
   return (
     <section id="services" className="border-b border-border bg-[var(--cream)]">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
-        <div className="max-w-2xl">
+        <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">Services</p>
           <h2 className="mt-4 font-serif text-4xl leading-tight text-foreground md:text-5xl">
             Let me help you <span className="italic text-[color:var(--gold)]">help them</span>.
@@ -378,7 +371,13 @@ function Services() {
               </span>
               <h3 className="mt-6 font-serif text-2xl text-foreground">{title}</h3>
               <p className="mt-3 text-base leading-relaxed text-foreground/80">{body}</p>
-              <p className="mt-4 font-serif text-base italic text-[color:var(--teal)]">{aka}</p>
+              <p className="mt-4 font-serif text-base italic text-muted-foreground">{aka}</p>
+              <Link
+                to="/work"
+                className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-[color:var(--teal)] hover:underline"
+              >
+                See More <ArrowUpRight className="h-3.5 w-3.5" />
+              </Link>
             </article>
           ))}
         </div>
@@ -390,8 +389,7 @@ function Services() {
 /* ---------------- SECTION 7 — TESTIMONIALS (first) ---------------- */
 const TESTIMONIALS_ONE = [
   {
-    quote:
-      "Thank you so much. I literally sleep better at night knowing that you are part of our team.",
+    quote: "I literally sleep better at night knowing that you are part of our team.",
     name: "Sam Schwartz",
     title: "Marketing Director, Jewish Outreach Organization",
   },
@@ -400,6 +398,12 @@ const TESTIMONIALS_ONE = [
     name: "",
     title: "Client testimonial",
   },
+  {
+    quote:
+      "Thank you so much for writing this beautiful song. It expressed everything that I envisioned and, it seems, did the job it was intended to do. So many compliments were said about the words and about the chosen track!",
+    name: "Convention organizer",
+    title: "Representing 65+ schools",
+  },
 ];
 
 function TestimonialsOne() {
@@ -407,16 +411,16 @@ function TestimonialsOne() {
     <section className="border-b border-border bg-[var(--cream)]">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
         <p className="eyebrow text-center">Kind Words</p>
-        <div className="mt-12 grid gap-10 md:grid-cols-2 md:gap-14">
+        <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
           {TESTIMONIALS_ONE.map((t, i) => (
-            <figure key={i} className="relative rounded-2xl border border-border bg-background p-10">
+            <figure key={i} className="relative rounded-2xl border border-border bg-background p-8 md:p-10">
               <span
                 aria-hidden
-                className="absolute -top-6 left-8 font-serif text-7xl leading-none text-[color:var(--gold)]/60"
+                className="absolute -top-6 left-6 font-serif text-7xl leading-none text-[color:var(--gold)]/60"
               >
                 &ldquo;
               </span>
-              <blockquote className="font-serif text-2xl italic leading-snug text-foreground/90 md:text-[1.75rem]">
+              <blockquote className="font-serif text-xl italic leading-snug text-foreground/90 md:text-2xl">
                 {t.quote}
               </blockquote>
               <figcaption className="mt-8 text-sm text-foreground">
@@ -441,18 +445,21 @@ function TestimonialsOne() {
 const STEPS = [
   {
     n: "01",
+    icon: Coffee,
     title: "We Meet",
-    body: "You tell me about your mission, your audience, and what you need. I ask a lot of questions. Good ones.",
+    body: "You tell me about your mission, your goals, your audience, and a lot more. I ask a lot of questions — get ready to go deep. (The good kind of deep.)",
   },
   {
     n: "02",
+    icon: Search,
     title: "I Dig In",
-    body: "I find the story underneath your work — the magic that was always there.",
+    body: "I find the story underneath your work — the magic that was always there. I research until I know what keeps your audience up at night and what makes them laugh out loud.",
   },
   {
     n: "03",
+    icon: FileText,
     title: "The Words Come",
-    body: "I write. You review. We refine until every word feels exactly right.",
+    body: "I write. You review. We refine until every word is exactly right.",
   },
 ];
 
@@ -460,24 +467,25 @@ function Process() {
   return (
     <section id="process" className="border-b border-border">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
-        <div className="max-w-2xl">
+        <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">The Process</p>
           <h2 className="mt-4 font-serif text-4xl leading-tight text-foreground md:text-5xl">
             How it <span className="italic text-[color:var(--gold)]">works</span>.
           </h2>
         </div>
 
-        <ol className="mt-14 grid gap-8 md:grid-cols-3">
-          {STEPS.map((s) => (
-            <li key={s.n} className="rounded-2xl border border-border bg-[var(--cream)] p-8 md:p-10">
+        <ol className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
+          {STEPS.map(({ n, icon: Icon, title, body }) => (
+            <li key={n} className="relative text-center">
               <span
-                className="inline-flex h-14 w-14 items-center justify-center rounded-full font-serif text-2xl text-[color:var(--parchment)]"
+                className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-full font-serif text-2xl text-[color:var(--parchment)]"
                 style={{ background: "var(--gold)" }}
               >
-                {s.n}
+                {n}
               </span>
-              <h3 className="mt-6 font-serif text-2xl text-foreground">{s.title}</h3>
-              <p className="mt-3 text-base leading-relaxed text-foreground/80">{s.body}</p>
+              <Icon className="mx-auto mt-4 h-6 w-6 text-[color:var(--gold)]/70" aria-hidden />
+              <h3 className="mt-4 font-serif text-2xl text-foreground">{title}</h3>
+              <p className="mx-auto mt-3 max-w-xs text-base leading-relaxed text-foreground/80">{body}</p>
             </li>
           ))}
         </ol>
@@ -490,15 +498,15 @@ function Process() {
 const VALUES = [
   {
     title: "Connection, not coercion",
-    body: "No fear tactics. No manufactured urgency. Clear, honest writing that gives your audience what they need to decide — on their own terms. That's not just good ethics. It's good copywriting.",
+    body: "Your work exists to help people. Your copy should feel that way too. No fear-mongering or manufactured urgency — just clear, honest writing that gives your audience the information and gentle encouragement they need. That's not just good ethics. It's good copywriting.",
   },
   {
     title: "More extra, less ordinary",
-    body: "Fresh, creative thinking on every project. No cookie-cutter copy. Your story is specific. Your words should be too.",
+    body: "Fresh, creative thinking on every project. No boring cookie-cutter copy. Your story is unique and your words should be too.",
   },
   {
     title: "Brains before bots",
-    body: "Every word written by a human who genuinely cares about your mission. Because the people you serve deserve that.",
+    body: "Every word chosen by a human who genuinely cares about your mission. AI can be useful — but it can never replace a real mind and heart.",
   },
 ];
 
@@ -506,18 +514,15 @@ function Values() {
   return (
     <section className="border-b border-border bg-foreground text-background">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
-        <div className="max-w-3xl">
+        <div className="mx-auto max-w-3xl text-center">
           <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-[color:var(--amber)]">
             Why Work With Me
           </p>
           <h2 className="mt-4 font-serif text-4xl leading-tight md:text-5xl">
             Get your <span className="italic text-[color:var(--amber)]">happily-ever-after</span>.
           </h2>
-          <p className="mt-8 font-serif text-2xl italic leading-snug text-background/90">
-            Don't come across like a sleazy car salesman when you're a fairy godmother.
-          </p>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-background/80">
-            Your work exists to help people. Your copy should feel that way too.
+          <p className="mt-8 font-serif text-2xl italic leading-snug text-[color:var(--amber)]">
+            Don't come across like a sleazy car salesman when you're a changemaker.
           </p>
         </div>
 
@@ -534,35 +539,31 @@ function Values() {
   );
 }
 
-/* ---------------- SECTION 11 — COST OF NOT ACTING ---------------- */
-const COSTS = [
-  { title: "You lose money.", body: "Donors don't give. Clients don't convert. Students don't enroll." },
-  { title: "You lose time.", body: "You keep trying to write it yourself. It keeps not working." },
-  { title: "You lose momentum.", body: "The longer your message stays unclear, the longer the people who need you can't find you." },
-];
-
-function CostOfNotActing() {
+/* ---------------- SECTION 10 — TESTIMONIALS (second, placeholder) ---------------- */
+function TestimonialsTwo() {
   return (
     <section className="border-b border-border">
-      <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
-        <div className="max-w-2xl">
-          <p className="eyebrow">The Cost of Waiting</p>
-          <h2 className="mt-4 font-serif text-4xl leading-tight text-foreground md:text-5xl">
-            What happens when your copy <span className="italic text-[color:var(--rose)]">doesn't work</span>.
-          </h2>
-        </div>
-        <div className="mt-14 grid gap-8 md:grid-cols-3">
-          {COSTS.map((c) => (
-            <div key={c.title} className="border-t-2 border-[color:var(--rose)] pt-6">
-              <h3 className="font-serif text-3xl italic text-foreground">{c.title}</h3>
-              <p className="mt-3 text-base leading-relaxed text-foreground/80">{c.body}</p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-14 text-center">
-          <a href="#contact" className="btn-gold">
-            Get In Touch <ArrowUpRight className="h-4 w-4" />
-          </a>
+      <div className="mx-auto max-w-4xl px-6 py-20 text-center">
+        <p className="eyebrow">More kind words</p>
+        <p className="mt-6 font-serif text-xl italic text-muted-foreground">
+          More testimonials coming soon.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- SECTION 11 — GENTLE NUDGE ---------------- */
+function GentleNudge() {
+  return (
+    <section className="border-b border-border bg-[var(--cream)]">
+      <div className="mx-auto max-w-2xl px-6 py-24 text-center md:py-32">
+        <p className="font-serif text-2xl italic leading-relaxed text-foreground/85 md:text-3xl">
+          The people who need you are out there looking for you right now. Make it easy for them
+          to find you.
+        </p>
+        <div className="mt-10">
+          <a href="#contact" className="btn-gold">Get In Touch <ArrowUpRight className="h-4 w-4" /></a>
         </div>
       </div>
     </section>
