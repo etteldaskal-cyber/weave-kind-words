@@ -4,7 +4,7 @@ import { z } from "zod";
 import { ArrowUpRight, PenLine, Sparkles, GraduationCap, Heart, BookOpen, Globe2, Building2, Coffee, Search, FileText } from "lucide-react";
 
 import { SiteNav, SiteFooter } from "@/components/site-chrome";
-import wingedGlobe from "@/assets/winged-globe.jpg.asset.json";
+import wingedGlobe from "@/assets/winged-globe.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -58,7 +58,7 @@ function Landing() {
 function Hero() {
   return (
     <section className="paper-grain overflow-hidden border-b border-border">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-[1.05fr_0.95fr] md:gap-16 md:py-24">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-[1fr_1.2fr] md:gap-16 md:py-24">
         <div className="relative z-10">
           <p className="eyebrow flex items-center gap-3">
             <span className="h-px w-10 bg-[var(--gold)]" /> Copywriting for mission-driven organizations & purpose-led brands
@@ -89,7 +89,7 @@ function Hero() {
           <img
             src={wingedGlobe.url}
             alt="A watercolour illustration of a child being lifted into the air by a golden winged globe."
-            className="relative w-full select-none"
+            className="relative w-full select-none md:scale-110"
             loading="eager"
             decoding="async"
           />
