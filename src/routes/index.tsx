@@ -1,10 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { PenLine, Sparkles, GraduationCap, Heart, BookOpen, Globe2, Building2, Coffee, Search, FileText } from "lucide-react";
+import { Globe2, Building2, Coffee, Search, FileText, BookOpen, Heart } from "lucide-react";
 
 
 import { SiteNav, SiteFooter } from "@/components/site-chrome";
 import wingedGlobe from "@/assets/winged-globe.png.asset.json";
 import ettelBio from "@/assets/ettel-bio.png.asset.json";
+import clippedWings from "@/assets/clipped-wings.png.asset.json";
+import sunMotif from "@/assets/sun-motif.png.asset.json";
+import iconCopywriting from "@/assets/icon-copywriting.png.asset.json";
+import iconStorytelling from "@/assets/icon-storytelling.png.asset.json";
+import iconEducation from "@/assets/icon-education.png.asset.json";
+import processPath from "@/assets/process-path.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -120,7 +126,15 @@ function Pain() {
             it's costing you time, money, and energy.
           </p>
         </div>
-        <p className="mt-12 text-center font-serif text-3xl italic leading-snug text-[color:var(--rose)] md:text-4xl">
+        <img
+          src={clippedWings.url}
+          alt=""
+          aria-hidden
+          className="mx-auto mt-16 h-28 w-auto select-none opacity-90"
+          loading="lazy"
+          decoding="async"
+        />
+        <p className="mt-6 text-center font-serif text-3xl italic leading-snug text-[color:var(--rose)] md:text-4xl">
           Your wings are clipped.
         </p>
       </div>
@@ -131,8 +145,16 @@ function Pain() {
 /* ---------------- SECTION 3 — DREAM ---------------- */
 function Dream() {
   return (
-    <section className="paper-grain border-b border-border bg-[var(--cream)]">
-      <div className="mx-auto max-w-2xl px-6 py-24 md:py-32">
+    <section className="paper-grain relative overflow-hidden border-b border-border bg-[var(--cream)]">
+      <img
+        src={sunMotif.url}
+        alt=""
+        aria-hidden
+        className="pointer-events-none absolute -right-16 -top-16 h-72 w-72 select-none opacity-25 md:h-96 md:w-96"
+        loading="lazy"
+        decoding="async"
+      />
+      <div className="relative mx-auto max-w-2xl px-6 py-24 md:py-32">
         <h2 className="font-serif text-[2rem] leading-tight text-foreground md:text-4xl text-center">
           What if they came after you?
         </h2>
@@ -327,21 +349,21 @@ function WhoIWorkWith() {
 /* ---------------- SECTION 6 — SERVICES ---------------- */
 const SERVICES = [
   {
-    icon: PenLine,
+    art: iconCopywriting.url,
     title: "Copywriting",
     body: "Websites, emails, newsletters, donor appeals, campaigns, social content — and whatever else your mission needs.",
     aka: "a.k.a. words that connect, persuade, and inspire action.",
     category: "copywriting" as const,
   },
   {
-    icon: Sparkles,
+    art: iconStorytelling.url,
     title: "Organizational Storytelling",
     body: "Donor impact books, event songs, scripts, campaign content, impact reports.",
     aka: "a.k.a. finding the human story inside your data and making people feel it.",
     category: "organizational-storytelling" as const,
   },
   {
-    icon: GraduationCap,
+    art: iconEducation.url,
     title: "Educational Content",
     body: "Curriculum, lesson plans, educational series, children's content.",
     aka: "a.k.a. bringing ideas to life with writing that's clear, deep, and genuinely engaging.",
@@ -360,17 +382,19 @@ function Services() {
         </div>
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {SERVICES.map(({ icon: Icon, title, body, aka, category }) => (
+          {SERVICES.map(({ art, title, body, aka, category }) => (
             <article
               key={title}
               className="hover-lift flex flex-col rounded-2xl border border-border bg-background p-8 md:p-10"
             >
-              <span
-                className="inline-flex h-12 w-12 items-center justify-center rounded-full"
-                style={{ background: "color-mix(in oklab, var(--gold) 20%, transparent)" }}
-              >
-                <Icon className="h-6 w-6 text-[color:var(--gold)]" aria-hidden />
-              </span>
+              <img
+                src={art}
+                alt=""
+                aria-hidden
+                className="h-20 w-20 select-none object-contain"
+                loading="lazy"
+                decoding="async"
+              />
               <h3 className="mt-6 font-serif text-2xl text-foreground">{title}</h3>
               <p className="mt-3 text-base leading-relaxed text-foreground/80">{body}</p>
               <p className="mt-4 font-serif text-base italic text-muted-foreground">{aka}</p>
@@ -490,6 +514,14 @@ function Process() {
             </li>
           ))}
         </ol>
+        <img
+          src={processPath.url}
+          alt=""
+          aria-hidden
+          className="mx-auto mt-12 w-full max-w-4xl select-none opacity-70"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     </section>
   );
