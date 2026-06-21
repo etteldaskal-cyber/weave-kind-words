@@ -366,17 +366,19 @@ function Services() {
         </div>
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {SERVICES.map(({ icon: Icon, title, body, aka, category }) => (
+          {SERVICES.map(({ art, title, body, aka, category }) => (
             <article
               key={title}
               className="hover-lift flex flex-col rounded-2xl border border-border bg-background p-8 md:p-10"
             >
-              <span
-                className="inline-flex h-12 w-12 items-center justify-center rounded-full"
-                style={{ background: "color-mix(in oklab, var(--gold) 20%, transparent)" }}
-              >
-                <Icon className="h-6 w-6 text-[color:var(--gold)]" aria-hidden />
-              </span>
+              <img
+                src={art}
+                alt=""
+                aria-hidden
+                className="h-20 w-20 select-none object-contain"
+                loading="lazy"
+                decoding="async"
+              />
               <h3 className="mt-6 font-serif text-2xl text-foreground">{title}</h3>
               <p className="mt-3 text-base leading-relaxed text-foreground/80">{body}</p>
               <p className="mt-4 font-serif text-base italic text-muted-foreground">{aka}</p>
