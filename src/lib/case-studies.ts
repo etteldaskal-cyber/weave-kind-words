@@ -1,4 +1,7 @@
 import matanTorah from "@/assets/matan-torah.pdf.asset.json";
+import torahSample1 from "@/assets/torah-nugget-sample-1.pdf.asset.json";
+import torahSample2 from "@/assets/torah-nugget-sample-2.pdf.asset.json";
+import newsletterIssue from "@/assets/newsletter-issue.pdf.asset.json";
 
 export type CaseStudy = {
   slug: string;
