@@ -514,6 +514,14 @@ function Process() {
             </li>
           ))}
         </ol>
+        <img
+          src={processPath.url}
+          alt=""
+          aria-hidden
+          className="mx-auto mt-12 w-full max-w-4xl select-none opacity-70"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     </section>
   );
