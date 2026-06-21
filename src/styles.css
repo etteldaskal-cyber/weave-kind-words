@@ -7,6 +7,7 @@
 @import "@fontsource/cormorant-garamond/600.css";
 @import "@fontsource/cormorant-garamond/700.css";
 @import "@fontsource/cormorant-garamond/400-italic.css";
+@import "@fontsource/cormorant-garamond/500-italic.css";
 @import "@fontsource-variable/inter";
 
 @custom-variant dark (&:is(.dark *));
@@ -40,79 +41,78 @@
   --color-ring-offset-background: var(--background);
   --color-ink: var(--ink);
   --color-cream: var(--cream);
+  --color-parchment: var(--parchment);
+  --color-teal: var(--teal);
+  --color-rose: var(--rose);
+  --color-amber: var(--amber);
+  --color-sand: var(--sand);
 
-  --font-serif: "Cormorant Garamond", "The Seasons", Georgia, serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Inter Variable", "Inter", system-ui, sans-serif;
 }
 
 :root {
-  --radius: 0.5rem;
+  --radius: 0.75rem;
 
-  /* Brand palette — converted from #1A3CC8 / #EFEAE4 / #E8A53A */
-  --cream: oklch(0.948 0.012 70);            /* #EFEAE4 */
-  --ink: oklch(0.18 0.025 270);              /* deep editorial ink */
+  /* Warm parchment palette */
+  --parchment: oklch(0.965 0.018 85);          /* #FAF7F0 page */
+  --cream:     oklch(0.935 0.030 82);          /* #F2EAD8 cards */
+  --sand:      oklch(0.870 0.035 80);          /* #E0D0B8 borders */
+  --ink:       oklch(0.250 0.030 55);          /* #2C2218 body */
+  --stone:     oklch(0.580 0.040 70);          /* #8C7A62 muted */
+  --gold:      oklch(0.700 0.135 75);          /* #C8933A primary */
+  --amber:     oklch(0.790 0.120 75);          /* #E8B86D secondary */
+  --rose:      oklch(0.700 0.095 45);          /* #D4967A wing rose */
+  --teal:      oklch(0.660 0.070 215);         /* #5B9FAD ocean */
 
-  --background: oklch(0.948 0.012 70);       /* cream page */
-  --foreground: oklch(0.18 0.025 270);
+  --background: var(--parchment);
+  --foreground: var(--ink);
 
-  --card: oklch(0.985 0.006 80);
-  --card-foreground: oklch(0.18 0.025 270);
-  --popover: oklch(0.985 0.006 80);
-  --popover-foreground: oklch(0.18 0.025 270);
+  --card: var(--cream);
+  --card-foreground: var(--ink);
+  --popover: var(--parchment);
+  --popover-foreground: var(--ink);
 
-  --primary: oklch(0.38 0.21 268);           /* #1A3CC8 cobalt */
-  --primary-foreground: oklch(0.985 0.005 80);
+  --primary: var(--gold);
+  --primary-foreground: var(--parchment);
 
-  --secondary: oklch(0.92 0.014 70);
-  --secondary-foreground: oklch(0.18 0.025 270);
+  --secondary: var(--cream);
+  --secondary-foreground: var(--ink);
 
-  --muted: oklch(0.92 0.014 70);
-  --muted-foreground: oklch(0.42 0.018 265);
+  --muted: var(--cream);
+  --muted-foreground: var(--stone);
 
-  --accent: oklch(0.745 0.142 70);           /* #E8A53A warm gold */
-  --accent-foreground: oklch(0.18 0.025 270);
+  --accent: var(--teal);
+  --accent-foreground: var(--parchment);
 
   --destructive: oklch(0.55 0.22 27);
   --destructive-foreground: oklch(0.985 0.005 80);
 
-  --border: oklch(0.82 0.018 70);            /* hairline */
-  --input: oklch(0.82 0.018 70);
-  --ring: oklch(0.38 0.21 268);
+  --border: var(--sand);
+  --input: var(--sand);
+  --ring: var(--gold);
 }
 
 @layer base {
-  * {
-    border-color: var(--color-border);
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
-
   h1, h2, h3, h4, h5 {
     font-family: var(--font-serif);
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: -0.01em;
   }
-
-  ::selection {
-    background: var(--primary);
-    color: var(--primary-foreground);
-  }
+  ::selection { background: var(--gold); color: var(--parchment); }
 
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
@@ -123,21 +123,44 @@
   font-family: var(--font-sans);
   font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--muted-foreground);
+  color: var(--stone);
 }
 
-@utility rule-top {
-  border-top: 1px solid var(--border);
+@utility btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--gold);
+  color: var(--parchment);
+  padding: 0.85rem 1.6rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: transform 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
+  box-shadow: 0 1px 0 color-mix(in oklab, var(--ink) 12%, transparent);
+  &:hover { background: color-mix(in oklab, var(--gold) 88%, var(--ink) 12%); transform: translateY(-1px); }
+}
+
+@utility btn-teal-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--teal);
+  border: 1.5px solid var(--teal);
+  padding: 0.8rem 1.55rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background-color 200ms ease, color 200ms ease;
+  &:hover { background: var(--teal); color: var(--parchment); }
 }
 
 @utility hover-lift {
   transition: transform 280ms cubic-bezier(0.2, 0.7, 0.2, 1), border-color 280ms ease;
-  &:hover {
-    transform: translateY(-3px);
-    border-color: var(--ink);
-  }
+  &:hover { transform: translateY(-3px); border-color: var(--gold); }
 }
 
 @utility drop-cap {
@@ -145,9 +168,24 @@
     font-family: var(--font-serif);
     float: left;
     font-size: 4.5rem;
-    line-height: 0.9;
-    padding: 0.35rem 0.6rem 0 0;
-    color: var(--primary);
+    line-height: 0.85;
+    padding: 0.4rem 0.6rem 0 0;
+    color: var(--gold);
+    font-style: italic;
     font-weight: 500;
+  }
+}
+
+@utility paper-grain {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle at 20% 30%, color-mix(in oklab, var(--amber) 8%, transparent) 0, transparent 40%),
+      radial-gradient(circle at 80% 70%, color-mix(in oklab, var(--rose) 6%, transparent) 0, transparent 45%);
+    opacity: 0.7;
   }
 }
