@@ -1,7 +1,7 @@
 import matanTorah from "@/assets/matan-torah.pdf.asset.json";
-import torahSample1 from "@/assets/torah-nugget-sample-1.pdf.asset.json";
-import torahSample2 from "@/assets/torah-nugget-sample-2.pdf.asset.json";
-import newsletterIssue from "@/assets/newsletter-issue.pdf.asset.json";
+import eretzYisrael from "@/assets/eretz-yisrael.pdf.asset.json";
+import scharVOnesh from "@/assets/schar-v-onesh.pdf.asset.json";
+import newsletterIssue from "@/assets/yyh-newsletter-issue-2.pdf.asset.json";
 
 export type CaseStudy = {
   slug: string;
@@ -38,9 +38,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     outcome:
       "Over 12,500 copies of the Torah Nugget educational resource printed and distributed, with the series continuing as a flagship Torah Mate publication.",
     samples: [
-      { label: "Matan Torah — full issue (PDF)", url: matanTorah.url },
-      { label: "Torah Nugget — Sample 1 (PDF)", url: torahSample1.url },
-      { label: "Torah Nugget — Sample 2 (PDF)", url: torahSample2.url },
+      { label: "Matan Torah (PDF)", url: matanTorah.url },
+      { label: "Eretz Yisrael (PDF)", url: eretzYisrael.url },
+      { label: "Schar V'Onesh (PDF)", url: scharVOnesh.url },
     ],
   },
   {
