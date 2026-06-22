@@ -183,7 +183,7 @@ function Dream() {
           What if they came after you?
         </h2>
         <div className="mt-14 space-y-10 text-lg leading-loose text-foreground/85">
-          <p className="whitespace-pre-line">
+          <p className="whitespace-pre-line text-left">
             What if your ideal audience found you on their own?&nbsp;{"\n\n"}
             What if the people you most want to reach came to you for the opportunity to have a part in the beautiful world you are building?{"\n\n"}
             What if your website did the talking — so that when people reached out, they were already sold on what you offer the world?&nbsp;{"\n\n"}
