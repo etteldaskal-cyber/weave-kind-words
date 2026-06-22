@@ -429,8 +429,8 @@ const SERVICES = [
 function Services() {
   return (
     <section id="services" className="border-b border-border bg-[var(--cream)]">
-      <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
-        <div className="mx-auto max-w-2xl text-center">
+      <div className="max-w-6xl px-6 py-32 md:py-40">
+        <div className="max-w-2xl">
           <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
             Let me help you help them.
           </h2>
