@@ -66,9 +66,9 @@ function Hero() {
     <section className="paper-grain border-b border-border">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:gap-16 md:py-24">
         <div className="relative z-10">
-          <p className="eyebrow flex items-start gap-3 whitespace-pre-line">
+          <p className="eyebrow flex items-start gap-3">
             <span className="mt-2.5 h-px w-10 bg-[var(--gold)] shrink-0" />
-            <span>COPY & WRITING FOR{"\n"}MISSION-DRIVEN{"\n"}ORGANIZATIONS AND{"\n"}PURPOSE-LED{"\n"}BRANDS</span>
+            <span>COPY & WRITING FOR <span className="text-[color:var(--gold)]">MISSION-DRIVEN</span> ORGANIZATIONS AND <span className="text-[color:var(--gold)]">PURPOSE-LED</span> BRANDS</span>
           </p>
           <h1 className="mt-6 font-serif text-4xl leading-[1.05] tracking-tight text-foreground md:text-5xl">
             The Writer Your Story Needs
