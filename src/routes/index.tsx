@@ -220,19 +220,11 @@ function CurlyArrow({ className = "", flip = false }: { className?: string; flip
 function About() {
   return (
     <section id="about" className="border-b border-border">
-      <div className="mx-auto max-w-2xl px-6 py-32 md:py-40">
+      <div className="mx-auto max-w-5xl px-6">
         <p className="eyebrow text-center">EVERY GOOD STORY HAS A HERO. AND EVERY GOOD HERO HAS A GUIDE.</p>
 
-        <div className="mt-10 flex justify-center">
-          <img
-            src={ettelBio.url}
-            alt="Ettel Daskal"
-            className="h-40 w-40 rounded-full object-cover shadow-[0_8px_30px_rgba(200,147,58,0.18)] ring-4 ring-[color:var(--gold)]/30 md:h-48 md:w-48"
-          />
-        </div>
-
         <div className="mt-8 flex items-start justify-center gap-4">
-          <h2 className="font-serif text-4xl leading-tight text-foreground">
+          <h2 className="font-serif leading-tight text-foreground text-center">
             Hi, I'm Ettel.
           </h2>
           <div className="relative hidden pt-2 md:block">
@@ -246,62 +238,68 @@ function About() {
           a.k.a. your guide
         </p>
 
-
-        <div className="mt-14 space-y-10 text-lg leading-loose text-foreground/85">
-          <p>
-            I'm a wife and a mother and a teacher and a friend. I'm an actress, an artist, and an
-            almost-psychologist (I dropped out mid-Master's and chose to brighten the world with 
-            storytelling instead.)
-          </p>
-          <div className="flex justify-center">
+        <div className="mt-14 grid gap-10 md:grid-cols-[280px_1fr] md:items-start">
+          <div className="flex justify-center md:block">
             <img
-              src={sunMotif.url}
-              alt=""
-              aria-hidden
-              className="h-24 w-24 select-none object-contain mix-blend-multiply md:h-28 md:w-28"
-              loading="lazy"
-              decoding="async"
+              src={ettelBio.url}
+              alt="Ettel Daskal"
+              style={{ width: "280px", maxWidth: "100%", borderRadius: "12px", objectFit: "contain" }}
+              className="md:sticky md:top-28"
             />
           </div>
-          <p>
-            I was the kid whose third-grade spelling sentences appalled my teacher and thrilled my
-            class. Instead of the typical <em>Sarah ate a crunchy apple</em>, I strung them together
-            into a spine-tingling horror story about what happened to children who didn't do their
-            homework. I just couldn't stick with the mundane when there was a world of stories to
-            be told — and I still haven't outgrown that.
-          </p>
-          <div className="flex justify-end">
+          <div className="space-y-6 text-foreground/85">
+            <p>
+              I'm a wife and a mother and a teacher and a friend. I'm an actress, an artist, and an
+              almost-psychologist (I dropped out mid-Master's and chose to brighten the world with
+              storytelling instead.)
+              <img
+                src={sunMotif.url}
+                alt=""
+                aria-hidden
+                className="illustration"
+                style={{ maxWidth: "80px", float: "right", margin: "0 0 1rem 1.5rem", objectFit: "contain" }}
+                loading="lazy"
+                decoding="async"
+              />
+            </p>
+            <p>
+              I was the kid whose third-grade spelling sentences appalled my teacher and thrilled my
+              class. Instead of the typical <em>Sarah ate a crunchy apple</em>, I strung them together
+              into a spine-tingling horror story about what happened to children who didn't do their
+              homework. I just couldn't stick with the mundane when there was a world of stories to
+              be told — and I still haven't outgrown that.
+            </p>
             <img
               src={spelling.url}
               alt=""
               aria-hidden
-              className="h-40 w-auto -rotate-3 select-none object-contain mix-blend-multiply md:h-48"
+              className="illustration"
+              style={{ maxWidth: "260px", display: "block", margin: "1.5rem auto", transform: "rotate(-2deg)", objectFit: "contain" }}
               loading="lazy"
               decoding="async"
             />
-          </div>
-          <p>
-            There's nothing I love more than stories — except maybe people. (And pretty coffee mugs. And new leather notebooks.)
-          </p>
-          <p>
-            I believe that every person has a story and every story has a little bit of magic
-            inside of it. I'm here to help you uncover it. Because people rarely connect to
-            information — they connect to stories.
-          </p>
-          <p>
-            I do a lot of things: I write strategic copy for meaningful nonprofits and
-            mission-driven brands, help founders find their unique voice, create content for
-            educators who have something valuable to spread, and write can't-put-down <span className="line-through">thriller novels</span> curriculums for schools and organizations. I've got many hats, but one umbrella —
-          </p>
-          <div className="flex justify-center">
+            <p>
+              There's nothing I love more than stories — except maybe people. (And pretty coffee mugs. And new leather notebooks.)
+            </p>
+            <p>
+              I believe that every person has a story and every story has a little bit of magic
+              inside of it. I'm here to help you uncover it. Because people rarely connect to
+              information — they connect to stories.
+            </p>
             <img
               src={hats.url}
               alt=""
               aria-hidden
-              className="h-44 w-auto select-none object-contain mix-blend-multiply md:h-56"
+              className="illustration"
+              style={{ maxWidth: "260px", display: "block", margin: "1.5rem auto", objectFit: "contain" }}
               loading="lazy"
               decoding="async"
             />
+            <p>
+              I do a lot of things: I write strategic copy for meaningful nonprofits and
+              mission-driven brands, help founders find their unique voice, create content for
+              educators who have something valuable to spread, and write can't-put-down <span className="line-through">thriller novels</span> curriculums for schools and organizations. I've got many hats, but one umbrella —
+            </p>
           </div>
         </div>
 
@@ -309,7 +307,7 @@ function About() {
           I'm here to help you help them.
         </p>
 
-        <div className="mt-14 space-y-10 text-lg leading-loose text-foreground/85">
+        <div className="mt-14 space-y-6 text-foreground/85 max-w-2xl mx-auto">
           <p>
             My people-connecting skills, background in psychology, and love of words combine to
             help you reach your audience with empathy, warmth, and wit — so that you can focus on
