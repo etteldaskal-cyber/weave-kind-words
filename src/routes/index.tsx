@@ -5,7 +5,7 @@ import { Globe2, Building2, Coffee, BookOpen, Heart } from "lucide-react";
 import { SiteNav, SiteFooter } from "@/components/site-chrome";
 import wingedGlobe from "@/assets/winged-globe.png.asset.json";
 import heroBackground from "@/assets/hero-background.png.asset.json";
-import ettelBio from "@/assets/ettel-bio-transparent.png.asset.json";
+
 import clippedWings from "@/assets/clipped-wings.png.asset.json";
 import sunMotif from "@/assets/sun-motif.png.asset.json";
 
@@ -241,15 +241,7 @@ function About() {
           a.k.a. your guide
         </p>
 
-        <div className="mt-14 grid gap-10 md:grid-cols-[280px_1fr] md:items-start">
-          <div className="flex justify-center md:block">
-            <img
-              src={ettelBio.url}
-              alt="Ettel Daskal"
-              style={{ width: "280px", maxWidth: "100%", borderRadius: "12px", objectFit: "contain" }}
-              className="md:sticky md:top-28"
-            />
-          </div>
+        <div className="mt-14">
           <div className="space-y-6 text-foreground/85">
             <p>
               I'm a wife and a mother and a teacher and a friend. I'm an actress, an artist, and an
