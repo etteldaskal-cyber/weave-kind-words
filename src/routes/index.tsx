@@ -426,7 +426,7 @@ function Services() {
       <div className="max-w-6xl px-6 py-32 md:py-40">
         <div className="max-w-[680px]">
           <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
-            Let me help you help them.
+            Let me help
           </h2>
         </div>
 
