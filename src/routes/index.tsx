@@ -13,7 +13,7 @@ import quill from "@/assets/quill.jpg.asset.json";
 import spelling from "@/assets/spelling.jpg.asset.json";
 import envelopeTransparent from "@/assets/envelope-transparent.png.asset.json";
 import magnifier from "@/assets/magnifier.jpg.asset.json";
-import hats from "@/assets/hats.jpg.asset.json";
+import hats from "@/assets/magical-hats.png.asset.json";
 import plants from "@/assets/plants.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -281,16 +281,16 @@ function About() {
               inside of it. I'm here to help you uncover it. Because people rarely connect to
               information — they connect to stories.
             </p>
-            <img
-              src={hats.url}
-              alt=""
-              aria-hidden
-              className="illustration"
-              style={{ maxWidth: "260px", display: "block", margin: "1.5rem auto", objectFit: "contain" }}
-              loading="lazy"
-              decoding="async"
-            />
             <p>
+              <img
+                src={hats.url}
+                alt=""
+                aria-hidden
+                className="illustration"
+                style={{ maxWidth: "240px", float: "right", margin: "0 0 1rem 1.5rem", objectFit: "contain" }}
+                loading="lazy"
+                decoding="async"
+              />
               I do a lot of things: I write strategic copy for meaningful nonprofits and
               mission-driven brands, help founders find their unique voice, create content for
               educators who have something valuable to spread, and write can't-put-down <span className="line-through">thriller novels</span> curriculums for schools and organizations. I've got many hats, but one umbrella —
