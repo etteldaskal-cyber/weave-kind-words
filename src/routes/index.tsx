@@ -84,7 +84,7 @@ function PlantsDivider() {
 /* ---------------- HERO ---------------- */
 function Hero() {
   return (
-    <section className="paper-grain border-b border-border">
+    <section className="paper-grain relative border-b border-border">
       <div
         aria-hidden
         className="absolute inset-0 z-0"
@@ -93,6 +93,8 @@ function Hero() {
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: 0.15,
+          maskImage: "radial-gradient(ellipse at center, black 40%, transparent 85%)",
+          WebkitMaskImage: "radial-gradient(ellipse at center, black 40%, transparent 85%)",
         }}
       />
       <div className="relative z-10 mx-auto max-w-6xl px-6" style={{ paddingTop: "120px", paddingBottom: "120px" }}>
