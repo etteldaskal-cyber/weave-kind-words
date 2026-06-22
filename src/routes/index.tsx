@@ -12,7 +12,7 @@ import sunMotif from "@/assets/sun-motif.png.asset.json";
 import quill from "@/assets/quill.jpg.asset.json";
 import spellingWorksheet from "@/assets/spelling-worksheet.png.asset.json";
 import envelopeTransparent from "@/assets/envelope-transparent.png.asset.json";
-import magnifier from "@/assets/magnifier.jpg.asset.json";
+
 import hats from "@/assets/magical-hats.png.asset.json";
 import plants from "@/assets/plants-sprouts.png.asset.json";
 
@@ -529,7 +529,7 @@ const STEPS = [
   {
     n: "02",
     icon: null,
-    art: magnifier.url,
+    art: null,
     title: "I Dig In",
     body: "I find the story underneath your work — the magic that was always there. I research until I know what keeps your audience up at night and what makes them laugh out loud.",
   },
