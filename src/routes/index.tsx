@@ -381,7 +381,7 @@ function WhoIWorkWith() {
             ))}
           </ul>
 
-          <div className="md:pt-4">
+          <div className="md:pt-4 md:border-l md:border-[#E0D0B8] md:pl-10">
             <div className="rounded-2xl border border-border bg-[var(--cream)] p-8 md:sticky md:top-28 md:p-10">
               <p className="font-serif text-2xl text-foreground">Let's:</p>
               <ul className="mt-6 space-y-4">
@@ -403,7 +403,7 @@ function WhoIWorkWith() {
 /* ---------------- SECTION 6 — SERVICES ---------------- */
 const SERVICES = [
   {
-    art: iconCopywriting.url,
+    art: quill.url,
     title: "Copywriting",
     body: "Websites, emails, newsletters, donor appeals, campaigns, social content — and whatever else your mission needs.",
     aka: "a.k.a. words that connect, persuade, and inspire action.",
@@ -417,7 +417,7 @@ const SERVICES = [
     category: "organizational-storytelling" as const,
   },
   {
-    art: iconEducation.url,
+    art: quill.url,
     title: "Educational Content",
     body: "Curriculum, lesson plans, educational series, children's content.",
     aka: "a.k.a. bringing ideas to life with writing that's clear, deep, and genuinely engaging.",
@@ -445,7 +445,8 @@ function Services() {
                 src={art}
                 alt=""
                 aria-hidden
-                className="h-20 w-20 select-none object-contain"
+                className="select-none illustration"
+                style={{ width: "80px", height: "80px", objectFit: "contain", marginBottom: "1rem" }}
                 loading="lazy"
                 decoding="async"
               />
