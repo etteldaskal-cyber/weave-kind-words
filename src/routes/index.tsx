@@ -4,6 +4,7 @@ import { Globe2, Building2, Coffee, BookOpen, Heart } from "lucide-react";
 
 import { SiteNav, SiteFooter } from "@/components/site-chrome";
 import wingedGlobe from "@/assets/winged-globe.png.asset.json";
+import heroBackground from "@/assets/hero-background.png.asset.json";
 import ettelBio from "@/assets/ettel-bio-transparent.png.asset.json";
 import clippedWings from "@/assets/clipped-wings.png.asset.json";
 import sunMotif from "@/assets/sun-motif.png.asset.json";
