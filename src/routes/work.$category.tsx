@@ -81,7 +81,7 @@ function CategoryPage() {
             <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-[1.05] text-foreground md:text-7xl">
               {category.title}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-foreground/80">
+            <p className="mt-6 max-w-2xl text-lg leading-loose text-foreground/80">
               {category.intro}
             </p>
           </div>
@@ -129,7 +129,7 @@ function InlineSamples({ cs }: { cs: CaseStudy }) {
         <h2 className="mt-3 font-serif text-3xl text-foreground md:text-4xl">
           {cs.title}
         </h2>
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground/80">
+        <p className="mt-4 max-w-2xl text-base leading-loose text-foreground/80">
           {cs.summary}
         </p>
 
