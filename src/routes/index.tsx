@@ -258,21 +258,21 @@ function About() {
               />
             </p>
             <p>
+              <img
+                src={spellingWorksheet.url}
+                alt=""
+                aria-hidden
+                className="illustration"
+                style={{ maxWidth: "260px", float: "left", margin: "0 1.5rem 1rem 0", objectFit: "contain" }}
+                loading="lazy"
+                decoding="async"
+              />
               I was the kid whose third-grade spelling sentences appalled my teacher and thrilled my
               class. Instead of the typical <em>Sarah ate a crunchy apple</em>, I strung them together
               into a spine-tingling horror story about what happened to children who didn't do their
               homework. I just couldn't stick with the mundane when there was a world of stories to
               be told — and I still haven't outgrown that.
             </p>
-            <img
-              src={spelling.url}
-              alt=""
-              aria-hidden
-              className="illustration"
-              style={{ maxWidth: "260px", display: "block", margin: "1.5rem auto", transform: "rotate(-2deg)", objectFit: "contain" }}
-              loading="lazy"
-              decoding="async"
-            />
             <p>
               There's nothing I love more than stories — except maybe people. (And pretty coffee mugs. And new leather notebooks.)
             </p>
