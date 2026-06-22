@@ -73,7 +73,7 @@ function Hero() {
           <h1 className="mt-6 font-serif text-4xl leading-[1.05] tracking-tight text-foreground md:text-5xl">
             The Writer Your Story Needs
           </h1>
-          <p className="mt-7 max-w-xl text-lg leading-relaxed text-foreground/85">
+          <p className="mt-7 max-w-xl text-lg leading-loose text-foreground/85">
             Through emotive storytelling and data-based strategy, I'll move your audience to act&nbsp;&nbsp;—&nbsp;so you can focus on changing the world (and still have time for a coffee break.)&nbsp;
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-3">
@@ -117,7 +117,7 @@ function Pain() {
         <h2 className="font-serif text-[2rem] leading-tight text-foreground md:text-4xl text-center">
           You don't have time to chase after your audience.
         </h2>
-        <div className="mt-14 space-y-10 text-lg leading-relaxed text-foreground/85">
+        <div className="mt-14 space-y-10 text-lg leading-loose text-foreground/85">
           <p>
             You know you have valuable things to share. You know you can impact lives and make a
             difference. But you can't seem to get across the magic you know you can offer the world. 
@@ -159,7 +159,7 @@ function Dream() {
         <h2 className="font-serif text-[2rem] leading-tight text-foreground md:text-4xl text-center">
           What if they came after you?
         </h2>
-        <div className="mt-14 space-y-10 text-lg leading-relaxed text-foreground/85">
+        <div className="mt-14 space-y-10 text-lg leading-loose text-foreground/85">
           <p>
             What if your ideal audience found you on their own? What if the people you most want
             to reach came to you for the opportunity to have a part in the beautiful world you are
@@ -222,7 +222,7 @@ function About() {
         </p>
 
 
-        <div className="mt-14 space-y-10 text-lg leading-relaxed text-foreground/85">
+        <div className="mt-14 space-y-10 text-lg leading-loose text-foreground/85">
           <p>
             I'm a wife and a mother and a teacher and a friend. I'm an actress, an artist, and an
             almost-psychologist (I dropped out mid-Master's and chose to brighten the world with 
@@ -254,7 +254,7 @@ function About() {
           I'm here to help you help them.
         </p>
 
-        <div className="mt-14 space-y-10 text-lg leading-relaxed text-foreground/85">
+        <div className="mt-14 space-y-10 text-lg leading-loose text-foreground/85">
           <p>
             My people-connecting skills, background in psychology, and love of words combine to
             help you reach your audience with empathy, warmth, and wit — so that you can focus on
@@ -322,7 +322,7 @@ function WhoIWorkWith() {
                 </span>
                 <div>
                   <p className="font-serif text-xl text-foreground">{label}</p>
-                  <p className="mt-1 text-base leading-relaxed text-foreground/75">{body}</p>
+                  <p className="mt-1 text-base leading-loose text-foreground/75">{body}</p>
                 </div>
               </li>
             ))}
@@ -333,7 +333,7 @@ function WhoIWorkWith() {
               <p className="font-serif text-2xl text-foreground">Let's:</p>
               <ul className="mt-6 space-y-4">
                 {DELIVERABLES.map((d) => (
-                  <li key={d} className="flex gap-3 text-base leading-relaxed text-foreground/85">
+                  <li key={d} className="flex gap-3 text-base leading-loose text-foreground/85">
                     <span aria-hidden className="mt-3 h-px w-4 shrink-0 bg-[var(--gold)]" />
                     {d}
                   </li>
@@ -397,7 +397,7 @@ function Services() {
                 decoding="async"
               />
               <h3 className="mt-6 font-serif text-2xl text-foreground">{title}</h3>
-              <p className="mt-3 text-base leading-relaxed text-foreground/80">{body}</p>
+              <p className="mt-3 text-base leading-loose text-foreground/80">{body}</p>
               <p className="mt-4 font-serif text-base italic text-muted-foreground">{aka}</p>
               <Link
                 to="/work/$category"
@@ -511,7 +511,7 @@ function Process() {
               </span>
               <Icon className="mx-auto mt-4 h-6 w-6 text-[color:var(--gold)]/70" aria-hidden />
               <h3 className="mt-4 font-serif text-2xl text-foreground">{title}</h3>
-              <p className="mx-auto mt-3 max-w-xs text-base leading-relaxed text-foreground/80">{body}</p>
+              <p className="mx-auto mt-3 max-w-xs text-base leading-loose text-foreground/80">{body}</p>
             </li>
           ))}
         </ol>
@@ -561,7 +561,7 @@ function Values() {
           {VALUES.map((v) => (
             <div key={v.title} className="border-t border-background/20 pt-6">
               <h3 className="font-serif text-2xl text-background">{v.title}</h3>
-              <p className="mt-3 text-base leading-relaxed text-background/80">{v.body}</p>
+              <p className="mt-3 text-base leading-loose text-background/80">{v.body}</p>
             </div>
           ))}
         </div>
@@ -581,7 +581,7 @@ function GentleNudge() {
   return (
     <section className="border-b border-border bg-[var(--cream)]">
       <div className="mx-auto max-w-xl px-6 py-28 text-center md:py-36">
-        <p className="font-serif text-2xl italic leading-relaxed text-foreground/85 md:text-3xl">
+        <p className="font-serif text-2xl italic leading-loose text-foreground/85 md:text-3xl">
           The people who need you are out there looking for you right now. Make it easy for them
           to find you.
         </p>
@@ -601,7 +601,7 @@ function Contact() {
         <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
           Let's talk.
         </h2>
-        <p className="mx-auto mt-6 text-lg leading-relaxed text-foreground/85">
+        <p className="mx-auto mt-6 text-lg leading-loose text-foreground/85">
           If you're working on something meaningful and need help finding the words for it — I'd
           love to hear about it.
         </p>
