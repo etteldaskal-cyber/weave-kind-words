@@ -55,6 +55,7 @@ function Landing() {
         <WhoIWorkWith />
         <Services />
         <TestimonialsOne />
+        <PlantsDivider />
         <Process />
         <Values />
         <TestimonialsTwo />
@@ -62,6 +63,22 @@ function Landing() {
         <Contact />
       </main>
       <SiteFooter />
+    </div>
+  );
+}
+
+
+function PlantsDivider() {
+  return (
+    <div className="flex justify-center border-b border-border py-10">
+      <img
+        src={plants.url}
+        alt=""
+        aria-hidden
+        className="h-24 w-auto select-none object-contain mix-blend-multiply md:h-32"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
   );
 }
