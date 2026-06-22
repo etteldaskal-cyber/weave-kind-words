@@ -8,7 +8,7 @@ import heroBackground from "@/assets/hero-background.png.asset.json";
 import ettelBio from "@/assets/ettel-bio-transparent.png.asset.json";
 import clippedWings from "@/assets/clipped-wings.png.asset.json";
 import sunMotif from "@/assets/sun-motif.png.asset.json";
-import processPath from "@/assets/process-path.png.asset.json";
+
 import quill from "@/assets/quill.jpg.asset.json";
 import spelling from "@/assets/spelling.jpg.asset.json";
 import envelopeTransparent from "@/assets/envelope-transparent.png.asset.json";
@@ -47,17 +47,25 @@ function Landing() {
       <SiteNav />
       <main id="main">
         <Hero />
+        <hr className="section-divider" />
         <Pain />
+        <hr className="section-divider" />
         <Dream />
+        <hr className="section-divider" />
         <About />
+        <hr className="section-divider" />
         <WhoIWorkWith />
+        <hr className="section-divider" />
         <Services />
+        <hr className="section-divider" />
         <TestimonialsOne />
         <PlantsDivider />
         <Process />
+        <hr className="section-divider" />
         <Values />
         <TestimonialsTwo />
         <GentleNudge />
+        <hr className="section-divider" />
         <Contact />
       </main>
       <SiteFooter />
@@ -155,7 +163,7 @@ function Pain() {
           loading="lazy"
           decoding="async"
         />
-        <p style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: "24px", textAlign: "center", margin: "2rem 0", color: "#2C2218" }}>
+        <p className="wings-line">
           Your wings are clipped.
         </p>
       </div>
@@ -186,7 +194,7 @@ function Dream() {
             What if your website did the talking — so that when people reached out, they were already sold on what you offer the world?&nbsp;{"\n\n"}
             What if you never had to feel like a desperate car salesman instead of the changemaker that you are?
           </p>
-          <p style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: "20px", color: "var(--gold)", textAlign: "center", margin: "2rem 0" }}>
+          <p className="partner-line">
             You need a hard-working partner.
           </p>
           <p>
@@ -224,12 +232,12 @@ function About() {
           </h2>
           <div className="relative hidden pt-2 md:block">
             <CurlyArrow className="h-10 w-20 text-[color:var(--gold)]" />
-            <span className="absolute -right-4 top-12 whitespace-nowrap font-serif text-base italic text-[color:var(--gold)]">
+            <span className="guide-label absolute -right-4 top-12 whitespace-nowrap">
               a.k.a. your guide
             </span>
           </div>
         </div>
-        <p className="mt-3 text-center font-serif text-base italic text-[color:var(--gold)] md:hidden">
+        <p className="guide-label mt-3 text-center md:hidden">
           a.k.a. your guide
         </p>
 
@@ -298,7 +306,7 @@ function About() {
           </div>
         </div>
 
-        <p className="mt-14 text-center font-serif text-3xl italic leading-snug text-[color:var(--gold)] md:text-4xl">
+        <p className="help-line">
           I'm here to help you help them.
         </p>
 
@@ -351,7 +359,7 @@ function WhoIWorkWith() {
   return (
     <section id="who" className="border-b border-border">
       <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
-        <p className="text-center font-serif text-xl italic text-muted-foreground">
+        <p className="transition-line">
           Ok. Enough about me. Tell me about yourself.
         </p>
         <h2 className="mt-6 text-center font-serif text-4xl leading-tight text-foreground md:text-5xl">
@@ -578,14 +586,6 @@ function Process() {
             </li>
           ))}
         </ol>
-        <img
-          src={processPath.url}
-          alt=""
-          aria-hidden
-          className="mx-auto mt-12 w-full max-w-4xl select-none illustration"
-          loading="lazy"
-          decoding="async"
-        />
       </div>
     </section>
   );
@@ -622,12 +622,9 @@ function Values() {
 
         <div className="mt-16 grid gap-6 md:grid-cols-3">
           {VALUES.map((v) => (
-            <div
-              key={v.title}
-              style={{ background: "#F2EAD8", borderRadius: "12px", padding: "1.5rem", border: "1px solid #E0D0B8" }}
-            >
-              <h3 className="font-serif text-2xl" style={{ color: "#2C2218" }}>{v.title}</h3>
-              <p className="mt-3 text-base leading-loose" style={{ color: "#2C2218" }}>{v.body}</p>
+            <div key={v.title} className="value-card">
+              <h3 className="font-serif text-[22px]" style={{ color: "#E8B86D", marginBottom: "0.75rem" }}>{v.title}</h3>
+              <p className="text-base leading-relaxed" style={{ color: "#FAF7F0", opacity: 0.85, fontFamily: "var(--font-sans)" }}>{v.body}</p>
             </div>
           ))}
         </div>
