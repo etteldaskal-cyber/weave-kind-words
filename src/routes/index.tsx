@@ -173,14 +173,6 @@ function Pain() {
 function Dream() {
   return (
     <section className="paper-grain relative overflow-hidden border-b border-border bg-[var(--cream)]">
-      <img
-        src={sunMotif.url}
-        alt=""
-        aria-hidden
-        className="pointer-events-none absolute -right-16 -top-16 h-72 w-72 select-none opacity-25 md:h-96 md:w-96"
-        loading="lazy"
-        decoding="async"
-      />
       <div className="relative mx-auto max-w-[680px] px-6">
         <h2 className="font-serif leading-tight text-foreground text-center">
           What if they came after you?
@@ -206,6 +198,7 @@ function Dream() {
     </section>
   );
 }
+
 
 /* ---------------- CURLY ARROW ---------------- */
 function CurlyArrow({ className = "", flip = false }: { className?: string; flip?: boolean }) {
@@ -241,19 +234,16 @@ function About() {
 
         <div className="mt-14">
           <div className="space-y-6 text-foreground/85">
-            <p className="whitespace-pre-line">
-              I'm a wife and a mother and a teacher and a friend. I'm an actress, an artist,&nbsp;{"\n"}
-              and an almost-psychologist (I dropped out mid-Master's and chose to brighten{"\n"}
-              the world with storytelling instead.)
-              <img
-                src={sunMotif.url}
-                alt=""
-                aria-hidden
-                className="illustration"
-                style={{ maxWidth: "80px", float: "right", margin: "0 0 1rem 1.5rem", objectFit: "contain" }}
-                loading="lazy"
-                decoding="async"
-              />
+            <img
+              src={sunMotif.url}
+              alt=""
+              aria-hidden
+              className="illustration sun-float"
+              loading="lazy"
+              decoding="async"
+            />
+            <p>
+              I'm a wife and a mother and a teacher and a friend. I'm an actress, an artist, and an almost-psychologist (I dropped out mid-Master's and chose to brighten the world with storytelling instead.)
             </p>
             <p>
               <img
