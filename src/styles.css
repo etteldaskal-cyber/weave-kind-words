@@ -284,3 +284,8 @@
     opacity: 0.7;
   }
 }
+
+/* Double-spaced paragraphs */
+p {
+  line-height: 2 !important;
+}
