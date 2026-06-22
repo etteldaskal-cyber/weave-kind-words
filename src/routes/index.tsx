@@ -233,6 +233,16 @@ function About() {
             almost-psychologist (I dropped out mid-Master's and chose to brighten the world with 
             storytelling instead.)
           </p>
+          <div className="flex justify-center">
+            <img
+              src={sunMotif.url}
+              alt=""
+              aria-hidden
+              className="h-24 w-24 select-none object-contain mix-blend-multiply md:h-28 md:w-28"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
           <p>
             I was the kid whose third-grade spelling sentences appalled my teacher and thrilled my
             class. Instead of the typical <em>Sarah ate a crunchy apple</em>, I strung them together
@@ -240,6 +250,16 @@ function About() {
             homework. I just couldn't stick with the mundane when there was a world of stories to
             be told — and I still haven't outgrown that.
           </p>
+          <div className="flex justify-end">
+            <img
+              src={spelling.url}
+              alt=""
+              aria-hidden
+              className="h-40 w-auto -rotate-3 select-none object-contain mix-blend-multiply md:h-48"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
           <p>
             There's nothing I love more than stories — except maybe people. (And pretty coffee mugs. And new leather notebooks.)
           </p>
@@ -253,6 +273,16 @@ function About() {
             mission-driven brands, help founders find their unique voice, create content for
             educators who have something valuable to spread, and write can't-put-down <span className="line-through">thriller novels</span> curriculums for schools and organizations. I've got many hats, but one umbrella —
           </p>
+          <div className="flex justify-center">
+            <img
+              src={hats.url}
+              alt=""
+              aria-hidden
+              className="h-44 w-auto select-none object-contain mix-blend-multiply md:h-56"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
         </div>
 
         <p className="mt-14 text-center font-serif text-3xl italic leading-snug text-[color:var(--gold)] md:text-4xl">
@@ -362,7 +392,7 @@ const SERVICES = [
     category: "copywriting" as const,
   },
   {
-    art: iconStorytelling.url,
+    art: quill.url,
     title: "Organizational Storytelling",
     body: "Donor impact books, event songs, scripts, campaign content, impact reports.",
     aka: "a.k.a. finding the human story inside your data and making people feel it.",
@@ -478,18 +508,21 @@ const STEPS = [
   {
     n: "01",
     icon: Coffee,
+    art: null as string | null,
     title: "We Meet",
     body: "You tell me about your mission, your goals, your audience, and a lot more. I ask a lot of questions — get ready to go deep. (The good kind of deep.)",
   },
   {
     n: "02",
-    icon: Search,
+    icon: null,
+    art: magnifier.url,
     title: "I Dig In",
     body: "I find the story underneath your work — the magic that was always there. I research until I know what keeps your audience up at night and what makes them laugh out loud.",
   },
   {
     n: "03",
-    icon: FileText,
+    icon: null,
+    art: envelope.url,
     title: "The Words Come",
     body: "I write. You review. We refine until every word is exactly right.",
   },
@@ -506,7 +539,7 @@ function Process() {
         </div>
 
         <ol className="mt-16 grid gap-12 md:grid-cols-3 md:gap-10">
-          {STEPS.map(({ n, icon: Icon, title, body }) => (
+          {STEPS.map(({ n, icon: Icon, art, title, body }) => (
             <li key={n} className="relative text-center">
               <span
                 className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-full font-serif text-2xl text-[color:var(--parchment)]"
@@ -514,7 +547,18 @@ function Process() {
               >
                 {n}
               </span>
-              <Icon className="mx-auto mt-4 h-6 w-6 text-[color:var(--gold)]/70" aria-hidden />
+              {art ? (
+                <img
+                  src={art}
+                  alt=""
+                  aria-hidden
+                  className="mx-auto mt-4 h-28 w-auto select-none object-contain mix-blend-multiply"
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : Icon ? (
+                <Icon className="mx-auto mt-4 h-6 w-6 text-[color:var(--gold)]/70" aria-hidden />
+              ) : null}
               <h3 className="mt-4 font-serif text-2xl text-foreground">{title}</h3>
               <p className="mx-auto mt-3 max-w-xs text-base leading-loose text-foreground/80">{body}</p>
             </li>
@@ -603,7 +647,17 @@ function Contact() {
   return (
     <section id="contact" className="bg-background">
       <div className="mx-auto max-w-xl px-6 py-28 text-center md:py-36">
-        <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
+        <div className="flex justify-center">
+          <img
+            src={telephone.url}
+            alt=""
+            aria-hidden
+            className="h-48 w-auto select-none object-contain mix-blend-multiply md:h-56"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <h2 className="mt-6 font-serif text-4xl leading-tight text-foreground md:text-5xl">
           Let's talk.
         </h2>
         <p className="mx-auto mt-6 text-lg leading-loose text-foreground/85">
