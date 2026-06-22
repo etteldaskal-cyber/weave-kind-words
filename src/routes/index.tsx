@@ -173,14 +173,6 @@ function Pain() {
 function Dream() {
   return (
     <section className="paper-grain relative overflow-hidden border-b border-border bg-[var(--cream)]">
-      <img
-        src={sunMotif.url}
-        alt=""
-        aria-hidden
-        className="pointer-events-none absolute -right-16 -top-16 h-72 w-72 select-none opacity-25 md:h-96 md:w-96"
-        loading="lazy"
-        decoding="async"
-      />
       <div className="relative mx-auto max-w-[680px] px-6">
         <h2 className="font-serif leading-tight text-foreground text-center">
           What if they came after you?
@@ -206,6 +198,7 @@ function Dream() {
     </section>
   );
 }
+
 
 /* ---------------- CURLY ARROW ---------------- */
 function CurlyArrow({ className = "", flip = false }: { className?: string; flip?: boolean }) {
