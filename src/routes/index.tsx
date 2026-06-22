@@ -426,7 +426,7 @@ function Services() {
   return (
     <section id="services" className="border-b border-border bg-[var(--cream)]">
       <div className="max-w-6xl px-6 py-32 md:py-40">
-        <div className="max-w-2xl">
+        <div className="max-w-[680px]">
           <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
             Let me help you help them.
           </h2>
@@ -548,7 +548,7 @@ function Process() {
   return (
     <section id="process" className="border-b border-border">
       <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-[680px] text-center">
           <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
             How it works.
           </h2>
@@ -568,7 +568,7 @@ function Process() {
                   src={art}
                   alt=""
                   aria-hidden
-                  className="mx-auto mt-4 h-28 w-auto select-none object-contain mix-blend-multiply"
+                  className="mx-auto mt-4 h-28 w-auto select-none object-contain illustration"
                   loading="lazy"
                   decoding="async"
                 />
@@ -613,7 +613,7 @@ function Values() {
   return (
     <section className="border-b border-border bg-foreground text-background">
       <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-[680px] text-center">
           <h2 className="font-serif text-4xl leading-tight md:text-5xl">
             Get your happily-ever-after.
           </h2>
