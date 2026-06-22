@@ -85,7 +85,17 @@ function PlantsDivider() {
 function Hero() {
   return (
     <section className="paper-grain border-b border-border">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 md:grid-cols-2 md:gap-16" style={{ paddingTop: "120px", paddingBottom: "120px" }}>
+      <div
+        aria-hidden
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(${heroBackground.url})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: 0.15,
+        }}
+      />
+      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-6 md:grid-cols-2 md:gap-16" style={{ paddingTop: "120px", paddingBottom: "120px" }}>
         <div className="relative z-10">
           <p className="flex items-start gap-3" style={{ fontFamily: "var(--font-sans)", fontSize: "11px", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#8C7A62" }}>
             <span className="mt-2.5 h-px w-10 bg-[var(--gold)] shrink-0" />
