@@ -1,22 +1,28 @@
-## Plan: Looser Line Spacing & Breathing Room
+## Goal
+Make body paragraphs easier to read by narrowing their line lengths and adding more vertical breathing room throughout the page.
 
-### Goal
-Increase line spacing and overall vertical breathing room across the site so the layout no longer feels cramped.
+## Changes
 
-### Changes
+### 1. Narrower text columns
+Reduce the max-width of long-form text blocks so each line wraps at roughly 60–70 characters (optimal reading width):
+- **Pain, Dream, Services intro**: `max-w-2xl` → `max-w-xl`
+- **About section**: `max-w-3xl` → `max-w-2xl`
+- **Hero paragraph**: already `max-w-xl`, leave as-is
+- **Who I Work With / sticky card**: keep `max-w-6xl` container but tighten body copy width inside cards/lists where applicable
 
-1. **Global body line-height** — Increase base `line-height` in `src/styles.css` from the browser default (~1.5) to `1.75` so all text inherits more generous spacing without touching every element individually.
+### 2. More paragraph spacing
+- Increase paragraph cluster gaps from `space-y-8` → `space-y-10` or `space-y-12`
+- Add extra margin before/after key standalone lines (taglines, pull-quotes)
 
-2. **Paragraph blocks** — Update `space-y-6` / `space-y-8` clusters inside text blocks to `space-y-8` / `space-y-10` for more air between paragraphs.
+### 3. More section spacing
+- Increase vertical section padding from `py-28 md:py-36` → `py-32 md:py-40` (or one step larger on the Tailwind scale)
+- Increase gap between section heading and first paragraph from `mt-12` → `mt-14` or `mt-16`
 
-3. **Section padding** — Bump section vertical padding from `py-24 md:py-32` to `py-28 md:py-36` to give each section more room to breathe.
+## Files to modify
+- `src/routes/index.tsx` — adjust container widths, spacing utilities, and section padding classes
+- `src/styles.css` — optionally bump `p { line-height }` slightly if needed after narrowing
 
-4. **Headings** — Slightly relax heading `line-height` from `leading-tight` to a custom value (~1.15) so multi-line headlines don't feel squeezed.
-
-5. **Card & list gaps** — Increase grid and flex gaps in Services, Process, and Who-I-Work-With sections by one step (e.g. `gap-6` → `gap-8`, `gap-10` → `gap-12`).
-
-### Scope
-Purely visual/CSS/utility changes inside `src/styles.css` and `src/routes/index.tsx`. No logic or content changes.
-
-### Outcome
-The page will feel more open and readable with airier text and wider section spacing throughout.
+## Out of scope
+- Rewriting or shortening paragraph copy
+- Changing fonts, colors, or illustrations
+- Responsive breakpoints (mobile stays proportionally tighter)

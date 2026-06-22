@@ -113,11 +113,11 @@ function Hero() {
 function Pain() {
   return (
     <section className="border-b border-border">
-      <div className="mx-auto max-w-2xl px-6 py-28 md:py-36">
+      <div className="mx-auto max-w-xl px-6 py-32 md:py-40">
         <h2 className="font-serif text-[2rem] leading-tight text-foreground md:text-4xl text-center">
           You don't have time to chase after your audience.
         </h2>
-        <div className="mt-12 space-y-8 text-lg leading-relaxed text-foreground/85">
+        <div className="mt-14 space-y-10 text-lg leading-relaxed text-foreground/85">
           <p>
             You know you have valuable things to share. You know you can impact lives and make a
             difference. But you can't seem to get across the magic you know you can offer the world. 
@@ -155,11 +155,11 @@ function Dream() {
         loading="lazy"
         decoding="async"
       />
-      <div className="relative mx-auto max-w-2xl px-6 py-28 md:py-36">
+      <div className="relative mx-auto max-w-xl px-6 py-32 md:py-40">
         <h2 className="font-serif text-[2rem] leading-tight text-foreground md:text-4xl text-center">
           What if they came after you?
         </h2>
-        <div className="mt-12 space-y-8 text-lg leading-relaxed text-foreground/85">
+        <div className="mt-14 space-y-10 text-lg leading-relaxed text-foreground/85">
           <p>
             What if your ideal audience found you on their own? What if the people you most want
             to reach came to you for the opportunity to have a part in the beautiful world you are
@@ -173,7 +173,7 @@ function Dream() {
             you go move mountains. (Or take a nap. I firmly believe in siestas.)
           </p>
         </div>
-        <div className="mt-12 text-center">
+        <div className="mt-14 text-center">
           <a href="#contact" className="btn-gold">Get In Touch</a>
         </div>
       </div>
@@ -195,7 +195,7 @@ function CurlyArrow({ className = "", flip = false }: { className?: string; flip
 function About() {
   return (
     <section id="about" className="border-b border-border">
-      <div className="mx-auto max-w-3xl px-6 py-28 md:py-36">
+      <div className="mx-auto max-w-2xl px-6 py-32 md:py-40">
         <p className="eyebrow text-center">EVERY GOOD STORY HAS A HERO. AND EVERY GOOD HERO HAS A GUIDE.</p>
 
         <div className="mt-10 flex justify-center">
@@ -222,7 +222,7 @@ function About() {
         </p>
 
 
-        <div className="mt-12 space-y-8 text-lg leading-relaxed text-foreground/85">
+        <div className="mt-14 space-y-10 text-lg leading-relaxed text-foreground/85">
           <p>
             I'm a wife and a mother and a teacher and a friend. I'm an actress, an artist, and an
             almost-psychologist (I dropped out mid-Master's and chose to brighten the world with 
@@ -250,11 +250,11 @@ function About() {
           </p>
         </div>
 
-        <p className="mt-10 text-center font-serif text-3xl italic leading-snug text-[color:var(--gold)] md:text-4xl">
+        <p className="mt-14 text-center font-serif text-3xl italic leading-snug text-[color:var(--gold)] md:text-4xl">
           I'm here to help you help them.
         </p>
 
-        <div className="mt-12 space-y-8 text-lg leading-relaxed text-foreground/85">
+        <div className="mt-14 space-y-10 text-lg leading-relaxed text-foreground/85">
           <p>
             My people-connecting skills, background in psychology, and love of words combine to
             help you reach your audience with empathy, warmth, and wit — so that you can focus on
@@ -302,7 +302,7 @@ const DELIVERABLES = [
 function WhoIWorkWith() {
   return (
     <section id="who" className="border-b border-border">
-      <div className="mx-auto max-w-6xl px-6 py-28 md:py-36">
+      <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
         <p className="text-center font-serif text-xl italic text-muted-foreground">
           Ok. Enough about me. Tell me about yourself.
         </p>
@@ -375,7 +375,7 @@ const SERVICES = [
 function Services() {
   return (
     <section id="services" className="border-b border-border bg-[var(--cream)]">
-      <div className="mx-auto max-w-6xl px-6 py-28 md:py-36">
+      <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
             Let me help you help them.
@@ -437,7 +437,7 @@ const TESTIMONIALS_ONE = [
 function TestimonialsOne() {
   return (
     <section className="border-b border-border bg-[var(--cream)]">
-      <div className="mx-auto max-w-6xl px-6 py-28 md:py-36">
+      <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
         <div className="mt-2 grid gap-10 md:grid-cols-3 md:gap-8">
           {TESTIMONIALS_ONE.map((t, i) => (
             <figure key={i} className="relative rounded-2xl border border-border bg-background p-8 md:p-10">
@@ -493,7 +493,7 @@ const STEPS = [
 function Process() {
   return (
     <section id="process" className="border-b border-border">
-      <div className="mx-auto max-w-6xl px-6 py-28 md:py-36">
+      <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
             How it works.
@@ -547,7 +547,7 @@ const VALUES = [
 function Values() {
   return (
     <section className="border-b border-border bg-foreground text-background">
-      <div className="mx-auto max-w-6xl px-6 py-28 md:py-36">
+      <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-serif text-4xl leading-tight md:text-5xl">
             Get your happily-ever-after.
@@ -580,7 +580,7 @@ function TestimonialsTwo() {
 function GentleNudge() {
   return (
     <section className="border-b border-border bg-[var(--cream)]">
-      <div className="mx-auto max-w-2xl px-6 py-24 text-center md:py-32">
+      <div className="mx-auto max-w-xl px-6 py-28 text-center md:py-36">
         <p className="font-serif text-2xl italic leading-relaxed text-foreground/85 md:text-3xl">
           The people who need you are out there looking for you right now. Make it easy for them
           to find you.
@@ -597,7 +597,7 @@ function GentleNudge() {
 function Contact() {
   return (
     <section id="contact" className="bg-background">
-      <div className="mx-auto max-w-xl px-6 py-24 text-center md:py-32">
+      <div className="mx-auto max-w-xl px-6 py-28 text-center md:py-36">
         <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
           Let's talk.
         </h2>
