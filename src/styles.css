@@ -289,3 +289,8 @@
 p {
   line-height: 2 !important;
 }
+
+.pain-body p {
+  line-height: 1.8 !important;
+  margin-bottom: 1.5rem;
+}
