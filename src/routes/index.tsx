@@ -95,7 +95,7 @@ function Hero() {
           opacity: 0.15,
         }}
       />
-      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-6 md:grid-cols-2 md:gap-16" style={{ paddingTop: "120px", paddingBottom: "120px" }}>
+      <div className="relative z-10 mx-auto max-w-6xl px-6" style={{ paddingTop: "120px", paddingBottom: "120px" }}>
         <div className="relative z-10">
           <p className="flex items-start gap-3" style={{ fontFamily: "var(--font-sans)", fontSize: "11px", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#8C7A62" }}>
             <span className="mt-2.5 h-px w-10 bg-[var(--gold)] shrink-0" />
@@ -121,21 +121,6 @@ function Hero() {
           </div>
         </div>
 
-        <div className="relative">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -top-10 right-0 -z-10 h-72 w-72 rounded-full"
-            style={{ background: "radial-gradient(circle, color-mix(in oklab, var(--amber) 35%, transparent), transparent 70%)" }}
-          />
-          <img
-            src={wingedGlobe.url}
-            alt="A watercolour illustration of a child being lifted into the air by a golden winged globe."
-            className="relative w-full select-none illustration"
-            style={{ maxWidth: "520px", margin: "0 auto" }}
-            loading="eager"
-            decoding="async"
-          />
-        </div>
       </div>
     </section>
   );
