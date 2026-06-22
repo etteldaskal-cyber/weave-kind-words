@@ -10,7 +10,7 @@ import clippedWings from "@/assets/clipped-wings.png.asset.json";
 import sunMotif from "@/assets/sun-motif.png.asset.json";
 
 import quill from "@/assets/quill.jpg.asset.json";
-import spellingWorksheet from "@/assets/spelling-worksheet.png.asset.json";
+import spellingWorksheet from "@/assets/spelling-worksheet-v2.png.asset.json";
 import envelopeTransparent from "@/assets/envelope-transparent.png.asset.json";
 
 import hats from "@/assets/magical-hats.png.asset.json";
