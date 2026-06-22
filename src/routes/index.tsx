@@ -312,7 +312,7 @@ function About() {
           <p>
             My people-connecting skills, background in psychology, and love of words combine to
             help you reach your audience with empathy, warmth, and wit — so that you can focus on
-            the bigger things.
+            the bigger things.&nbsp;(Or take a nap. I firmly believe in siestas.)
           </p>
         </div>
 
