@@ -8,7 +8,7 @@ import heroBackground from "@/assets/hero-background.png.asset.json";
 import ettelBio from "@/assets/ettel-bio-transparent.png.asset.json";
 import clippedWings from "@/assets/clipped-wings.png.asset.json";
 import sunMotif from "@/assets/sun-motif.png.asset.json";
-import processPath from "@/assets/process-path.png.asset.json";
+
 import quill from "@/assets/quill.jpg.asset.json";
 import spelling from "@/assets/spelling.jpg.asset.json";
 import envelopeTransparent from "@/assets/envelope-transparent.png.asset.json";
