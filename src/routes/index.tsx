@@ -118,13 +118,13 @@ function Pain() {
           You don't have time to chase after your audience.
         </h2>
         <div className="mt-14 space-y-10 text-lg leading-loose text-foreground/85">
-          <p>
-            You know you have valuable things to share. You know you can impact lives and make a
-            difference. But you can't seem to get across the magic you know you can offer the world. 
-            When it comes to finding the right words to explain what you do and attract your 
-            audience — you find a headache you don't have time for. And that means you're not 
-            accomplishing what you could be. You're not reaching the people you should — and 
-            it's costing you time, money, and energy.
+          <p className="whitespace-pre-line">
+            You know you have valuable things to share.{"\n"}
+            You know you can impact lives and make a difference.{"\n"}
+            But you can't seem to get across the magic you know you can offer the world.{"\n"}
+            When it comes to finding the right words to explain what you do and attract your audience — you find a headache you don't have time for.&nbsp;{"\n"}
+            And that means you're not accomplishing what you could be.{"\n"}
+            You're not reaching the people you should — and it's costing you time, money, and energy.
           </p>
         </div>
         <img
