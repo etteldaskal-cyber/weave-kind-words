@@ -648,7 +648,7 @@ function TestimonialsTwo() {
 function GentleNudge() {
   return (
     <section className="border-b border-border bg-[var(--cream)]">
-      <div className="mx-auto max-w-xl px-6 py-28 text-center md:py-36">
+      <div className="mx-auto max-w-[680px] px-6 py-28 text-center md:py-36">
         <p className="font-serif text-2xl italic leading-loose text-foreground/85 md:text-3xl">
           The people who need you are out there looking for you right now. Make it easy for them
           to find you.
@@ -665,7 +665,7 @@ function GentleNudge() {
 function Contact() {
   return (
     <section id="contact" className="bg-background">
-      <div className="mx-auto max-w-xl px-6 py-28 text-center md:py-36">
+      <div className="mx-auto max-w-[680px] px-6 py-28 text-center md:py-36">
         <div className="flex justify-center">
           <img
             src={envelope.url}
