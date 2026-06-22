@@ -12,7 +12,7 @@ import sunMotif from "@/assets/sun-motif.png.asset.json";
 import quill from "@/assets/quill.jpg.asset.json";
 import spellingWorksheet from "@/assets/spelling-worksheet.png.asset.json";
 import envelopeTransparent from "@/assets/envelope-transparent.png.asset.json";
-import magnifier from "@/assets/magnifier.jpg.asset.json";
+
 import hats from "@/assets/magical-hats.png.asset.json";
 import plants from "@/assets/plants-sprouts.png.asset.json";
 
