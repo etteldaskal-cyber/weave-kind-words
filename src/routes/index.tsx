@@ -243,10 +243,10 @@ function About() {
 
         <div className="mt-14">
           <div className="space-y-6 text-foreground/85">
-            <p>
-              I'm a wife and a mother and a teacher and a friend. I'm an actress, an artist, and an
-              almost-psychologist (I dropped out mid-Master's and chose to brighten the world with
-              storytelling instead.)
+            <p className="whitespace-pre-line">
+              I'm a wife and a mother and a teacher and a friend. I'm an actress, an artist,&nbsp;{"\n"}
+              and an almost-psychologist (I dropped out mid-Master's and chose to brighten{"\n"}
+              the world with storytelling instead.)
               <img
                 src={sunMotif.url}
                 alt=""
@@ -453,7 +453,7 @@ function Services() {
                 params={{ category }}
                 className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-[color:var(--teal)] hover:underline"
               >
-                See More →
+                See Samples →
               </Link>
             </article>
           ))}
