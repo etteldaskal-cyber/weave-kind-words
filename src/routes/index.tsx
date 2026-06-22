@@ -72,7 +72,7 @@ function PlantsDivider() {
         src={plants.url}
         alt=""
         aria-hidden
-        className="h-24 w-auto select-none object-contain mix-blend-multiply md:h-32"
+        className="h-24 w-auto select-none object-contain illustration md:h-32"
         loading="lazy"
         decoding="async"
       />
@@ -134,7 +134,7 @@ function Hero() {
 function Pain() {
   return (
     <section className="border-b border-border">
-      <div className="mx-auto max-w-xl px-6">
+      <div className="mx-auto max-w-[680px] px-6">
         <h2 className="font-serif leading-tight text-foreground text-center">
           You don't have time to chase after your audience.
         </h2>
@@ -177,7 +177,7 @@ function Dream() {
         loading="lazy"
         decoding="async"
       />
-      <div className="relative mx-auto max-w-xl px-6">
+      <div className="relative mx-auto max-w-[680px] px-6">
         <h2 className="font-serif leading-tight text-foreground text-center">
           What if they came after you?
         </h2>
@@ -304,7 +304,7 @@ function About() {
           I'm here to help you help them.
         </p>
 
-        <div className="mt-14 space-y-6 text-foreground/85 max-w-2xl mx-auto">
+        <div className="mt-14 space-y-6 text-foreground/85 max-w-[680px] mx-auto">
           <p>
             My people-connecting skills, background in psychology, and love of words combine to
             help you reach your audience with empathy, warmth, and wit — so that you can focus on
