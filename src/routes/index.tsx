@@ -141,7 +141,7 @@ function Pain() {
           You don't have time to chase after your audience.
         </h2>
         <div className="mt-14 space-y-10 text-lg leading-loose text-foreground/85">
-          <p className="whitespace-pre-line">
+          <p className="whitespace-pre-line text-left">
             You know you have valuable things to share.{"\n"}
             You know you can impact lives and make a difference.{"\n"}
             But you can't seem to get across the magic you know you can offer the world.{"\n"}
