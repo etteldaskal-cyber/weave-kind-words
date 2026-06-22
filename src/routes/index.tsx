@@ -662,17 +662,15 @@ function Contact() {
   return (
     <section id="contact" className="bg-background">
       <div className="mx-auto max-w-[680px] px-6 py-28 text-center md:py-36">
-        <div className="flex justify-center">
-          <img
-            src={envelope.url}
-            alt=""
-            aria-hidden
-            className="select-none illustration"
-            style={{ maxWidth: "320px", display: "block", margin: "0 auto 2rem", objectFit: "contain" }}
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
+        <img
+          src={envelopeTransparent.url}
+          alt=""
+          aria-hidden
+          className="select-none"
+          style={{ width: "300px", height: "auto", display: "block", margin: "0 auto 2rem", mixBlendMode: "multiply" }}
+          loading="lazy"
+          decoding="async"
+        />
         <h2 className="mt-6 font-serif text-4xl leading-tight text-foreground md:text-5xl">
           Let's talk.
         </h2>
