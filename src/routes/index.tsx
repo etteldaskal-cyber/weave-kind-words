@@ -72,7 +72,7 @@ function PlantsDivider() {
         src={plants.url}
         alt=""
         aria-hidden
-        className="h-24 w-auto select-none object-contain mix-blend-multiply md:h-32"
+        className="h-24 w-auto select-none object-contain illustration md:h-32"
         loading="lazy"
         decoding="async"
       />
@@ -134,7 +134,7 @@ function Hero() {
 function Pain() {
   return (
     <section className="border-b border-border">
-      <div className="mx-auto max-w-xl px-6">
+      <div className="mx-auto max-w-[680px] px-6">
         <h2 className="font-serif leading-tight text-foreground text-center">
           You don't have time to chase after your audience.
         </h2>
@@ -177,7 +177,7 @@ function Dream() {
         loading="lazy"
         decoding="async"
       />
-      <div className="relative mx-auto max-w-xl px-6">
+      <div className="relative mx-auto max-w-[680px] px-6">
         <h2 className="font-serif leading-tight text-foreground text-center">
           What if they came after you?
         </h2>
@@ -304,7 +304,7 @@ function About() {
           I'm here to help you help them.
         </p>
 
-        <div className="mt-14 space-y-6 text-foreground/85 max-w-2xl mx-auto">
+        <div className="mt-14 space-y-6 text-foreground/85 max-w-[680px] mx-auto">
           <p>
             My people-connecting skills, background in psychology, and love of words combine to
             help you reach your audience with empathy, warmth, and wit — so that you can focus on
@@ -426,7 +426,7 @@ function Services() {
   return (
     <section id="services" className="border-b border-border bg-[var(--cream)]">
       <div className="max-w-6xl px-6 py-32 md:py-40">
-        <div className="max-w-2xl">
+        <div className="max-w-[680px]">
           <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
             Let me help you help them.
           </h2>
@@ -548,7 +548,7 @@ function Process() {
   return (
     <section id="process" className="border-b border-border">
       <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-[680px] text-center">
           <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
             How it works.
           </h2>
@@ -568,7 +568,7 @@ function Process() {
                   src={art}
                   alt=""
                   aria-hidden
-                  className="mx-auto mt-4 h-28 w-auto select-none object-contain mix-blend-multiply"
+                  className="mx-auto mt-4 h-28 w-auto select-none object-contain illustration"
                   loading="lazy"
                   decoding="async"
                 />
@@ -613,7 +613,7 @@ function Values() {
   return (
     <section className="border-b border-border bg-foreground text-background">
       <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-[680px] text-center">
           <h2 className="font-serif text-4xl leading-tight md:text-5xl">
             Get your happily-ever-after.
           </h2>
@@ -648,7 +648,7 @@ function TestimonialsTwo() {
 function GentleNudge() {
   return (
     <section className="border-b border-border bg-[var(--cream)]">
-      <div className="mx-auto max-w-xl px-6 py-28 text-center md:py-36">
+      <div className="mx-auto max-w-[680px] px-6 py-28 text-center md:py-36">
         <p className="font-serif text-2xl italic leading-loose text-foreground/85 md:text-3xl">
           The people who need you are out there looking for you right now. Make it easy for them
           to find you.
@@ -665,7 +665,7 @@ function GentleNudge() {
 function Contact() {
   return (
     <section id="contact" className="bg-background">
-      <div className="mx-auto max-w-xl px-6 py-28 text-center md:py-36">
+      <div className="mx-auto max-w-[680px] px-6 py-28 text-center md:py-36">
         <div className="flex justify-center">
           <img
             src={envelope.url}

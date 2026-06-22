@@ -108,7 +108,8 @@
   p {
     font-size: 17px;
     line-height: 1.8;
-    margin-bottom: 1.5rem;
+    max-width: 680px;
+    margin: 0 auto 1.5rem;
   }
   @media (max-width: 768px) {
     body, p { font-size: 16px; }
