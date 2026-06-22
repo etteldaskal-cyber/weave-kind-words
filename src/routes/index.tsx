@@ -136,7 +136,7 @@ function Hero() {
 function Pain() {
   return (
     <section className="border-b border-border">
-      <div className="max-w-xl px-6 py-32 md:py-40">
+      <div className="mx-auto max-w-xl px-6 py-32 md:py-40">
         <h2 className="font-serif text-[2rem] leading-tight text-foreground md:text-4xl text-center">
           You don't have time to chase after your audience.
         </h2>
