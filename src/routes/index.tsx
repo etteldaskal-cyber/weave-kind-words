@@ -309,7 +309,7 @@ function WhoIWorkWith() {
           Are you a…
         </h2>
 
-        <div className="mt-14 grid gap-14 md:grid-cols-2">
+        <div className="mt-16 grid gap-16 md:grid-cols-2">
           <ul className="space-y-8">
             {CLIENT_TYPES.map(({ icon: Icon, label, body }) => (
               <li key={label} className="flex gap-4">
@@ -381,7 +381,7 @@ function Services() {
           </h2>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-16 grid gap-8 md:grid-cols-3">
           {SERVICES.map(({ art, title, body, aka, category }) => (
             <article
               key={title}
@@ -499,7 +499,7 @@ function Process() {
           </h2>
         </div>
 
-        <ol className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
+        <ol className="mt-16 grid gap-12 md:grid-cols-3 md:gap-10">
           {STEPS.map(({ n, icon: Icon, title, body }) => (
             <li key={n} className="relative text-center">
               <span
@@ -556,7 +556,7 @@ function Values() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-8 md:grid-cols-3">
+        <div className="mt-16 grid gap-10 md:grid-cols-3">
           {VALUES.map((v) => (
             <div key={v.title} className="border-t border-background/20 pt-6">
               <h3 className="font-serif text-2xl text-background">{v.title}</h3>
