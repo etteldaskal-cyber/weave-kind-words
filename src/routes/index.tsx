@@ -437,7 +437,7 @@ const TESTIMONIALS_ONE = [
 function TestimonialsOne() {
   return (
     <section className="border-b border-border bg-[var(--cream)]">
-      <div className="mx-auto max-w-6xl px-6 py-28 md:py-36">
+      <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
         <div className="mt-2 grid gap-10 md:grid-cols-3 md:gap-8">
           {TESTIMONIALS_ONE.map((t, i) => (
             <figure key={i} className="relative rounded-2xl border border-border bg-background p-8 md:p-10">
@@ -493,7 +493,7 @@ const STEPS = [
 function Process() {
   return (
     <section id="process" className="border-b border-border">
-      <div className="mx-auto max-w-6xl px-6 py-28 md:py-36">
+      <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
             How it works.
@@ -547,7 +547,7 @@ const VALUES = [
 function Values() {
   return (
     <section className="border-b border-border bg-foreground text-background">
-      <div className="mx-auto max-w-6xl px-6 py-28 md:py-36">
+      <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-serif text-4xl leading-tight md:text-5xl">
             Get your happily-ever-after.
@@ -580,7 +580,7 @@ function TestimonialsTwo() {
 function GentleNudge() {
   return (
     <section className="border-b border-border bg-[var(--cream)]">
-      <div className="mx-auto max-w-2xl px-6 py-24 text-center md:py-32">
+      <div className="mx-auto max-w-xl px-6 py-28 text-center md:py-36">
         <p className="font-serif text-2xl italic leading-relaxed text-foreground/85 md:text-3xl">
           The people who need you are out there looking for you right now. Make it easy for them
           to find you.
@@ -597,7 +597,7 @@ function GentleNudge() {
 function Contact() {
   return (
     <section id="contact" className="bg-background">
-      <div className="mx-auto max-w-xl px-6 py-24 text-center md:py-32">
+      <div className="mx-auto max-w-xl px-6 py-28 text-center md:py-36">
         <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
           Let's talk.
         </h2>
