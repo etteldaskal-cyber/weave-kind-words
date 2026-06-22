@@ -625,8 +625,7 @@ function GentleNudge() {
     <section className="border-b border-border bg-[var(--cream)]">
       <div className="mx-auto max-w-[680px] px-6 py-28 text-center md:py-36">
         <p className="font-serif text-2xl italic leading-loose text-foreground/85 md:text-3xl">
-          The people who need you are out there looking for you right now. Make it easy for them
-          to find you.
+          Make it easy for the people you serve to find you.
         </p>
         <div className="mt-10">
           <a href="#contact" className="btn-gold">Get In Touch</a>
