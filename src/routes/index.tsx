@@ -184,9 +184,9 @@ function Dream() {
         </h2>
         <div className="mt-14 space-y-10 text-lg leading-loose text-foreground/85">
           <p className="whitespace-pre-line">
-            What if your ideal audience found you on their own?&nbsp;{"\n"}
-            What if the people you most want to reach came to you for the opportunity to have a part in the beautiful world you are building?{"\n"}
-            What if your website did the talking — so that when people reached out, they were already sold on what you offer the world?&nbsp;{"\n"}
+            What if your ideal audience found you on their own?&nbsp;{"\n\n"}
+            What if the people you most want to reach came to you for the opportunity to have a part in the beautiful world you are building?{"\n\n"}
+            What if your website did the talking — so that when people reached out, they were already sold on what you offer the world?&nbsp;{"\n\n"}
             What if you never had to feel like a desperate car salesman instead of the changemaker that you are?
           </p>
           <p className="whitespace-pre-line">
