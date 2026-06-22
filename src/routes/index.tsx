@@ -251,7 +251,7 @@ function About() {
                 alt=""
                 aria-hidden
                 className="illustration"
-                style={{ maxWidth: "260px", float: "left", margin: "0 1.5rem 1rem 0", objectFit: "contain" }}
+                style={{ width: "200px", float: "right", margin: "0 0 1rem 1.5rem", mixBlendMode: "multiply" }}
                 loading="lazy"
                 decoding="async"
               />
@@ -275,7 +275,7 @@ function About() {
                 alt=""
                 aria-hidden
                 className="illustration"
-                style={{ maxWidth: "240px", float: "right", margin: "0 0 1rem 1.5rem", objectFit: "contain" }}
+                style={{ width: "180px", float: "left", margin: "0 1.5rem 1rem 0", mixBlendMode: "multiply" }}
                 loading="lazy"
                 decoding="async"
               />
