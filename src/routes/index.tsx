@@ -194,8 +194,7 @@ function Dream() {
               You need a hard-working partner.
             </span>
             {"\n"}
-            Someone to uncover the magic that is already there and write your story so that your audience gets it.{"\n\n"}
-            Let the words do the hard work — you go move mountains. (Or take a nap. I firmly believe in siestas.)
+            Someone to uncover the magic that is already there and write your story so that your audience gets it.{"\n"}
           </p>
         </div>
         <div className="mt-14 text-center">
