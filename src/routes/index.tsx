@@ -92,7 +92,7 @@ function Hero() {
           backgroundImage: `url(${heroBackground.url})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: 0.15,
+          opacity: 0.25,
           maskImage: "radial-gradient(ellipse at center, black 40%, transparent 85%)",
           WebkitMaskImage: "radial-gradient(ellipse at center, black 40%, transparent 85%)",
         }}
