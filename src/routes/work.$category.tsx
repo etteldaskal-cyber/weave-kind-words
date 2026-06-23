@@ -170,6 +170,21 @@ function InlineSamples({ cs }: { cs: CaseStudy }) {
           </div>
         )}
 
+        {cs.images && cs.images.length > 0 && (
+          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+            {cs.images.map((img) => (
+              <figure key={img.url} className="bg-background border border-border">
+                <img
+                  src={img.url}
+                  alt={`${cs.title} — ${img.label}`}
+                  className="block w-full h-auto"
+                  loading="lazy"
+                />
+              </figure>
+            ))}
+          </div>
+        )}
+
 
         {otherSamples.length > 0 && (
           <ul className="mt-10 grid gap-px overflow-hidden border border-border bg-border md:grid-cols-2">
