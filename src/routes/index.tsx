@@ -214,9 +214,9 @@ function CurlyArrow({ className = "", flip = false }: { className?: string; flip
 /* ---------------- UP-RIGHT ARROW (to portrait) ---------------- */
 function UpRightArrow({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 160 90" className={className} aria-hidden>
-      <path d="M5 80 Q 50 78, 80 55 T 152 8" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-      <path d="M152 8 L 140 10 M152 8 L 148 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    <svg viewBox="0 0 130 60" className={className} aria-hidden>
+      <path d="M5 50 Q 35 58, 55 38 T 110 15" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M110 15 L 100 17 M110 15 L 106 25" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
     </svg>
   );
 }
@@ -228,23 +228,22 @@ function About() {
       <div className="mx-auto max-w-5xl px-6">
         <p className="eyebrow text-center">EVERY GOOD STORY HAS A HERO. AND EVERY GOOD HERO HAS A GUIDE.</p>
 
-        <div className="mt-8 flex flex-col items-center justify-center gap-8 md:flex-row md:items-center md:gap-6">
-          <h2 className="font-serif leading-tight text-foreground text-center">
-            Hi, I'm Ettel.
-          </h2>
-          <div className="relative hidden md:block" style={{ width: "180px", height: "100px" }}>
-            <UpRightArrow className="absolute inset-0 h-full w-full text-[color:var(--gold)]" />
-            <span className="guide-label absolute left-0 bottom-0 whitespace-nowrap">
-              a.k.a. your guide
-            </span>
-          </div>
+        <div className="mt-8 flex flex-col items-center text-center">
           <div className="portrait-frame shrink-0">
             <img src={ettelPortrait.url} alt="Ettel Daskal" loading="lazy" decoding="async" />
           </div>
+          <div className="mt-6 flex flex-col items-center gap-2 sm:flex-row sm:items-start sm:justify-center sm:gap-3">
+            <h2 className="font-serif leading-tight text-foreground m-0">
+              Hi, I'm Ettel.
+            </h2>
+            <div className="relative" style={{ width: "130px", height: "60px" }}>
+              <UpRightArrow className="absolute inset-0 h-full w-full text-[color:var(--gold)]" />
+              <span className="guide-label absolute right-0 top-0 m-0 whitespace-nowrap">
+                a.k.a. your guide
+              </span>
+            </div>
+          </div>
         </div>
-        <p className="guide-label mt-3 text-center md:hidden">
-          a.k.a. your guide
-        </p>
 
         <div className="mt-14">
           <div className="space-y-6 text-foreground/85">
