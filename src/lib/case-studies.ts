@@ -158,7 +158,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     categorySlug: "copywriting",
     hasCaseStudy: false,
     summary:
-      "A four-piece print ad series for Nugget, charting parenting eras from 1879 to today — and landing on the brand as the modern answer.",
+      "A four-piece print ad series for Nugget, the original play couch for kids.",
     overview:
       "A concept-driven ad series built around a historical through-line: how the cultural idea of childhood — and what 'a good home' looks like — has shifted across generations, with Nugget as the playful, modern resolution.",
     objective:
