@@ -28,6 +28,7 @@ export type CaseStudy = {
   outcome: string;
   samples: { label: string; url: string }[];
   images?: { label: string; url: string }[];
+  lyrics?: { title: string; subtitle?: string; body: string }[];
   layout?: "default" | "book";
 };
 
@@ -150,6 +151,48 @@ export const CASE_STUDIES: CaseStudy[] = [
     outcome:
       "A repeat-commission body of work used across productions, dinners, and conventions — language people remember after the lights come up.",
     samples: [],
+    lyrics: [
+      {
+        title: "כָּתְבֵם עַל לוּחַ לִבֶּךָ",
+        subtitle: "A Tribute to Bnos Bais Yaakov — written for the school's 25th Anniversary Dinner",
+        body: `Etched deep in my heart, Bnos Bais Yaakov
+Are your wisdom and warmth, Bnos Bais Yaakov
+Your lessons and care have built a core strong as steel
+You've opened up my eyes and shown me what's real.
+
+I'm holding on tight
+To all you've taught, to all I've got
+Your imprint lives on and on inside my heart
+Wherever life leads me
+Still, you'll see, I will be
+A student of Bnos Bais Yaakov
+
+כָּתְבֵם עַל לוּחַ לִבֶּךָ
+Forever a תלמידה, Bnos Bais Yaakov
+
+How secure I felt in your halls, in your embrace
+Your strong walls have kept out the winds, and given me a place
+To discover the treasures that are mine, to learn and reflect
+You've held my hand and guided my every step
+You've instilled deep inside a most vibrant Yiddishkeit
+
+I'm holding on tight
+To all you've taught, to all I've got
+Your imprint lives on and on inside my heart
+Wherever life leads me
+Still, you'll see, I will be
+A student of Bnos Bais Yaakov
+
+כָּתְבֵם עַל לוּחַ לִבֶּךָ
+Forever a תלמידה, Bnos Bais Yaakov — what words can I say
+For your gift that just grows every day
+When I raise my children to go in your way
+You'll see that indeed your words are engraved
+Upon my heart, deep in my soul
+Another link in our chain of solid gold
+You're etched in my heart, in my heart Bnos Bais Yaakov!`,
+      },
+    ],
   },
   {
     slug: "nugget-ad-series",
