@@ -40,7 +40,7 @@ export const CATEGORIES: {
     slug: "copywriting",
     title: "Copywriting",
     intro:
-      "Websites, emails, newsletters, donor appeals, campaigns, and ads — connect, motivate, and inspire action with words that work.",
+      "Websites, emails, newsletters, donor appeals, campaigns and ads — connect, motivate, and inspire action with words that work.",
   },
   {
     slug: "organizational-storytelling",
