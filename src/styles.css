@@ -192,9 +192,11 @@
   .about-text::after { content: ""; display: table; clear: both; }
 
   .portrait-frame {
-    width: 220px;
-    height: 220px;
-    border-radius: 9999px;
+    display: block;
+    margin: 0 auto 1.5rem;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
     overflow: hidden;
     border: 6px solid var(--gold, #C8933A);
     box-shadow: 0 0 0 2px rgba(200, 147, 58, 0.25), 0 12px 30px -12px rgba(0,0,0,0.25);

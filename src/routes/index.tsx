@@ -229,14 +229,14 @@ function About() {
         <p className="eyebrow text-center">EVERY GOOD STORY HAS A HERO. AND EVERY GOOD HERO HAS A GUIDE.</p>
 
         <div className="mt-8 flex flex-col items-center text-center">
-          <div className="portrait-frame shrink-0">
+          <div className="portrait-frame">
             <img src={ettelPortrait.url} alt="Ettel Daskal" loading="lazy" decoding="async" />
           </div>
-          <div className="mt-6 flex flex-col items-center gap-2 sm:flex-row sm:items-start sm:justify-center sm:gap-3">
-            <h2 className="font-serif leading-tight text-foreground m-0">
+          <div className="relative mt-6 inline-block">
+            <h2 className="font-serif leading-tight text-foreground m-0 text-center">
               Hi, I'm Ettel.
             </h2>
-            <div className="relative" style={{ width: "130px", height: "60px" }}>
+            <div className="absolute -right-4 -top-4 sm:-right-6 sm:-top-6" style={{ width: "130px", height: "60px" }}>
               <UpRightArrow className="absolute inset-0 h-full w-full text-[color:var(--gold)]" />
               <span className="guide-label absolute right-0 top-0 m-0 whitespace-nowrap">
                 a.k.a. your guide
