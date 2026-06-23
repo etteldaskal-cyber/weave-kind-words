@@ -83,7 +83,7 @@ function PlantsDivider() {
         src={plants.url}
         alt=""
         aria-hidden
-        className="h-96 w-auto select-none object-contain illustration md:h-[32rem]"
+        className="h-48 w-auto select-none object-contain illustration md:h-[16rem]"
         loading="lazy"
         decoding="async"
       />
