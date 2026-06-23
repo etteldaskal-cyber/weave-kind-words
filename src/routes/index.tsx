@@ -490,7 +490,7 @@ function TestimonialsOne() {
               </blockquote>
               <figcaption className="mt-8 text-sm text-foreground">
                 {t.name && <span className="font-semibold">— {t.name}</span>}
-                {t.name && t.title && <span className="text-muted-foreground">, </span>}
+                {t.name && t.title && <span className="text-muted-foreground"> </span>}
                 {!t.name && <span>— </span>}
                 <span className="text-muted-foreground">{t.title}</span>
               </figcaption>
