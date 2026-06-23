@@ -3,6 +3,10 @@ import eretzYisrael from "@/assets/eretz-yisrael.pdf.asset.json";
 import scharVOnesh from "@/assets/schar-v-onesh.pdf.asset.json";
 import newsletterIssue from "@/assets/yyh-newsletter-issue-2.pdf.asset.json";
 import foundingTheFuture from "@/assets/founding-the-future.pdf.asset.json";
+import nuggetAd1 from "@/assets/nugget-ad-1.png.asset.json";
+import nuggetAd2 from "@/assets/nugget-ad-2.png.asset.json";
+import nuggetAd3 from "@/assets/nugget-ad-3.png.asset.json";
+import nuggetAd4 from "@/assets/nugget-ad-4.png.asset.json";
 
 export type CategorySlug =
   | "copywriting"
