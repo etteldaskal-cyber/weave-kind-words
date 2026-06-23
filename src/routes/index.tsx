@@ -15,6 +15,7 @@ import envelopeTransparent from "@/assets/envelope-transparent.png.asset.json";
 
 import hats from "@/assets/magical-hats.png.asset.json";
 import plants from "@/assets/plants-sprouts.png.asset.json";
+import ettelPortrait from "@/assets/ettel-portrait.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
