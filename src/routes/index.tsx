@@ -462,12 +462,12 @@ const TESTIMONIALS_ONE = [
   },
   {
     quote: "An unbelievably gorgeous and moving piece.",
-    name: "Project Manager",
-    title: "Oorah (Jewish Outreach Organization)",
+    name: "Non-Profit Client",
+    title: "",
   },
   {
     quote: "I literally sleep better at night knowing that you are part of our team.",
-    name: "Project Manager",
+    name: "Non-Profit Client",
     title: "Marketing Director, Jewish Outreach Organization",
   },
 ];
