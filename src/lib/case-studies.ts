@@ -35,7 +35,7 @@ export const CATEGORIES: {
     slug: "copywriting",
     title: "Copywriting",
     intro:
-      "Websites, emails, newsletters, donor appeals, campaigns, and social content — connecting, motivating, and inspiring action with words that work wonders.",
+      "Websites, emails, newsletters, donor appeals, campaigns, and social content — connecting, motivating, and inspiring action with words that work.",
   },
   {
     slug: "organizational-storytelling",
@@ -46,7 +46,7 @@ export const CATEGORIES: {
     slug: "educational-content",
     title: "Educational Content",
     intro:
-      "Curriculum, lesson plans, educational series, and children's content — ideas brought to life with writing that's clear, deep, and genuinely engaging.",
+      "Curriculum, lesson plans, educational series, and children's content — spreading ideas with powerful writing that's clear, deep, and wonderous.",
   },
 ];
 
