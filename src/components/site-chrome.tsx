@@ -45,7 +45,7 @@ export function SiteNav() {
           href="/#contact"
           className="btn-gold !py-2 !px-3.5 !text-[0.65rem] uppercase tracking-[0.18em] md:hidden"
         >
-          Book a Call
+          GET IN TOUCH
         </a>
       </div>
     </header>
