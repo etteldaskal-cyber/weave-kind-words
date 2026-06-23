@@ -537,7 +537,7 @@ function Process() {
       <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
         <div className="mx-auto max-w-[680px] text-center">
           <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
-            How it works.
+            How it works
           </h2>
         </div>
 
