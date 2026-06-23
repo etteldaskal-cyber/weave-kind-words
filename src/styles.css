@@ -204,6 +204,38 @@
     padding: 1.5rem;
     border: 1px solid rgba(255,255,255,0.1);
   }
+  .handwritten-note {
+    font-family: 'Caveat', cursive;
+    font-size: 26px;
+    color: #E8B86D;
+    line-height: 1.2;
+    position: absolute;
+    left: -2rem;
+    top: -3.5rem;
+    max-width: 220px;
+    text-align: left;
+    transform: rotate(-3deg);
+  }
+  .note-arrow {
+    position: absolute;
+    left: 0.5rem;
+    top: 2.5rem;
+    width: 180px;
+    height: auto;
+    opacity: 0.9;
+  }
+  @media (max-width: 768px) {
+    .handwritten-note {
+      position: static;
+      max-width: 100%;
+      text-align: center;
+      margin-bottom: 1rem;
+      transform: rotate(0deg);
+    }
+    .note-arrow {
+      display: none;
+    }
+  }
 }
 
 @utility illustration {

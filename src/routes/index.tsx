@@ -591,7 +591,30 @@ function Values() {
   return (
     <section className="border-b border-border" style={{ backgroundColor: "#2C2218" }}>
       <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
-        <div className="mx-auto max-w-[680px] text-center">
+        <div className="relative mx-auto max-w-[680px] text-center">
+          <p className="handwritten-note">
+            If these values are your values too, then I know we can work magic together
+          </p>
+          <svg
+            className="note-arrow"
+            viewBox="0 0 220 120"
+            aria-hidden
+          >
+            <path
+              d="M180 110 C 140 110, 110 90, 90 60 S 60 20, 30 25"
+              fill="none"
+              stroke="#E8B86D"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+            <path
+              d="M30 25 L 42 20 M30 25 L 38 35"
+              fill="none"
+              stroke="#E8B86D"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          </svg>
           <h2 className="font-serif text-4xl leading-tight md:text-5xl" style={{ color: "#FAF7F0" }}>
             Are we on the same page?
           </h2>
