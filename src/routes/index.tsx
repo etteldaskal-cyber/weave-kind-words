@@ -289,7 +289,7 @@ function About() {
                 alt=""
                 aria-hidden
                 className="illustration"
-                style={{ width: "180px", float: "left", margin: "0 1.5rem 1rem 0", mixBlendMode: "multiply" }}
+                style={{ width: "270px", float: "left", margin: "0 1.5rem 1rem 0", mixBlendMode: "multiply" }}
                 loading="lazy"
                 decoding="async"
               />
