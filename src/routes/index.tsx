@@ -488,7 +488,7 @@ function Services() {
 const TESTIMONIALS_ONE = [
   {
     quote: "An unbelievably gorgeous and moving piece.",
-    name: "Non-Profit Client",
+    name: "Project Manager",
     title: "",
   },
   {
@@ -499,8 +499,8 @@ const TESTIMONIALS_ONE = [
   },
   {
     quote: "I literally sleep better at night knowing that you are part of our team.",
-    name: "Non-Profit Client",
-    title: "Marketing Director, Jewish Outreach Organization",
+    name: "Project Manager",
+    title: "Jewish Outreach Organization",
   },
 ];
 
