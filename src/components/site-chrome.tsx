@@ -5,7 +5,7 @@ const NAV = [
   { href: "/#who", label: "Who I Help" },
   { href: "/#services", label: "Services" },
   { href: "/#process", label: "Process" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/#contact", label: "Portfolio" },
 ];
 
 export function SiteNav() {
@@ -63,7 +63,7 @@ export function SiteFooter() {
             <li><a href="/#about" className="text-background/85 hover:text-background">About</a></li>
             <li><a href="/#services" className="text-background/85 hover:text-background">Services</a></li>
             <li><Link to="/work/$category" params={{ category: "copywriting" }} className="text-background/85 hover:text-background">Work</Link></li>
-            <li><a href="/#contact" className="text-background/85 hover:text-background">Contact</a></li>
+            <li><a href="/#contact" className="text-background/85 hover:text-background">Portfolio</a></li>
           </ul>
         </div>
         <div className="text-sm">
