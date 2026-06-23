@@ -525,7 +525,7 @@ const STEPS = [
     n: "03",
     icon: null,
     art: null as string | null,
-    title: "The Words Come",
+    title: "Get Your Happily-Ever-After",
     body: "I write. You review. We refine until every word is exactly right.",
   },
 ];
@@ -593,7 +593,7 @@ function Values() {
       <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
         <div className="mx-auto max-w-[680px] text-center">
           <h2 className="font-serif text-4xl leading-tight md:text-5xl" style={{ color: "#FAF7F0" }}>
-            Get your happily-ever-after.
+            Are we on the same page?
           </h2>
           <p className="mt-8 font-serif text-2xl italic leading-snug text-[color:var(--amber)]">
             {"\n"}
