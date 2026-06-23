@@ -455,15 +455,15 @@ function Services() {
 /* ---------------- SECTION 7 — TESTIMONIALS (first) ---------------- */
 const TESTIMONIALS_ONE = [
   {
+    quote: "An unbelievably gorgeous and moving piece.",
+    name: "Non-Profit Client",
+    title: "",
+  },
+  {
     quote:
       "Thank you so much for writing this beautiful song. It expressed everything that I envisioned and, it seems, did the job it was intended to do. So many compliments were said about the words and about the chosen track!",
     name: "Convention organizer",
     title: "representing 65+ schools",
-  },
-  {
-    quote: "An unbelievably gorgeous and moving piece.",
-    name: "Non-Profit Client",
-    title: "",
   },
   {
     quote: "I literally sleep better at night knowing that you are part of our team.",
