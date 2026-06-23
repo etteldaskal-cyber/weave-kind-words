@@ -517,14 +517,14 @@ const STEPS = [
   },
   {
     n: "02",
-    icon: null,
+    icon: BookOpen,
     art: null,
     title: "I Dig In",
     body: "I find the story underneath your work — the magic that was always there. I research until I know what keeps your audience up at night and what makes them laugh out loud.",
   },
   {
     n: "03",
-    icon: null,
+    icon: Heart,
     art: null as string | null,
     title: "Get Your Happily-Ever-After",
     body: "I write. You review. We refine until every word is exactly right.",
