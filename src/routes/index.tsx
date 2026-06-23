@@ -583,7 +583,7 @@ const VALUES = [
   },
   {
     title: "Brains before bots",
-    body: "Every word chosen by a human who genuinely cares about your mission. AI can be useful — but it can never replace a real mind and heart.",
+    body: "Every word chosen by a human who genuinely cares about your mission. AI is useful — but it can never replace a real mind and heart.",
   },
 ];
 
