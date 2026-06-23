@@ -1,28 +1,26 @@
 ## Goal
-Make body paragraphs easier to read by narrowing their line lengths and adding more vertical breathing room throughout the page.
+Replace the small "golden-idea" illustration (currently floating next to "You need a hard-working partner." in the Dream section) with the new uploaded storybook image, rendered as a faint, centered background — mirroring the Hero section's background treatment.
 
 ## Changes
 
-### 1. Narrower text columns
-Reduce the max-width of long-form text blocks so each line wraps at roughly 60–70 characters (optimal reading width):
-- **Pain, Dream, Services intro**: `max-w-2xl` → `max-w-xl`
-- **About section**: `max-w-3xl` → `max-w-2xl`
-- **Hero paragraph**: already `max-w-xl`, leave as-is
-- **Who I Work With / sticky card**: keep `max-w-6xl` container but tighten body copy width inside cards/lists where applicable
+### 1. Upload the new image as a Lovable Asset
+- Source: `user-uploads://A_magical_storybook_open_..._sof-remov.png`
+- Create `src/assets/storybook-spread.png.asset.json` via `lovable-assets create`.
 
-### 2. More paragraph spacing
-- Increase paragraph cluster gaps from `space-y-8` → `space-y-10` or `space-y-12`
-- Add extra margin before/after key standalone lines (taglines, pull-quotes)
+### 2. `src/routes/index.tsx` — Dream section
+- Import the new asset (`storybookSpread`) and remove the `goldenIdea` import.
+- Replace the inline `<img>` (currently absolutely positioned to the right of the "partner" line) with a faint background layer on the Dream `<section>`, matching the Hero treatment exactly:
+  - `absolute inset-0 z-0`
+  - `backgroundImage: url(storybookSpread.url)`
+  - `backgroundSize: "cover"`, `backgroundPosition: "center"`
+  - `opacity: 0.25`
+  - radial mask: `radial-gradient(ellipse at center, black 40%, transparent 85%)`
+- Wrap the existing inner content so it stays above (`relative z-10`).
+- Remove the now-unused `relative` wrapper around the partner line (revert it to a plain block) since the floating image is gone.
 
-### 3. More section spacing
-- Increase vertical section padding from `py-28 md:py-36` → `py-32 md:py-40` (or one step larger on the Tailwind scale)
-- Increase gap between section heading and first paragraph from `mt-12` → `mt-14` or `mt-16`
+### 3. Cleanup
+- Delete the old asset pointer `src/assets/golden-idea.png.asset.json` via `delete_asset` (no longer referenced anywhere — grep confirmed only the Dream section used it).
 
-## Files to modify
-- `src/routes/index.tsx` — adjust container widths, spacing utilities, and section padding classes
-- `src/styles.css` — optionally bump `p { line-height }` slightly if needed after narrowing
-
-## Out of scope
-- Rewriting or shortening paragraph copy
-- Changing fonts, colors, or illustrations
-- Responsive breakpoints (mobile stays proportionally tighter)
+## Notes
+- No layout/copy changes elsewhere; Hero is untouched and used only as the styling reference.
+- The new image becomes purely decorative (`aria-hidden`, empty alt), same as the Hero background.
