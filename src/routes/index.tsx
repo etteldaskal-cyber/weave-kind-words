@@ -279,7 +279,8 @@ function About() {
             </p>
             <p>
               I believe that every person has a story and every story has a little bit of magic
-              inside of it. I'm here to help you uncover it. Because people rarely connect to
+              inside of it.&nbsp;<br />
+              I'm here to help you uncover it. Because people rarely connect to
               information — they connect to stories.
             </p>
             <p>
