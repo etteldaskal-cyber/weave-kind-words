@@ -211,6 +211,16 @@ function CurlyArrow({ className = "", flip = false }: { className?: string; flip
   );
 }
 
+/* ---------------- UP-RIGHT ARROW (to portrait) ---------------- */
+function UpRightArrow({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 160 90" className={className} aria-hidden>
+      <path d="M5 80 Q 50 78, 80 55 T 152 8" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M152 8 L 140 10 M152 8 L 148 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 /* ---------------- SECTION 4 — ABOUT ---------------- */
 function About() {
   return (
@@ -218,15 +228,18 @@ function About() {
       <div className="mx-auto max-w-5xl px-6">
         <p className="eyebrow text-center">EVERY GOOD STORY HAS A HERO. AND EVERY GOOD HERO HAS A GUIDE.</p>
 
-        <div className="mt-8 flex items-start justify-center gap-4">
+        <div className="mt-8 flex flex-col items-center justify-center gap-8 md:flex-row md:items-center md:gap-6">
           <h2 className="font-serif leading-tight text-foreground text-center">
             Hi, I'm Ettel.
           </h2>
-          <div className="relative hidden pt-2 md:block">
-            <CurlyArrow className="h-10 w-20 text-[color:var(--gold)]" />
-            <span className="guide-label absolute -right-4 top-12 whitespace-nowrap">
+          <div className="relative hidden md:block" style={{ width: "180px", height: "100px" }}>
+            <UpRightArrow className="absolute inset-0 h-full w-full text-[color:var(--gold)]" />
+            <span className="guide-label absolute left-0 bottom-0 whitespace-nowrap">
               a.k.a. your guide
             </span>
+          </div>
+          <div className="portrait-frame shrink-0">
+            <img src={ettelPortrait.url} alt="Ettel Daskal" loading="lazy" decoding="async" />
           </div>
         </div>
         <p className="guide-label mt-3 text-center md:hidden">
