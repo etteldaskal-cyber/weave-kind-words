@@ -22,11 +22,21 @@ export function SiteNav() {
           </span>
         </Link>
         <nav className="hidden items-center gap-7 text-sm md:flex" aria-label="Primary">
-          {NAV.map((n) => (
-            <a key={n.href} href={n.href} className="text-foreground/80 transition-colors hover:text-foreground">
-              {n.label}
-            </a>
-          ))}
+          {NAV.map((n) =>
+            "to" in n ? (
+              <Link
+                key={n.to}
+                to={n.to}
+                className="text-foreground/80 transition-colors hover:text-foreground"
+              >
+                {n.label}
+              </Link>
+            ) : (
+              <a key={n.href} href={n.href} className="text-foreground/80 transition-colors hover:text-foreground">
+                {n.label}
+              </a>
+            )
+          )}
           <a href="/#contact" className="btn-gold !py-2 !px-4 !text-xs uppercase tracking-[0.18em]">
             Book a Free Call
           </a>
@@ -63,7 +73,7 @@ export function SiteFooter() {
             <li><a href="/#about" className="text-background/85 hover:text-background">About</a></li>
             <li><a href="/#services" className="text-background/85 hover:text-background">Services</a></li>
             <li><Link to="/work/$category" params={{ category: "copywriting" }} className="text-background/85 hover:text-background">Work</Link></li>
-            <li><a href="/#contact" className="text-background/85 hover:text-background">Portfolio</a></li>
+            <li><Link to="/portfolio" className="text-background/85 hover:text-background">Portfolio</Link></li>
           </ul>
         </div>
         <div className="text-sm">
