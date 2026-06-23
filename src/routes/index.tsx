@@ -414,9 +414,9 @@ function Services() {
       <div className="max-w-6xl px-6 py-32 md:py-40">
         <div className="max-w-[680px]">
           <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
-            What's your story?
+            What's your story
           </h2>
-          <p className="handwritten-subtitle">and how can I help you</p>
+          <p className="handwritten-subtitle">and how can I help you?</p>
         </div>
 
         <div className="mt-16 grid gap-8 md:grid-cols-3">
