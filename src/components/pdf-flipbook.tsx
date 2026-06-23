@@ -47,8 +47,9 @@ export function PdfFlipbook({ url, title }: Props) {
 
   const totalViews = useMemo(() => {
     if (numPages <= 1) return 1;
-    return 1 + Math.ceil((numPages - 1) / 2);
+    return numPages; // cover + one page per subsequent view
   }, [numPages]);
+
 
   const goNext = () => setView((v) => Math.min(v + 1, totalViews - 1));
   const goPrev = () => setView((v) => Math.max(v - 1, 0));
@@ -86,35 +87,21 @@ export function PdfFlipbook({ url, title }: Props) {
     else goPrev();
   };
 
-  // Width of a single rendered PDF page.
-  // For rotated spreads: each rotated page occupies half the container width;
-  // rotation swaps width/height, so we set the pre-rotation Page width to that
-  // half-cell's HEIGHT. PDF pages are 612x792 (portrait 3:4), so a half-cell
-  // of width W has height W * (612/792) after rotation, meaning we render the
-  // page at width = W * (612/792)... actually simpler: render at a fixed
-  // pre-rotation width and let the rotated dimensions land naturally inside
-  // the half-cell using CSS transform.
   const coverWidth = useMemo(
     () => Math.min(Math.floor(containerWidth * 0.6), 560),
     [containerWidth],
   );
-  // For rotated pages: pick a pre-rotation width so the rotated HEIGHT (== its
-  // pre-rotation width) fits the half-cell width, and the rotated WIDTH
-  // (== pre-rotation height) fits a reasonable spread height.
-  const spreadPageWidth = useMemo(() => {
-    const half = (containerWidth - 0) / 2;
-    return Math.max(120, Math.floor(half));
-  }, [containerWidth]);
+  // Pre-rotation page width chosen so that, after rotating 90°, the rendered
+  // landscape page fits the container width. PDF pages are 612x792 portrait,
+  // so rotated width = preWidth * (792/612). Solve for preWidth = container * 612/792.
+  const rotatedPreWidth = useMemo(
+    () => Math.max(160, Math.floor(containerWidth * (612 / 792))),
+    [containerWidth],
+  );
+  const rotatedBoxHeight = rotatedPreWidth; // after rotation, visible height = pre-rotation width
+  const rotatedBoxWidth = Math.floor(rotatedPreWidth * (792 / 612));
 
-  const { leftPage, rightPage } = useMemo(() => {
-    if (view === 0) return { leftPage: null as number | null, rightPage: null as number | null };
-    const left = 2 * view; // view 1 → 2, view 2 → 4, ...
-    const right = left + 1;
-    return {
-      leftPage: left <= numPages ? left : null,
-      rightPage: right <= numPages ? right : null,
-    };
-  }, [view, numPages]);
+  const currentPage = view === 0 ? 1 : view + 1; // view 1 → page 2, view 2 → page 3, ...
 
   return (
     <div className="flex flex-col items-center">
@@ -158,43 +145,35 @@ export function PdfFlipbook({ url, title }: Props) {
                 </button>
               </div>
             ) : (
-              <div
-                className="mx-auto grid bg-ink/10 p-1 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.35)]"
-                style={{ gridTemplateColumns: "1fr 1fr", gap: 0 }}
-              >
-                {[leftPage, rightPage].map((pn, i) => (
+              <div className="mx-auto flex justify-center bg-ink/10 p-1 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.35)]">
+                <button
+                  type="button"
+                  onClick={goNext}
+                  aria-label="Next page"
+                  className="relative block bg-white shadow-md transition-shadow hover:shadow-lg overflow-hidden"
+                  style={{ width: rotatedBoxWidth, height: rotatedBoxHeight }}
+                >
                   <div
-                    key={i}
-                    className="flex items-center justify-center overflow-hidden bg-white"
                     style={{
-                      // Rotated 90° → rendered height becomes the page's pre-rotation
-                      // width. Reserve a square cell so the rotated landscape fits.
-                      aspectRatio: "1 / 1",
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%) rotate(90deg)",
+                      transformOrigin: "center center",
                     }}
-                    onClick={i === 0 ? goPrev : goNext}
-                    role="button"
-                    aria-label={i === 0 ? "Previous spread" : "Next spread"}
                   >
-                    {pn ? (
-                      <div
-                        style={{
-                          transform: "rotate(90deg)",
-                          transformOrigin: "center center",
-                        }}
-                      >
-                        <Page
-                          pageNumber={pn}
-                          width={spreadPageWidth}
-                          renderAnnotationLayer={false}
-                          renderTextLayer={false}
-                        />
-                      </div>
-                    ) : null}
+                    <Page
+                      pageNumber={currentPage}
+                      width={rotatedPreWidth}
+                      renderAnnotationLayer={false}
+                      renderTextLayer={false}
+                    />
                   </div>
-                ))}
+                </button>
               </div>
             )}
           </Document>
+
         ) : (
           <div className="flex h-[520px] items-center justify-center text-sm text-muted-foreground">
             Loading book…
@@ -216,8 +195,9 @@ export function PdfFlipbook({ url, title }: Props) {
             ? "—"
             : view === 0
               ? `Cover · ${numPages} pages`
-              : `Pages ${leftPage}${rightPage ? `–${rightPage}` : ""} of ${numPages}`}
+              : `Page ${currentPage} of ${numPages}`}
         </span>
+
         <button
           type="button"
           onClick={goNext}
