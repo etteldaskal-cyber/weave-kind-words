@@ -389,7 +389,7 @@ const SERVICES = [
     art: quill.url,
     title: "Copywriting",
     body: "Websites, emails, newsletters, donor appeals, campaigns, social content — and whatever else your mission needs.",
-    aka: "a.k.a. connecting, motivating, and inspiring action with words that work wonders.",
+    aka: "a.k.a. connecting, motivating, and inspiring action with words that work.",
     category: "copywriting" as const,
   },
   {
@@ -403,7 +403,7 @@ const SERVICES = [
     art: quill.url,
     title: "Educational Content",
     body: "Curriculum, lesson plans, educational series, children's content.",
-    aka: "a.k.a. bringing ideas to life with writing that's clear, deep, and genuinely engaging.",
+    aka: "a.k.a. spreading ideas with powerful writing that's clear, deep, and wonderous.",
     category: "educational-content" as const,
   },
 ];
