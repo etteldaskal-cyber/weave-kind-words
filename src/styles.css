@@ -160,10 +160,13 @@
   .partner-line {
     font-family: var(--font-serif);
     font-style: italic;
-    font-size: 22px;
+    font-size: 30px;
     display: block;
     margin: 2rem 0 1rem;
-    color: #2C2218;
+    color: var(--gold);
+  }
+  @media (max-width: 768px) {
+    .partner-line { font-size: 24px; }
   }
   .guide-label {
     font-family: 'Caveat', cursive;
