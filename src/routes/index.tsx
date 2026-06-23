@@ -687,7 +687,7 @@ function Contact() {
         </p>
         <div className="mt-8 flex justify-center">
           <a href="mailto:etteldaskal@gmail.com" className="btn-gold">
-            Book a Free Call
+            GET IN TOUCH
           </a>
         </div>
       </div>

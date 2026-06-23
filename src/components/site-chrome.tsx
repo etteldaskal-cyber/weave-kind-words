@@ -38,7 +38,7 @@ export function SiteNav() {
             )
           )}
           <a href="/#contact" className="btn-gold !py-2 !px-4 !text-xs uppercase tracking-[0.18em]">
-            Book a Free Call
+            GET IN TOUCH
           </a>
         </nav>
         <a
