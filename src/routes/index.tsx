@@ -153,6 +153,9 @@ function Pain() {
           <p>And that means you're not accomplishing what you could be.</p>
           <p>You're not reaching the people you should — and it's costing you time, money, and energy.</p>
         </div>
+        <p className="wings-line" style={{ color: "var(--gold)" }}>
+          Your wings are clipped.
+        </p>
         <img
           src={clippedWings.url}
           alt=""
@@ -162,9 +165,6 @@ function Pain() {
           loading="lazy"
           decoding="async"
         />
-        <p className="wings-line">
-          Your wings are clipped.
-        </p>
       </div>
     </section>
   );
