@@ -185,6 +185,34 @@ function InlineSamples({ cs }: { cs: CaseStudy }) {
           </div>
         )}
 
+        {cs.lyrics && cs.lyrics.length > 0 && (
+          <div className="mt-10 space-y-8">
+            {cs.lyrics.map((song) => (
+              <article
+                key={song.title}
+                className="border border-border bg-background p-8 md:p-10"
+              >
+                <h3 className="font-serif text-2xl text-foreground md:text-3xl">
+                  {song.title}
+                </h3>
+                {song.subtitle && (
+                  <p className="mt-2 text-sm italic text-muted-foreground">
+                    {song.subtitle}
+                  </p>
+                )}
+                <pre className="mt-6 whitespace-pre-wrap font-serif text-base leading-loose text-foreground/85">
+                  {song.body}
+                </pre>
+                <p className="mt-6 text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                  Recording available upon request.
+                </p>
+              </article>
+            ))}
+          </div>
+        )}
+
+
+
 
         {otherSamples.length > 0 && (
           <ul className="mt-10 grid gap-px overflow-hidden border border-border bg-border md:grid-cols-2">
