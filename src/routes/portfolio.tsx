@@ -6,9 +6,9 @@ import { CASE_STUDIES, type CaseStudy } from "@/lib/case-studies";
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
-      { title: "Portfolio — Ettel Daskal" },
+      { title: "Selected Work — Ettel Daskal" },
       { name: "description", content: "Selected writing samples by Ettel Daskal." },
-      { property: "og:title", content: "Portfolio — Ettel Daskal" },
+      { property: "og:title", content: "Selected Work — Ettel Daskal" },
       { property: "og:description", content: "Selected writing samples by Ettel Daskal." },
       { property: "og:type", content: "website" },
     ],
