@@ -241,6 +241,27 @@ You're etched in my heart, in my heart Bnos Bais Yaakov!`,
       { label: "View the site", url: "/samples/birchwood-gardens.html" },
     ],
   },
+  {
+    slug: "kashani-dental",
+    title: "Kashani Dental Website",
+    category: "Copywriting",
+    categorySlug: "copywriting",
+    hasCaseStudy: false,
+    summary:
+      "A concept website for a Queens dental practice — warm, modern copy paired with a clean clinical design direction.",
+    overview:
+      "A spec website project for a family dental practice in Jamaica, Queens, built as a marketing pitch sample.",
+    objective:
+      "Translate a friendly, trust-first dental brand into a site that feels gentle rather than clinical — without sacrificing professional credibility.",
+    audience: "Local families, anxious adult patients, and parents researching a kid-friendly dentist.",
+    role: "Concept, copy, content architecture, and design direction.",
+    approach:
+      "Lead with feeling — calm, warmth, no pressure. Let the credentials and services land underneath, after the reader already trusts the voice on the page.",
+    outcome: "A polished portfolio sample demonstrating end-to-end site thinking.",
+    samples: [
+      { label: "View the site", url: "/samples/kashani-dental.html" },
+    ],
+  },
 ];
 
 export function getCaseStudy(slug: string) {
