@@ -46,7 +46,7 @@ export const CATEGORIES: {
   {
     slug: "organizational-storytelling",
     title: "Organizational Storytelling",
-    intro: "Donor impact books, event songs, scripts, and campaign content.",
+    intro: "Donor impact books, event lyrics, newsletters, and campaign content.",
   },
   {
     slug: "educational-content",
