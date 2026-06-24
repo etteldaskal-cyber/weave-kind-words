@@ -7,6 +7,7 @@ import nuggetAd1 from "@/assets/nugget-ad-1.png.asset.json";
 import nuggetAd2 from "@/assets/nugget-ad-2.png.asset.json";
 import nuggetAd3 from "@/assets/nugget-ad-3.png.asset.json";
 import nuggetAd4 from "@/assets/nugget-ad-4.png.asset.json";
+import birchwoodSite from "@/assets/birchwood-gardens.html.asset.json";
 
 export type CategorySlug =
   | "copywriting"
@@ -218,6 +219,27 @@ You're etched in my heart, in my heart Bnos Bais Yaakov!`,
       { label: "2017", url: nuggetAd2.url },
       { label: "2023", url: nuggetAd3.url },
       { label: "Nugget", url: nuggetAd4.url },
+    ],
+  },
+  {
+    slug: "birchwood-gardens",
+    title: "Birchwood Gardens Website",
+    category: "Copywriting",
+    categorySlug: "copywriting",
+    hasCaseStudy: false,
+    summary:
+      "A concept website for a nursing and rehabilitation facility — copy, structure, and design direction.",
+    overview:
+      "A spec website project for a fictional Astoria-based skilled nursing and long-term care facility, built as a marketing pitch sample.",
+    objective:
+      "Show how warm, grounded copy and clear structure can make a healthcare site feel like a place worth trusting.",
+    audience: "Adult children researching care for a parent; prospective residents and their families.",
+    role: "Concept, copy, content architecture, and design direction.",
+    approach:
+      "Lead with feeling, not features. Open on what the place is — a home — then earn the clinical credibility underneath. Every section answers a real question a family is already asking.",
+    outcome: "A polished portfolio sample demonstrating end-to-end site thinking.",
+    samples: [
+      { label: "View the site", url: birchwoodSite.url },
     ],
   },
 ];
