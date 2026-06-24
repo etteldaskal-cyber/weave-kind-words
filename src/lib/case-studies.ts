@@ -7,7 +7,6 @@ import nuggetAd1 from "@/assets/nugget-ad-1.png.asset.json";
 import nuggetAd2 from "@/assets/nugget-ad-2.png.asset.json";
 import nuggetAd3 from "@/assets/nugget-ad-3.png.asset.json";
 import nuggetAd4 from "@/assets/nugget-ad-4.png.asset.json";
-import birchwoodSite from "@/assets/birchwood-gardens.html.asset.json";
 
 export type CategorySlug =
   | "copywriting"
