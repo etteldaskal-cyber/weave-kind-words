@@ -90,7 +90,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     categorySlug: "copywriting",
     hasCaseStudy: false,
     summary:
-      "A storytelling-driven newsletter that strengthened parent connection and communicated the emotional impact of school programming.",
+      "A school newsletter that strengthened parent and donor relationships.",
     overview:
       "A recurring publication for a school community designed to feel emotionally meaningful rather than purely informational, while strengthening school-family engagement.",
     objective:
@@ -201,7 +201,7 @@ You're etched in my heart, in my heart Bnos Bais Yaakov!`,
     categorySlug: "copywriting",
     hasCaseStudy: false,
     summary:
-      "A four-piece print ad series for Nugget, the original play couch for kids.",
+      "A concept four-piece print ad series for Nugget, the original play couch for kids.",
     overview:
       "A concept-driven ad series built around a historical through-line: how the cultural idea of childhood — and what 'a good home' looks like — has shifted across generations, with Nugget as the playful, modern resolution.",
     objective:
@@ -227,7 +227,7 @@ You're etched in my heart, in my heart Bnos Bais Yaakov!`,
     categorySlug: "copywriting",
     hasCaseStudy: false,
     summary:
-      "A concept website for a nursing and rehabilitation facility — copy, structure, and design direction.",
+      "A concept website for a nursing and rehabilitation facility.",
     overview:
       "A spec website project for a fictional Astoria-based skilled nursing and long-term care facility, built as a marketing pitch sample.",
     objective:
@@ -248,7 +248,7 @@ You're etched in my heart, in my heart Bnos Bais Yaakov!`,
     categorySlug: "copywriting",
     hasCaseStudy: false,
     summary:
-      "A concept website for a Queens dental practice — warm, modern copy paired with a clean clinical design direction.",
+      "A concept website for a Queens dental practice.",
     overview:
       "A spec website project for a family dental practice in Jamaica, Queens, built as a marketing pitch sample.",
     objective:
