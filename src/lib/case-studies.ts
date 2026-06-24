@@ -243,7 +243,7 @@ You're etched in my heart, in my heart Bnos Bais Yaakov!`,
   },
   {
     slug: "kashani-dental",
-    title: "Gentle Dental Website",
+    title: "Kashani Dental Website",
     category: "Copywriting",
     categorySlug: "copywriting",
     hasCaseStudy: false,
