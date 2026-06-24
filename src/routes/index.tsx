@@ -149,9 +149,11 @@ function Pain() {
         <div className="mt-14 text-foreground/85 pain-body">
           <p>You know you have valuable things to share.</p>
           <p>You know you can impact lives and make a difference.</p>
-          <p>But you can't seem to get across the magic you know you can offer the world.</p>
-          <p>When it comes to finding the right words to explain what you do and attract your audience — you find a headache you don't have time for.</p>
-          <p>And that means you're not accomplishing what you could be.</p>
+          <p>But you can't seem to get across the magic you know you can offer the world - and that means you're not accomplishing what you could be.</p>
+          <p>
+</p>
+          <p>
+</p>
           <p>You're not reaching the people you should — and it's costing you time, money, and energy.</p>
         </div>
         <p className="wings-line" style={{ color: "var(--gold)" }}>
