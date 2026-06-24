@@ -238,7 +238,7 @@ You're etched in my heart, in my heart Bnos Bais Yaakov!`,
       "Lead with feeling, not features. Open on what the place is — a home — then earn the clinical credibility underneath. Every section answers a real question a family is already asking.",
     outcome: "A polished portfolio sample demonstrating end-to-end site thinking.",
     samples: [
-      { label: "View the site", url: birchwoodSite.url },
+      { label: "View the site", url: "/samples/birchwood-gardens.html" },
     ],
   },
 ];
