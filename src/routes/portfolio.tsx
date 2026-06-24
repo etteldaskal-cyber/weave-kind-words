@@ -36,8 +36,8 @@ function PortfolioPage() {
             <section key={category.slug} className="border-b border-border">
               <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
                 <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
-                    {category.title}
-                  </h2>
+                  {category.title}
+                </h2>
 
                 <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                   {items.map((cs) => (
