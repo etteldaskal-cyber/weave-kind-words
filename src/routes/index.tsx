@@ -208,7 +208,7 @@ function Dream() {
           </div>
           <div className="pt-6 sm:pt-10">
             <p>
-              Someone to uncover the magic that is already there and write your story so that your audience gets it.
+              Someone to uncover the magic that is already there and write so that your audience gets it.
             </p>
           </div>
         </div>
