@@ -7,7 +7,6 @@ import nuggetAd1 from "@/assets/nugget-ad-1.png.asset.json";
 import nuggetAd2 from "@/assets/nugget-ad-2.png.asset.json";
 import nuggetAd3 from "@/assets/nugget-ad-3.png.asset.json";
 import nuggetAd4 from "@/assets/nugget-ad-4.png.asset.json";
-import birchwoodSite from "@/assets/birchwood-gardens.html.asset.json";
 
 export type CategorySlug =
   | "copywriting"
@@ -239,7 +238,7 @@ You're etched in my heart, in my heart Bnos Bais Yaakov!`,
       "Lead with feeling, not features. Open on what the place is — a home — then earn the clinical credibility underneath. Every section answers a real question a family is already asking.",
     outcome: "A polished portfolio sample demonstrating end-to-end site thinking.",
     samples: [
-      { label: "View the site", url: birchwoodSite.url },
+      { label: "View the site", url: "/samples/birchwood-gardens.html" },
     ],
   },
 ];
