@@ -65,14 +65,6 @@ function PortfolioPage() {
     <div className="min-h-screen bg-background text-foreground">
       <SiteNav />
       <main>
-        <section className="rule-top border-b border-border">
-          <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-            <h1 className="max-w-3xl font-serif text-5xl leading-[1.05] text-foreground md:text-7xl">
-              Portfolio
-            </h1>
-          </div>
-        </section>
-
         <section className="border-b border-border">
           <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
