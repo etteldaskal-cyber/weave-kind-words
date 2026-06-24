@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
 import { SiteNav, SiteFooter } from "@/components/site-chrome";
-import { PdfFlipbook } from "@/components/pdf-flipbook";
+import { PdfFlipbook } from "@/components/pdf-flipbook.client";
 import {
   getCategory,
   getCaseStudiesByCategory,
