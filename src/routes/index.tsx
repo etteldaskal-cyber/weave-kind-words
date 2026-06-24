@@ -430,7 +430,7 @@ const SERVICES = [
     art: quill.url,
     title: "Storytelling",
     body: "Donor impact books, newsletters, event songs, campaign content.",
-    aka: "a.k.a. find the story inside your data and bring it to life.",
+    aka: "a.k.a. bring the story inside your data to life.",
     category: "organizational-storytelling" as const,
   },
   {
