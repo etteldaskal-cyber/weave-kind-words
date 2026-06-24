@@ -436,8 +436,8 @@ const SERVICES = [
   {
     art: quill.url,
     title: "Educational Content",
-    body: "a.k.a. spread ideas with clear and engaging writing.",
-    aka: "a.k.a. spread ideas with wonderous writing that's clear and engaging.",
+    body: "Curriculum, lesson plans, educational series.",
+    aka: "a.k.a. spread ideas with clear and engaging writing.",
     category: "educational-content" as const,
   },
 ];
