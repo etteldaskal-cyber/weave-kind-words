@@ -422,8 +422,8 @@ const SERVICES = [
   {
     art: quill.url,
     title: "Copywriting",
-    body: "Websites, emails, donor appeals, campaigns",
-    aka: "a.k.a. connect, motivate, and inspire action with words that work.",
+    body: "Websites, emails, donor appeals, campaigns.",
+    aka: "a.k.a.\u00a0 inspire action with words that work.",
     category: "copywriting" as const,
   },
   {
