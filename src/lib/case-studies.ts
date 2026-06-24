@@ -84,29 +84,6 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
-    slug: "school-newsletter",
-    title: "School Community Newsletter",
-    category: "Copywriting",
-    categorySlug: "copywriting",
-    hasCaseStudy: false,
-    summary:
-      "A school newsletter that strengthened parent and donor relationships.",
-    overview:
-      "A recurring publication for a school community designed to feel emotionally meaningful rather than purely informational, while strengthening school-family engagement.",
-    objective:
-      "Build a parent and donor publication that read like a piece of writing, not a status update — one that gave the school's mission a voice families could feel.",
-    audience: "Parents, donors, and broader school community members.",
-    role:
-      "Wrote and structured all editorial content, shaped messaging tone and narrative flow, and collaborated on presentation and visuals.",
-    approach:
-      "I focused on emotionally resonant, student-centered narratives — language that balanced warmth with professionalism, and reporting with point of view.",
-    outcome:
-      "Although it was never positioned as a fundraising campaign, the newsletter organically generated $10,000 in donations from a single issue and significantly increased community engagement.",
-    samples: [
-      { label: "Newsletter — Sample Issue (PDF)", url: newsletterIssue.url },
-    ],
-  },
-  {
     slug: "donor-gift-book",
     title: "Donor Gift Book",
     category: "Organizational Storytelling",
@@ -221,27 +198,6 @@ You're etched in my heart, in my heart Bnos Bais Yaakov!`,
     ],
   },
   {
-    slug: "birchwood-gardens",
-    title: "Birchwood Gardens Website",
-    category: "Copywriting",
-    categorySlug: "copywriting",
-    hasCaseStudy: false,
-    summary:
-      "A concept website for a nursing and rehabilitation facility.",
-    overview:
-      "A spec website project for a fictional Astoria-based skilled nursing and long-term care facility, built as a marketing pitch sample.",
-    objective:
-      "Show how warm, grounded copy and clear structure can make a healthcare site feel like a place worth trusting.",
-    audience: "Adult children researching care for a parent; prospective residents and their families.",
-    role: "Concept, copy, content architecture, and design direction.",
-    approach:
-      "Lead with feeling, not features. Open on what the place is — a home — then earn the clinical credibility underneath. Every section answers a real question a family is already asking.",
-    outcome: "A polished portfolio sample demonstrating end-to-end site thinking.",
-    samples: [
-      { label: "View the site", url: "/samples/birchwood-gardens.html" },
-    ],
-  },
-  {
     slug: "kashani-dental",
     title: "Kashani Dental Website",
     category: "Copywriting",
@@ -260,6 +216,50 @@ You're etched in my heart, in my heart Bnos Bais Yaakov!`,
     outcome: "A polished portfolio sample demonstrating end-to-end site thinking.",
     samples: [
       { label: "View the site", url: "/samples/kashani-dental.html" },
+    ],
+  },
+  {
+    slug: "school-newsletter",
+    title: "School Community Newsletter",
+    category: "Copywriting",
+    categorySlug: "copywriting",
+    hasCaseStudy: false,
+    summary:
+      "A school newsletter that strengthened parent and donor relationships.",
+    overview:
+      "A recurring publication for a school community designed to feel emotionally meaningful rather than purely informational, while strengthening school-family engagement.",
+    objective:
+      "Build a parent and donor publication that read like a piece of writing, not a status update — one that gave the school's mission a voice families could feel.",
+    audience: "Parents, donors, and broader school community members.",
+    role:
+      "Wrote and structured all editorial content, shaped messaging tone and narrative flow, and collaborated on presentation and visuals.",
+    approach:
+      "I focused on emotionally resonant, student-centered narratives — language that balanced warmth with professionalism, and reporting with point of view.",
+    outcome:
+      "Although it was never positioned as a fundraising campaign, the newsletter organically generated $10,000 in donations from a single issue and significantly increased community engagement.",
+    samples: [
+      { label: "Newsletter — Sample Issue (PDF)", url: newsletterIssue.url },
+    ],
+  },
+  {
+    slug: "birchwood-gardens",
+    title: "Birchwood Gardens Website",
+    category: "Copywriting",
+    categorySlug: "copywriting",
+    hasCaseStudy: false,
+    summary:
+      "A concept website for a nursing and rehabilitation facility.",
+    overview:
+      "A spec website project for a fictional Astoria-based skilled nursing and long-term care facility, built as a marketing pitch sample.",
+    objective:
+      "Show how warm, grounded copy and clear structure can make a healthcare site feel like a place worth trusting.",
+    audience: "Adult children researching care for a parent; prospective residents and their families.",
+    role: "Concept, copy, content architecture, and design direction.",
+    approach:
+      "Lead with feeling, not features. Open on what the place is — a home — then earn the clinical credibility underneath. Every section answers a real question a family is already asking.",
+    outcome: "A polished portfolio sample demonstrating end-to-end site thinking.",
+    samples: [
+      { label: "View the site", url: "/samples/birchwood-gardens.html" },
     ],
   },
 ];
