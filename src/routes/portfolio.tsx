@@ -24,13 +24,9 @@ function PortfolioPage() {
       <main>
         <section className="rule-top border-b border-border">
           <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-            <p className="eyebrow">Portfolio</p>
             <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-[1.05] text-foreground md:text-7xl">
               A few pieces of my work.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-loose text-foreground/80">
-              Samples organized by the kind of writing each one required. If you'd like to see something tailored to what you're working on, get in touch.
-            </p>
           </div>
         </section>
 
