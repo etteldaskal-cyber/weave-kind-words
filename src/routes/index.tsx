@@ -256,9 +256,9 @@ function About() {
             <h2 className="font-serif leading-tight text-foreground m-0 text-center">
               Hi, I'm Ettel.
             </h2>
-            <div className="absolute -right-4 -top-12 sm:-right-10 sm:-top-20" style={{ width: "130px", height: "60px" }}>
+            <div className="pointer-events-none absolute -right-4 bottom-0 sm:-right-8 sm:bottom-1" style={{ width: "170px", height: "90px" }}>
               <UpRightArrow className="absolute inset-0 h-full w-full text-[color:var(--gold)]" />
-              <span className="guide-label absolute right-0 top-0 m-0 whitespace-nowrap">
+              <span className="guide-label absolute right-0 top-0 m-0 -translate-y-1/2 translate-x-1 whitespace-nowrap">
                 a.k.a. your guide
               </span>
             </div>
