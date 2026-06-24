@@ -192,13 +192,13 @@ function Dream() {
       />
       <div className="relative z-10 mx-auto max-w-[680px] px-6">
         <h2 className="font-serif leading-tight text-foreground text-center">
-          What if they came after you?
+          What if your story looked different?
         </h2>
         <div className="mt-14 space-y-6 text-foreground/85">
           <div className="what-if-body">
-            <p className="text-left">What if your ideal audience found you on their own?</p>
-            <p className="text-left">What if the people you most want to reach came to you for the opportunity to have a part in the beautiful world you are building?</p>
-            <p className="text-left">What if your website did the talking — so that when people reached out, they were already sold on what you offer the world?</p>
+            <p className="text-left">What if you had the perfect words to powerfully get your message across?</p>
+            <p className="text-left">What if the people you most want to reach came to you for the opportunity to have a part in what you're building?</p>
+            <p className="text-left">What if your website did the talking — so that when people reached out, you already knew you were a good fit for each other?</p>
             <p className="text-left">What if you never had to feel like a desperate car salesman instead of the changemaker that you are?</p>
           </div>
           <div>
