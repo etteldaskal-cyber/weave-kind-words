@@ -126,9 +126,28 @@ export function PdfFlipbook({ url, title, mode = "spread" }: Props) {
     return Math.floor(halfContainer * aspectRatio);
   }, [orientation, aspectRatio, halfContainer]);
 
-  // view 1 → pages 2 & 3; view 2 → pages 4 & 5; ...
-  const leftPage = view === 0 ? 1 : view * 2;
-  const rightPage = view === 0 ? null : view * 2 + 1;
+  // Spread mode: view 1 → pages 2 & 3; view 2 → pages 4 & 5; ...
+  // Single mode: view N → page N+1.
+  const leftPage =
+    mode === "single" ? view + 1 : view === 0 ? 1 : view * 2;
+  const rightPage =
+    mode === "single" ? null : view === 0 ? null : view * 2 + 1;
+
+  // Sizing for "single" mode: fill container width, rotate portrait to landscape.
+  const singlePreWidth = useMemo(() => {
+    if (!orientation || !aspectRatio) return containerWidth;
+    if (orientation === "landscape") return containerWidth;
+    // rotated portrait: visible width = pre*aspect, so pre = W/aspect
+    return Math.max(140, Math.floor(containerWidth / aspectRatio));
+  }, [orientation, aspectRatio, containerWidth]);
+
+  const singleBoxWidth = containerWidth;
+  const singleBoxHeight = useMemo(() => {
+    if (!orientation || !aspectRatio) return containerWidth;
+    if (orientation === "landscape")
+      return Math.floor(containerWidth * aspectRatio);
+    return Math.floor(containerWidth / aspectRatio);
+  }, [orientation, aspectRatio, containerWidth]);
 
   const renderPage = (pageNumber: number) => (
     <div
@@ -162,6 +181,40 @@ export function PdfFlipbook({ url, title, mode = "spread" }: Props) {
       )}
     </div>
   );
+
+  const renderSinglePage = (pageNumber: number) => (
+    <div
+      className="relative mx-auto block bg-white shadow-md overflow-hidden"
+      style={{ width: singleBoxWidth, height: singleBoxHeight }}
+    >
+      {orientation === "portrait" ? (
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%) rotate(-90deg)",
+            transformOrigin: "center center",
+          }}
+        >
+          <Page
+            pageNumber={pageNumber}
+            width={singlePreWidth}
+            renderAnnotationLayer={false}
+            renderTextLayer={false}
+          />
+        </div>
+      ) : (
+        <Page
+          pageNumber={pageNumber}
+          width={singlePreWidth}
+          renderAnnotationLayer={false}
+          renderTextLayer={false}
+        />
+      )}
+    </div>
+  );
+
 
   const handleDocumentLoad = async (pdf: PDFDocumentProxy) => {
     setNumPages(pdf.numPages);
