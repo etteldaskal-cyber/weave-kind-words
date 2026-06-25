@@ -1,5 +1,6 @@
-import { lazy, Suspense, useEffect, useState } from "react";
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { lazy, Suspense, useState } from "react";
+import { ClientOnly, createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createClientOnlyFn } from "@tanstack/react-start";
 import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
 import { SiteNav, SiteFooter } from "@/components/site-chrome";
 import {
@@ -9,11 +10,13 @@ import {
   type CaseStudy,
 } from "@/lib/case-studies";
 
-const PdfFlipbook = lazy(() =>
+const loadPdfFlipbook = createClientOnlyFn(() =>
   import("@/components/pdf-flipbook.client").then((module) => ({
     default: module.PdfFlipbook,
   })),
 );
+
+const PdfFlipbook = lazy(loadPdfFlipbook);
 
 function PdfFlipbookFallback() {
   return (
@@ -24,18 +27,12 @@ function PdfFlipbookFallback() {
 }
 
 function ClientOnlyPdfFlipbook({ url, title }: { url: string; title?: string }) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return <PdfFlipbookFallback />;
-
   return (
-    <Suspense fallback={<PdfFlipbookFallback />}>
-      <PdfFlipbook url={url} title={title} />
-    </Suspense>
+    <ClientOnly fallback={<PdfFlipbookFallback />}>
+      <Suspense fallback={<PdfFlipbookFallback />}>
+        <PdfFlipbook url={url} title={title} />
+      </Suspense>
+    </ClientOnly>
   );
 }
 
