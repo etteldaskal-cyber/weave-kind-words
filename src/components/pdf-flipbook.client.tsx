@@ -16,9 +16,9 @@ type Props = {
 
 /**
  * Cover (page 1): portrait, no rotation.
- * Pages 2+: each rotated 90° clockwise; two consecutive rotated pages shown
- * side-by-side as a spread. Nav advances one spread (two pages) at a time,
- * except the cover which is shown alone.
+ * Pages 2+: each rotated 90° counter-clockwise; two consecutive rotated pages
+ * shown side-by-side as a spread. Nav advances one spread (two pages) at a
+ * time, except the cover which is shown alone.
  */
 export function PdfFlipbook({ url, title }: Props) {
   const [numPages, setNumPages] = useState(0);
@@ -47,9 +47,9 @@ export function PdfFlipbook({ url, title }: Props) {
 
   const totalViews = useMemo(() => {
     if (numPages <= 1) return 1;
-    return numPages; // cover + one page per subsequent view
+    // view 0 = cover (page 1); remaining pages grouped in pairs
+    return 1 + Math.ceil((numPages - 1) / 2);
   }, [numPages]);
-
 
   const goNext = () => setView((v) => Math.min(v + 1, totalViews - 1));
   const goPrev = () => setView((v) => Math.max(v - 1, 0));
@@ -91,17 +91,44 @@ export function PdfFlipbook({ url, title }: Props) {
     () => Math.min(Math.floor(containerWidth * 0.6), 560),
     [containerWidth],
   );
-  // Pre-rotation page width chosen so that, after rotating 90°, the rendered
-  // landscape page fits the container width. PDF pages are 612x792 portrait,
-  // so rotated width = preWidth * (792/612). Solve for preWidth = container * 612/792.
+  // Two rotated landscape pages side-by-side. After rotating 90°, a portrait
+  // page rendered at preWidth has visible width preWidth*(792/612) and visible
+  // height preWidth. Fit two of those visible widths across the container.
+  const halfContainer = Math.max(200, Math.floor((containerWidth - 16) / 2));
   const rotatedPreWidth = useMemo(
-    () => Math.max(160, Math.floor(containerWidth * (612 / 792))),
-    [containerWidth],
+    () => Math.max(140, Math.floor(halfContainer * (612 / 792))),
+    [halfContainer],
   );
-  const rotatedBoxHeight = rotatedPreWidth; // after rotation, visible height = pre-rotation width
+  const rotatedBoxHeight = rotatedPreWidth;
   const rotatedBoxWidth = Math.floor(rotatedPreWidth * (792 / 612));
 
-  const currentPage = view === 0 ? 1 : view + 1; // view 1 → page 2, view 2 → page 3, ...
+  // view 1 → pages 2 & 3; view 2 → pages 4 & 5; ...
+  const leftPage = view === 0 ? 1 : view * 2;
+  const rightPage = view === 0 ? null : view * 2 + 1;
+
+  const renderRotatedPage = (pageNumber: number) => (
+    <div
+      className="relative block bg-white shadow-md overflow-hidden"
+      style={{ width: rotatedBoxWidth, height: rotatedBoxHeight }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%) rotate(-90deg)",
+          transformOrigin: "center center",
+        }}
+      >
+        <Page
+          pageNumber={pageNumber}
+          width={rotatedPreWidth}
+          renderAnnotationLayer={false}
+          renderTextLayer={false}
+        />
+      </div>
+    </div>
+  );
 
   return (
     <div className="flex flex-col items-center">
@@ -145,35 +172,21 @@ export function PdfFlipbook({ url, title }: Props) {
                 </button>
               </div>
             ) : (
-              <div className="mx-auto flex justify-center bg-ink/10 p-1 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.35)]">
-                <button
-                  type="button"
-                  onClick={goNext}
-                  aria-label="Next page"
-                  className="relative block bg-white shadow-md transition-shadow hover:shadow-lg overflow-hidden"
-                  style={{ width: rotatedBoxWidth, height: rotatedBoxHeight }}
-                >
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "50%",
-                      left: "50%",
-                      transform: "translate(-50%, -50%) rotate(90deg)",
-                      transformOrigin: "center center",
-                    }}
-                  >
-                    <Page
-                      pageNumber={currentPage}
-                      width={rotatedPreWidth}
-                      renderAnnotationLayer={false}
-                      renderTextLayer={false}
-                    />
-                  </div>
-                </button>
-              </div>
+              <button
+                type="button"
+                onClick={goNext}
+                aria-label="Next spread"
+                className="mx-auto flex justify-center gap-2 bg-ink/10 p-1 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.35)]"
+              >
+                {renderRotatedPage(leftPage)}
+                {rightPage && rightPage <= numPages ? (
+                  renderRotatedPage(rightPage)
+                ) : (
+                  <div style={{ width: rotatedBoxWidth, height: rotatedBoxHeight }} />
+                )}
+              </button>
             )}
           </Document>
-
         ) : (
           <div className="flex h-[520px] items-center justify-center text-sm text-muted-foreground">
             Loading book…
@@ -195,7 +208,9 @@ export function PdfFlipbook({ url, title }: Props) {
             ? "—"
             : view === 0
               ? `Cover · ${numPages} pages`
-              : `Page ${currentPage} of ${numPages}`}
+              : rightPage && rightPage <= numPages
+                ? `Pages ${leftPage}–${rightPage} of ${numPages}`
+                : `Page ${leftPage} of ${numPages}`}
         </span>
 
         <button
@@ -210,3 +225,4 @@ export function PdfFlipbook({ url, title }: Props) {
     </div>
   );
 }
+
