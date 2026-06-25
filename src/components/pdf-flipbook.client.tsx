@@ -13,15 +13,17 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 type Props = {
   url: string;
   title?: string;
+  /** "spread" (default): cover then 2-up spreads. "single": cover then one page at a time. */
+  mode?: "spread" | "single";
 };
 
 /**
  * Cover (page 1): shown alone in its natural orientation.
- * Pages 2+: shown two at a time as a spread. Portrait PDFs are rotated 90°
- * counter-clockwise so the spread reads as landscape; landscape PDFs are kept
- * as-is. Nav advances one spread (two pages) at a time.
+ * In "spread" mode, pages 2+ are shown two at a time (portrait pages rotated
+ * -90°). In "single" mode, pages 2+ are shown one at a time, rotated to
+ * landscape if the source is portrait.
  */
-export function PdfFlipbook({ url, title }: Props) {
+export function PdfFlipbook({ url, title, mode = "spread" }: Props) {
   const [numPages, setNumPages] = useState(0);
   const [orientation, setOrientation] = useState<"portrait" | "landscape" | null>(null);
   const [aspectRatio, setAspectRatio] = useState<number | null>(null);
