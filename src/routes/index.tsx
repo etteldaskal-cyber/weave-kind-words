@@ -234,9 +234,9 @@ function CurlyArrow({ className = "", flip = false }: { className?: string; flip
 /* ---------------- UP-RIGHT ARROW (to portrait) ---------------- */
 function UpRightArrow({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 170 90" className={className} aria-hidden>
-      <path d="M5 80 Q 55 88, 85 50 T 150 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-      <path d="M150 20 L 140 22 M150 20 L 144 30" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    <svg viewBox="0 0 220 150" className={className} aria-hidden>
+      <path d="M8 138 C 55 142, 90 95, 130 60 S 190 25, 210 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M210 20 L 200 23 M210 20 L 204 32" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
     </svg>
   );
 }
