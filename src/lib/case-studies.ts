@@ -109,12 +109,12 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: "event-songs",
-    title: "Event Songs & Creative Campaigns",
+    title: "Event Songs",
     category: "Organizational Storytelling",
     categorySlug: "organizational-storytelling",
     hasCaseStudy: false,
     summary:
-      "Original songs, scripts, and campaign themes written for productions, dinners, and conventions.",
+      "Original lyrics for productions, dinners, and conventions.",
     overview:
       "An ongoing body of creative work for live events: production songs and scripts, dinner songs, convention themes, and campaign writing built around a single emotional through-line.",
     objective:
