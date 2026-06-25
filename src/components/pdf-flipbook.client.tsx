@@ -3,6 +3,7 @@ import { Document, Page, pdfjs } from "react-pdf";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
+import type { PDFDocumentProxy } from "pdfjs-dist";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.mjs",
@@ -15,13 +16,15 @@ type Props = {
 };
 
 /**
- * Cover (page 1): portrait, no rotation.
- * Pages 2+: each rotated 90° counter-clockwise; two consecutive rotated pages
- * shown side-by-side as a spread. Nav advances one spread (two pages) at a
- * time, except the cover which is shown alone.
+ * Cover (page 1): shown alone in its natural orientation.
+ * Pages 2+: shown two at a time as a spread. Portrait PDFs are rotated 90°
+ * counter-clockwise so the spread reads as landscape; landscape PDFs are kept
+ * as-is. Nav advances one spread (two pages) at a time.
  */
 export function PdfFlipbook({ url, title }: Props) {
   const [numPages, setNumPages] = useState(0);
+  const [orientation, setOrientation] = useState<"portrait" | "landscape" | null>(null);
+  const [aspectRatio, setAspectRatio] = useState<number | null>(null);
   // view 0 = cover; view 1 = pages 2&3; view 2 = pages 4&5; ...
   const [view, setView] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -33,6 +36,8 @@ export function PdfFlipbook({ url, title }: Props) {
   useEffect(() => {
     setView(0);
     setNumPages(0);
+    setOrientation(null);
+    setAspectRatio(null);
   }, [url]);
 
   useEffect(() => {
@@ -88,47 +93,85 @@ export function PdfFlipbook({ url, title }: Props) {
   };
 
   const coverWidth = useMemo(
-    () => Math.min(Math.floor(containerWidth * 0.6), 560),
+    () => Math.min(Math.floor(containerWidth * 0.75), 720),
     [containerWidth],
   );
-  // Two rotated landscape pages side-by-side. After rotating 90°, a portrait
-  // page rendered at preWidth has visible width preWidth*(792/612) and visible
-  // height preWidth. Fit two of those visible widths across the container.
+
   const halfContainer = Math.max(200, Math.floor((containerWidth - 16) / 2));
-  const rotatedPreWidth = useMemo(
-    () => Math.max(140, Math.floor(halfContainer * (612 / 792))),
-    [halfContainer],
-  );
-  const rotatedBoxHeight = rotatedPreWidth;
-  const rotatedBoxWidth = Math.floor(rotatedPreWidth * (792 / 612));
+
+  // For a portrait page rotated -90°:
+  //   preWidth = halfContainer * (origWidth / origHeight) so visible width = halfContainer
+  //   visible height = preWidth = halfContainer * aspectRatio
+  // For a landscape page (no rotation):
+  //   preWidth = halfContainer
+  //   visible width = halfContainer
+  //   visible height = halfContainer * aspectRatio
+  const pagePreWidth = useMemo(() => {
+    if (!orientation || !aspectRatio) return halfContainer;
+    if (orientation === "landscape") return halfContainer;
+    return Math.max(140, Math.floor(halfContainer * aspectRatio));
+  }, [orientation, aspectRatio, halfContainer]);
+
+  const pageBoxWidth = useMemo(() => {
+    if (!orientation || !aspectRatio) return halfContainer;
+    if (orientation === "landscape") return halfContainer;
+    return Math.floor(halfContainer / aspectRatio);
+  }, [orientation, aspectRatio, halfContainer]);
+
+  const pageBoxHeight = useMemo(() => {
+    if (!orientation || !aspectRatio) return halfContainer;
+    return Math.floor(halfContainer * aspectRatio);
+  }, [orientation, aspectRatio, halfContainer]);
 
   // view 1 → pages 2 & 3; view 2 → pages 4 & 5; ...
   const leftPage = view === 0 ? 1 : view * 2;
   const rightPage = view === 0 ? null : view * 2 + 1;
 
-  const renderRotatedPage = (pageNumber: number) => (
+  const renderPage = (pageNumber: number) => (
     <div
       className="relative block bg-white shadow-md overflow-hidden"
-      style={{ width: rotatedBoxWidth, height: rotatedBoxHeight }}
+      style={{ width: pageBoxWidth, height: pageBoxHeight }}
     >
-      <div
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%) rotate(-90deg)",
-          transformOrigin: "center center",
-        }}
-      >
+      {orientation === "portrait" ? (
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%) rotate(-90deg)",
+            transformOrigin: "center center",
+          }}
+        >
+          <Page
+            pageNumber={pageNumber}
+            width={pagePreWidth}
+            renderAnnotationLayer={false}
+            renderTextLayer={false}
+          />
+        </div>
+      ) : (
         <Page
           pageNumber={pageNumber}
-          width={rotatedPreWidth}
+          width={pagePreWidth}
           renderAnnotationLayer={false}
           renderTextLayer={false}
         />
-      </div>
+      )}
     </div>
   );
+
+  const handleDocumentLoad = async (pdf: PDFDocumentProxy) => {
+    setNumPages(pdf.numPages);
+    try {
+      const page = await pdf.getPage(1);
+      const viewport = page.getViewport({ scale: 1 });
+      const isLandscape = viewport.width > viewport.height;
+      setOrientation(isLandscape ? "landscape" : "portrait");
+      setAspectRatio(viewport.height / viewport.width);
+    } catch {
+      // Leave defaults if page inspection fails.
+    }
+  };
 
   return (
     <div className="flex flex-col items-center">
@@ -142,7 +185,7 @@ export function PdfFlipbook({ url, title }: Props) {
         {mounted ? (
           <Document
             file={url}
-            onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+            onLoadSuccess={handleDocumentLoad}
             loading={
               <div className="flex h-[520px] items-center justify-center text-sm text-muted-foreground">
                 Loading book…
@@ -154,7 +197,11 @@ export function PdfFlipbook({ url, title }: Props) {
               </div>
             }
           >
-            {view === 0 ? (
+            {orientation === null ? (
+              <div className="flex h-[520px] items-center justify-center text-sm text-muted-foreground">
+                Loading book…
+              </div>
+            ) : view === 0 ? (
               <div className="mx-auto flex justify-center">
                 <button
                   type="button"
@@ -178,11 +225,11 @@ export function PdfFlipbook({ url, title }: Props) {
                 aria-label="Next spread"
                 className="mx-auto flex justify-center gap-2 bg-ink/10 p-1 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.35)]"
               >
-                {renderRotatedPage(leftPage)}
+                {renderPage(leftPage)}
                 {rightPage && rightPage <= numPages ? (
-                  renderRotatedPage(rightPage)
+                  renderPage(rightPage)
                 ) : (
-                  <div style={{ width: rotatedBoxWidth, height: rotatedBoxHeight }} />
+                  <div style={{ width: pageBoxWidth, height: pageBoxHeight }} />
                 )}
               </button>
             )}
@@ -225,4 +272,3 @@ export function PdfFlipbook({ url, title }: Props) {
     </div>
   );
 }
-
