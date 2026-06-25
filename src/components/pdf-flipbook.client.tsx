@@ -13,15 +13,17 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 type Props = {
   url: string;
   title?: string;
+  /** "spread" (default): cover then 2-up spreads. "single": cover then one page at a time. */
+  mode?: "spread" | "single";
 };
 
 /**
  * Cover (page 1): shown alone in its natural orientation.
- * Pages 2+: shown two at a time as a spread. Portrait PDFs are rotated 90°
- * counter-clockwise so the spread reads as landscape; landscape PDFs are kept
- * as-is. Nav advances one spread (two pages) at a time.
+ * In "spread" mode, pages 2+ are shown two at a time (portrait pages rotated
+ * -90°). In "single" mode, pages 2+ are shown one at a time, rotated to
+ * landscape if the source is portrait.
  */
-export function PdfFlipbook({ url, title }: Props) {
+export function PdfFlipbook({ url, title, mode = "spread" }: Props) {
   const [numPages, setNumPages] = useState(0);
   const [orientation, setOrientation] = useState<"portrait" | "landscape" | null>(null);
   const [aspectRatio, setAspectRatio] = useState<number | null>(null);
@@ -52,9 +54,10 @@ export function PdfFlipbook({ url, title }: Props) {
 
   const totalViews = useMemo(() => {
     if (numPages <= 1) return 1;
+    if (mode === "single") return numPages;
     // view 0 = cover (page 1); remaining pages grouped in pairs
     return 1 + Math.ceil((numPages - 1) / 2);
-  }, [numPages]);
+  }, [numPages, mode]);
 
   const goNext = () => setView((v) => Math.min(v + 1, totalViews - 1));
   const goPrev = () => setView((v) => Math.max(v - 1, 0));
@@ -123,9 +126,28 @@ export function PdfFlipbook({ url, title }: Props) {
     return Math.floor(halfContainer * aspectRatio);
   }, [orientation, aspectRatio, halfContainer]);
 
-  // view 1 → pages 2 & 3; view 2 → pages 4 & 5; ...
-  const leftPage = view === 0 ? 1 : view * 2;
-  const rightPage = view === 0 ? null : view * 2 + 1;
+  // Spread mode: view 1 → pages 2 & 3; view 2 → pages 4 & 5; ...
+  // Single mode: view N → page N+1.
+  const leftPage =
+    mode === "single" ? view + 1 : view === 0 ? 1 : view * 2;
+  const rightPage =
+    mode === "single" ? null : view === 0 ? null : view * 2 + 1;
+
+  // Sizing for "single" mode: fill container width, rotate portrait to landscape.
+  const singlePreWidth = useMemo(() => {
+    if (!orientation || !aspectRatio) return containerWidth;
+    if (orientation === "landscape") return containerWidth;
+    // rotated portrait: visible width = pre*aspect, so pre = W/aspect
+    return Math.max(140, Math.floor(containerWidth / aspectRatio));
+  }, [orientation, aspectRatio, containerWidth]);
+
+  const singleBoxWidth = containerWidth;
+  const singleBoxHeight = useMemo(() => {
+    if (!orientation || !aspectRatio) return containerWidth;
+    if (orientation === "landscape")
+      return Math.floor(containerWidth * aspectRatio);
+    return Math.floor(containerWidth / aspectRatio);
+  }, [orientation, aspectRatio, containerWidth]);
 
   const renderPage = (pageNumber: number) => (
     <div
@@ -159,6 +181,40 @@ export function PdfFlipbook({ url, title }: Props) {
       )}
     </div>
   );
+
+  const renderSinglePage = (pageNumber: number) => (
+    <div
+      className="relative mx-auto block bg-white shadow-md overflow-hidden"
+      style={{ width: singleBoxWidth, height: singleBoxHeight }}
+    >
+      {orientation === "portrait" ? (
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%) rotate(-90deg)",
+            transformOrigin: "center center",
+          }}
+        >
+          <Page
+            pageNumber={pageNumber}
+            width={singlePreWidth}
+            renderAnnotationLayer={false}
+            renderTextLayer={false}
+          />
+        </div>
+      ) : (
+        <Page
+          pageNumber={pageNumber}
+          width={singlePreWidth}
+          renderAnnotationLayer={false}
+          renderTextLayer={false}
+        />
+      )}
+    </div>
+  );
+
 
   const handleDocumentLoad = async (pdf: PDFDocumentProxy) => {
     setNumPages(pdf.numPages);
@@ -218,6 +274,15 @@ export function PdfFlipbook({ url, title }: Props) {
                   />
                 </button>
               </div>
+            ) : mode === "single" ? (
+              <button
+                type="button"
+                onClick={goNext}
+                aria-label="Next page"
+                className="mx-auto block bg-ink/10 p-1 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.35)]"
+              >
+                {renderSinglePage(leftPage)}
+              </button>
             ) : (
               <button
                 type="button"

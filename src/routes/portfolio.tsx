@@ -104,7 +104,11 @@ function SampleContent({ cs }: { cs: CaseStudy }) {
         <div>
           <ClientOnly fallback={<PdfFallback />}>
             <Suspense fallback={<PdfFallback />}>
-              <PdfFlipbook url={activePdf.url} title={activePdf.label} />
+              <PdfFlipbook
+                url={activePdf.url}
+                title={activePdf.label}
+                mode={cs.slug === "torah-nugget" ? "single" : "spread"}
+              />
             </Suspense>
           </ClientOnly>
           <a
